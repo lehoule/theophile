@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { postHref } from '../../data/urls';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const pageSize = 10;
+---
+<Layout title="Blog">
+  <section class="hero"><p class="eyebrow">Théophile</p><h1>Blog</h1><p class="lede">Articles d’exégèse, de théologie et de culture chrétienne.</p></section>
+  {posts.length ? <div class="post-grid">{posts.slice(0, pageSize).map((post) => <PostCard title={post.data.title} href={postHref(post.data.publishedAt, post.data.slug)} date={post.data.publishedAt} excerpt={post.data.excerpt} categories={post.data.categories} />)}</div> : <p class="muted">Aucun article importé pour le moment.</p>}
+  {posts.length > pageSize && <p><a href="/blog/page/2/">Articles suivants →</a></p>}
+</Layout>

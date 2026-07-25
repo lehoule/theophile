@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Recherche"><section class="hero"><p class="eyebrow">Explorer</p><h1>Recherche</h1><p class="lede">Rechercher dans les articles de Théophile.</p><div id="search"></div></section></Layout>
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script>
+  const script = document.createElement('script');
+  script.src = '/pagefind/pagefind-ui.js';
+  script.onload = () => {
+    if (window.PagefindUI) new window.PagefindUI({ element: '#search', showSubResults: true, resetStyles: false });
+  };
+  script.onerror = () => {
+    const search = document.querySelector('#search');
+    if (search) search.textContent = 'La recherche est temporairement indisponible.';
+  };
+  document.head.appendChild(script);
+</script>

@@ -1,0 +1,33 @@
+name = "theophile"
+main = "worker/index.ts"
+compatibility_date = "2026-07-25"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "theophile-comments"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "theophile-media"
+
+[[r2_buckets]]
+binding = "PRIVATE_BACKUPS"
+bucket_name = "theophile-private"
+
+[[send_email]]
+name = "EMAIL"
+
+[triggers]
+crons = ["17 3 1 * *"]
+
+[vars]
+SITE_ORIGIN = "https://www.theophile.xyz"
+ADMIN_EMAIL = "REPLACE_WITH_VERIFIED_EMAIL"
+ACCESS_AUDIENCE = "REPLACE_WITH_ACCESS_AUDIENCE_TAG"

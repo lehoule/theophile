@@ -1,0 +1,63 @@
+---
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: 'website' | 'article';
+  publishedAt?: Date;
+  updatedAt?: Date;
+  author?: string;
+}
+
+const { title = site.title, description = site.description, image, noindex = false, type = 'website', publishedAt, updatedAt, author = site.author } = Astro.props;
+const pageTitle = title === site.title ? title : `${title} – ${site.title}`;
+const canonical = new URL(Astro.url.pathname, site.origin).toString();
+const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@type': type === 'article' ? 'BlogPosting' : 'WebSite', headline: pageTitle, description, url: canonical, datePublished: publishedAt?.toISOString(), dateModified: updatedAt?.toISOString() || publishedAt?.toISOString(), author: { '@type': 'Person', name: author } }).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Théophile" href="/rss.xml" />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {image && <meta property="og:image" content={new URL(image, site.origin).toString()} />}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <script is:inline type="application/ld+json" set:html={structuredData}></script>
+    {import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN && <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN })}></script>}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Aller au contenu</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/">Théophile</a>
+        <nav aria-label="Navigation principale">
+          <a href="/">Accueil</a>
+          <a href="/blog/">Blog</a>
+          <a href="/videos/">Vidéos</a>
+          <a href="/a-propos/">À propos</a>
+          <a href="/recherche/">Recherche</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="shell"> <slot /> </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>Théophile © 2015–{new Date().getFullYear()}</span>
+        <a href="/cookie-policy/">Confidentialité</a>
+        <a href="/rss.xml">Flux RSS</a>
+      </div>
+    </footer>
+  </body>
+</html>

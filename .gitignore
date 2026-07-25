@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+backups/
+.env
+.dev.vars
+worker/post-registry.generated.ts

@@ -1,0 +1,10 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "strictNullChecks": true,
+    "types": ["@cloudflare/workers-types"],
+    "lib": ["DOM", "ES2022"]
+  }
+}

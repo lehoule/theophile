@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
+import { site } from '../data/site';
+import { postHref } from '../data/urls';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<Layout>
+  <section class="hero">
+    <p class="eyebrow">Foi · raison · culture</p>
+    <h1>Penser la foi avec rigueur et liberté.</h1>
+    <p class="lede">{site.description} Des textes d’exégèse, de théologie et de réflexion sur le monde chrétien.</p>
+    <p><a class="button" href="/blog/">Lire les articles</a></p>
+  </section>
+  <section aria-labelledby="recent-title">
+    <div class="section-heading"><p class="eyebrow">À découvrir</p><h2 id="recent-title">Articles récents</h2></div>
+    {posts.length ? <div class="post-grid">{posts.slice(0, 6).map((post) => <PostCard title={post.data.title} href={postHref(post.data.publishedAt, post.data.slug)} date={post.data.publishedAt} excerpt={post.data.excerpt} categories={post.data.categories} />)}</div> : <p class="muted">Les articles seront ajoutés lors de l’import WordPress.</p>}
+  </section>
+</Layout>

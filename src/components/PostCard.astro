@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  date: Date;
+  excerpt?: string;
+  categories?: string[];
+}
+import { categoryHref } from '../data/urls';
+const { title, href, date, excerpt, categories = [] } = Astro.props;
+---
+<article class="post-card">
+  <p class="eyebrow"><time datetime={date.toISOString()}>{date.toLocaleDateString('fr-CA')}</time></p>
+  <h2><a href={href}>{title}</a></h2>
+  {excerpt && <p>{excerpt}</p>}
+  {categories.length > 0 && <ul class="tag-list" aria-label="Catégories">
+    {categories.slice(0, 4).map((category) => <li><a href={categoryHref(category)}>{category}</a></li>)}
+  </ul>}
+</article>

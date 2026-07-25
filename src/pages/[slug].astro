@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const reserved = new Set(['a-propos', 'videos', 'recherche', 'cookie-policy']);
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', ({ data }) => !data.draft && !reserved.has(data.slug));
+  return pages.map((page) => ({ params: { slug: page.data.slug }, props: { page } }));
+}
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+<Layout title={page.data.title} description={page.data.excerpt}>
+  <article class="article">
+    <header class="article-header"><p class="eyebrow">Théophile</p><h1>{page.data.title}</h1></header>
+    <div class="article-body"><Content /></div>
+  </article>
+</Layout>

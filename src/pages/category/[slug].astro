@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { postHref, slugify } from '../../data/urls';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const names = [...new Set(posts.flatMap((post) => post.data.categories))];
+  return names.map((name) => ({ params: { slug: slugify(name) }, props: { name, posts: posts.filter((post) => post.data.categories.includes(name)) } }));
+}
+const { name, posts } = Astro.props;
+---
+<Layout title={name}><section class="hero"><p class="eyebrow">Catégorie</p><h1>{name}</h1></section><div class="post-grid">{posts.map((post) => <PostCard title={post.data.title} href={postHref(post.data.publishedAt, post.data.slug)} date={post.data.publishedAt} excerpt={post.data.excerpt} categories={post.data.categories} />)}</div></Layout>

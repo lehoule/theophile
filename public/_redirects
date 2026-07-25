@@ -1,0 +1,6 @@
+/feed/ /rss.xml 301
+/feed /rss.xml 301
+/comments/feed/ /rss.xml 301
+/comments/feed /rss.xml 301
+/author/* /blog/ 301
+/attachment/* /blog/ 301
