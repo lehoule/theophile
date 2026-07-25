@@ -14,7 +14,7 @@ function walk(directory) {
       const title = frontmatter.match(/^title:\s*["']?(.*?)["']?\s*$/m)?.[1] || name;
       const slug = frontmatter.match(/^slug:\s*["']?(.*?)["']?\s*$/m)?.[1] || name.replace(/\.md$/, '');
       const commentId = frontmatter.match(/^commentId:\s*["']?(.*?)["']?\s*$/m)?.[1] || frontmatter.match(/^legacyWordPressId:\s*(\d+)\s*$/m)?.[1];
-      const publishedAt = frontmatter.match(/^publishedAt:\s*["']?(\d{4})-(\d{2})-(\d{2})/)?.slice(1);
+      const publishedAt = frontmatter.match(/^publishedAt:\s*["']?(\d{4})-(\d{2})-(\d{2})/m)?.slice(1);
       const draft = frontmatter.match(/^draft:\s*(true|false)\s*$/m)?.[1] === 'true';
       if (!draft && commentId && publishedAt) entries.push({ id: commentId, path: `/${publishedAt[0]}/${publishedAt[1]}/${slug}/`, title });
     }

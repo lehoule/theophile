@@ -11,6 +11,17 @@ npm install
 npm run dev
 ```
 
+The command above starts only Astro’s frontend server. To exercise the full local site, including the Worker API and local D1 database:
+
+```sh
+cp .env.example .env
+cp .dev.vars.example .dev.vars
+npm run db:migrate:local
+npm run dev:worker
+```
+
+Open `http://localhost:8787`. `dev:worker` builds the static site first, then starts Wrangler with the local D1 binding. The test Turnstile keys in `.env.example` and `.dev.vars.example` are for development only; replace them with real values for a deployed environment. The admin API is protected by Cloudflare Access in production and is not an end-to-end local Access environment.
+
 Create an article locally:
 
 ```sh
@@ -18,6 +29,18 @@ node scripts/create-post.mjs "Mon nouveau titre"
 ```
 
 Set `draft: false` only when an article is ready to publish. Because the repository is public, do not push private drafts.
+
+To load local content from WordPress, keep the WXR export outside the repository and run:
+
+```sh
+node scripts/import-wordpress.mjs /secure/path/wordpress.xml
+node scripts/import-wordpress-comments.mjs /secure/path/wordpress.xml
+npm run check
+npm run build
+npm run db:import:local
+```
+
+The first importer creates Markdown in `src/content/posts` and `src/content/pages`. The second creates the idempotent SQL file `backups/comment-import.sql`; the local import command applies it to D1. Run `npm run registry` whenever you need to inspect or regenerate the commentable-post registry.
 
 ## WordPress migration
 
