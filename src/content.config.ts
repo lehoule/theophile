@@ -15,10 +15,12 @@ const contentSchema = z.object({
   commentId: z.string().optional(),
   legacyWordPressId: z.number().int().optional(),
   draft: z.boolean().default(false),
-  seo: z.object({
-    title: z.string().optional(),
-    description: z.string().optional(),
-  }).optional(),
+  seo: z
+    .object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+    })
+    .optional(),
 });
 
 const posts = defineCollection({

@@ -9,5 +9,7 @@ export async function GET() {
     excerpt: post.data.excerpt || '',
     text: `${post.data.title}\n${post.data.excerpt || ''}\n${post.body || ''}`,
   }));
-  return new Response(JSON.stringify(entries), { headers: { 'content-type': 'application/json; charset=utf-8' } });
+  return new Response(JSON.stringify(entries), {
+    headers: { 'content-type': 'application/json; charset=utf-8' },
+  });
 }

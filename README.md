@@ -22,6 +22,17 @@ npm install
 npm run dev
 ```
 
+Before committing, format the source and run the checks:
+
+```sh
+npm run format
+npm run lint
+npm test
+```
+
+`npm run build` runs the formatting check and lint/type diagnostics before
+building the static site.
+
 The command above starts only Astro’s frontend server. To exercise the full local site, including the Worker API and local D1 database:
 
 ```sh

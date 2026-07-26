@@ -1,12 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Recherche"><section class="hero"><p class="eyebrow">Explorer</p><h1>Recherche</h1><p class="lede">Rechercher dans les articles de Théophile.</p><div id="search"></div></section></Layout>
+
+<Layout title="Recherche"
+  ><section class="hero">
+    <p class="eyebrow">Explorer</p><h1>Recherche</h1><p class="lede">
+      Rechercher dans les articles de Théophile.
+    </p><div id="search"></div>
+  </section></Layout
+>
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 <script is:inline src="/pagefind/pagefind-ui.js"></script>
 <script is:inline>
   const initializeFallbackSearch = async (search) => {
-    search.innerHTML = '<form role="search"><label for="fallback-search">Rechercher dans les articles</label><input id="fallback-search" type="search" autocomplete="off" placeholder="Rechercher…"><p id="fallback-search-status" class="muted"></p><div id="fallback-search-results"></div></form>';
+    search.innerHTML =
+      '<form role="search"><label for="fallback-search">Rechercher dans les articles</label><input id="fallback-search" type="search" autocomplete="off" placeholder="Rechercher…"><p id="fallback-search-status" class="muted"></p><div id="fallback-search-results"></div></form>';
     const input = search.querySelector('#fallback-search');
     const status = search.querySelector('#fallback-search-status');
     const results = search.querySelector('#fallback-search-results');
@@ -15,23 +23,29 @@ import Layout from '../layouts/Layout.astro';
         if (!response.ok) throw new Error('Search index unavailable');
         return response.json();
       });
-      const normalize = (value) => value.normalize('NFD').replace(/\p{Mark}/gu, '').toLocaleLowerCase();
+      const normalize = (value) =>
+        value
+          .normalize('NFD')
+          .replace(/\p{Mark}/gu, '')
+          .toLocaleLowerCase();
       const withOffsets = (value) => {
         let normalized = '';
         const offsets = [];
         for (let index = 0; index < value.length; index += 1) {
           const part = normalize(value[index]);
           normalized += part;
-          for (let offset = 0; offset < part.length; offset += 1) offsets.push(index);
+          for (let offset = 0; offset < part.length; offset += 1)
+            offsets.push(index);
         }
         return { normalized, offsets };
       };
-      const plainText = (value) => value
-        .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-        .replace(/[*_`#>-]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
+      const plainText = (value) =>
+        value
+          .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+          .replace(/[*_`#>-]/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
       const highlighted = (value, terms) => {
         const { normalized, offsets } = withOffsets(value);
         const ranges = [];
@@ -46,51 +60,71 @@ import Layout from '../layouts/Layout.astro';
         ranges.sort((a, b) => a[0] - b[0]);
         const merged = ranges.reduce((result, range) => {
           const previous = result[result.length - 1];
-          if (previous && range[0] <= previous[1]) previous[1] = Math.max(previous[1], range[1]);
+          if (previous && range[0] <= previous[1])
+            previous[1] = Math.max(previous[1], range[1]);
           else result.push(range);
           return result;
         }, []);
         const fragment = document.createDocumentFragment();
         let cursor = 0;
         for (const [start, end] of merged) {
-          if (start > cursor) fragment.append(document.createTextNode(value.slice(cursor, start)));
+          if (start > cursor)
+            fragment.append(
+              document.createTextNode(value.slice(cursor, start)),
+            );
           const mark = document.createElement('mark');
           mark.textContent = value.slice(start, end);
           fragment.append(mark);
           cursor = end;
         }
-        if (cursor < value.length) fragment.append(document.createTextNode(value.slice(cursor)));
+        if (cursor < value.length)
+          fragment.append(document.createTextNode(value.slice(cursor)));
         return fragment;
       };
       const makeSnippet = (entry, terms) => {
         const text = plainText(entry.text);
         const { normalized, offsets } = withOffsets(text);
-        const locations = terms.map((term) => ({ index: normalized.indexOf(term), term }))
+        const locations = terms
+          .map((term) => ({ index: normalized.indexOf(term), term }))
           .filter(({ index }) => index >= 0)
           .sort((a, b) => a.index - b.index);
         if (!locations.length) return text.slice(0, 240);
         const start = offsets[locations[0].index];
-        const end = offsets[locations[0].index + locations[0].term.length - 1] + 1;
+        const end =
+          offsets[locations[0].index + locations[0].term.length - 1] + 1;
         const from = Math.max(0, start - 110);
         const to = Math.min(text.length, end + 180);
         return `${from ? '…' : ''}${text.slice(from, to)}${to < text.length ? '…' : ''}`;
       };
       const render = () => {
-        const terms = normalize(input.value).trim().split(/\s+/).filter(Boolean);
-        const matches = terms.length ? entries.filter((entry) => terms.every((term) => normalize(entry.text).includes(term))).slice(0, 30) : [];
-        status.textContent = terms.length ? `${matches.length} résultat${matches.length === 1 ? '' : 's'}` : 'Saisissez un mot ou une expression.';
-        results.replaceChildren(...matches.map((entry) => {
-          const article = document.createElement('article');
-          const title = document.createElement('h2');
-          const link = document.createElement('a');
-          const excerpt = document.createElement('p');
-          link.href = entry.url;
-          link.append(highlighted(entry.title, terms));
-          excerpt.append(highlighted(makeSnippet(entry, terms), terms));
-          title.append(link);
-          article.append(title, excerpt);
-          return article;
-        }));
+        const terms = normalize(input.value)
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean);
+        const matches = terms.length
+          ? entries
+              .filter((entry) =>
+                terms.every((term) => normalize(entry.text).includes(term)),
+              )
+              .slice(0, 30)
+          : [];
+        status.textContent = terms.length
+          ? `${matches.length} résultat${matches.length === 1 ? '' : 's'}`
+          : 'Saisissez un mot ou une expression.';
+        results.replaceChildren(
+          ...matches.map((entry) => {
+            const article = document.createElement('article');
+            const title = document.createElement('h2');
+            const link = document.createElement('a');
+            const excerpt = document.createElement('p');
+            link.href = entry.url;
+            link.append(highlighted(entry.title, terms));
+            excerpt.append(highlighted(makeSnippet(entry, terms), terms));
+            title.append(link);
+            article.append(title, excerpt);
+            return article;
+          }),
+        );
       };
       input.addEventListener('input', render);
       render();
@@ -102,11 +136,17 @@ import Layout from '../layouts/Layout.astro';
     const search = document.querySelector('#search');
     if (!search) return;
     if (window.PagefindUI) {
-      new window.PagefindUI({ element: '#search', bundlePath: '/pagefind/', showSubResults: true, resetStyles: false });
+      new window.PagefindUI({
+        element: '#search',
+        bundlePath: '/pagefind/',
+        showSubResults: true,
+        resetStyles: false,
+      });
     } else {
       initializeFallbackSearch(search);
     }
   };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeSearch);
+  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', initializeSearch);
   else initializeSearch();
 </script>

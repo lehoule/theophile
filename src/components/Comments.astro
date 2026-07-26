@@ -5,23 +5,65 @@ interface Props {
 }
 const { postId, title } = Astro.props;
 ---
-<section class="comments" data-comments data-post-id={postId} data-post-title={title} aria-labelledby="comments-title">
+
+<section
+  class="comments"
+  data-comments
+  data-post-id={postId}
+  data-post-title={title}
+  aria-labelledby="comments-title"
+>
   <h2 id="comments-title">Discussion</h2>
   <div data-comment-list><p class="muted">Chargement des commentaires…</p></div>
   <button class="button secondary" data-load-more hidden>Charger plus</button>
   <form data-comment-form>
     <h3>Ajouter un commentaire</h3>
-    <label>Nom <input name="name" required minlength="2" maxlength="80" autocomplete="name" /></label>
-    <label>Courriel <span class="muted">(facultatif, non publié)</span><input name="email" type="email" maxlength="254" autocomplete="email" /></label>
-    <label>Commentaire <textarea name="body" required minlength="2" maxlength="5000" rows="6"></textarea></label>
-    <label class="honeypot" aria-hidden="true">Site web <input name="website" tabindex="-1" autocomplete="off" /></label>
-    <div class="turnstile" data-turnstile data-site-key={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || ''}></div>
+    <label
+      >Nom <input
+        name="name"
+        required
+        minlength="2"
+        maxlength="80"
+        autocomplete="name"
+      /></label
+    >
+    <label
+      >Courriel <span class="muted">(facultatif, non publié)</span><input
+        name="email"
+        type="email"
+        maxlength="254"
+        autocomplete="email"
+      /></label
+    >
+    <label
+      >Commentaire <textarea
+        name="body"
+        required
+        minlength="2"
+        maxlength="5000"
+        rows="6"></textarea></label
+    >
+    <label class="honeypot" aria-hidden="true"
+      >Site web <input name="website" tabindex="-1" autocomplete="off" /></label
+    >
+    <div
+      class="turnstile"
+      data-turnstile
+      data-site-key={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || ''}
+    >
+    </div>
     <button class="button" type="submit">Envoyer pour modération</button>
     <p class="form-status" data-form-status role="status"></p>
   </form>
 </section>
 <script>
-  type CommentItem = { id: string; parentId: string | null; authorName: string; body: string; createdAt: string };
+  type CommentItem = {
+    id: string;
+    parentId: string | null;
+    authorName: string;
+    body: string;
+    createdAt: string;
+  };
   window.turnstile = window.turnstile || undefined;
   const section = document.querySelector('[data-comments]');
   if (section instanceof HTMLElement) {
@@ -32,51 +74,115 @@ const { postId, title } = Astro.props;
       if (!postId || !list || !(form instanceof HTMLFormElement)) return;
       let turnstileToken = '';
       const turnstile = section.querySelector('[data-turnstile]');
-      const siteKey = turnstile instanceof HTMLElement ? turnstile.dataset.siteKey : '';
+      const siteKey =
+        turnstile instanceof HTMLElement ? turnstile.dataset.siteKey : '';
       if (turnstile instanceof HTMLElement && siteKey) {
         const script = document.createElement('script');
-        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.src =
+          'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
         script.async = true;
         document.head.appendChild(script);
         script.addEventListener('load', () => {
-          if (window.turnstile) window.turnstile.render(turnstile, { sitekey: siteKey, callback: (token) => { turnstileToken = token; } });
+          if (window.turnstile)
+            window.turnstile.render(turnstile, {
+              sitekey: siteKey,
+              callback: (token) => {
+                turnstileToken = token;
+              },
+            });
         });
       }
       let cursor = '';
-      const entities: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-      const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => entities[char] || char);
-      const linkify = (value: string) => escapeHtml(value).replace(/https?:\/\/[^\s<]+/g, '<a href="$&" rel="nofollow ugc noopener">$&</a>').replace(/\n/g, '<br>');
+      const entities: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      };
+      const escapeHtml = (value: string) =>
+        value.replace(/[&<>"']/g, (char) => entities[char] || char);
+      const linkify = (value: string) =>
+        escapeHtml(value)
+          .replace(
+            /https?:\/\/[^\s<]+/g,
+            '<a href="$&" rel="nofollow ugc noopener">$&</a>',
+          )
+          .replace(/\n/g, '<br>');
       const render = (items: CommentItem[]) => {
-        if (!items.length && !cursor) { list.innerHTML = '<p class="muted">Aucun commentaire pour le moment.</p>'; return; }
+        if (!items.length && !cursor) {
+          list.innerHTML =
+            '<p class="muted">Aucun commentaire pour le moment.</p>';
+          return;
+        }
         const byParent = new Map<string, CommentItem[]>();
-        items.forEach((item) => { const key = item.parentId || ''; byParent.set(key, [...(byParent.get(key) || []), item]); });
-        const renderBranch = (parentId = '', depth = 0): string => (byParent.get(parentId) || []).map((item: CommentItem) => `<article class="comment" data-comment-id="${item.id}" style="margin-inline-start:${Math.min(depth, 4) * 1.25}rem"><header><strong>${escapeHtml(item.authorName)}</strong><time datetime="${item.createdAt}">${new Date(item.createdAt).toLocaleDateString('fr-CA')}</time></header><p>${linkify(item.body)}</p>${renderBranch(item.id, depth + 1)}</article>`).join('');
+        items.forEach((item) => {
+          const key = item.parentId || '';
+          byParent.set(key, [...(byParent.get(key) || []), item]);
+        });
+        const renderBranch = (parentId = '', depth = 0): string =>
+          (byParent.get(parentId) || [])
+            .map(
+              (item: CommentItem) =>
+                `<article class="comment" data-comment-id="${item.id}" style="margin-inline-start:${Math.min(depth, 4) * 1.25}rem"><header><strong>${escapeHtml(item.authorName)}</strong><time datetime="${item.createdAt}">${new Date(item.createdAt).toLocaleDateString('fr-CA')}</time></header><p>${linkify(item.body)}</p>${renderBranch(item.id, depth + 1)}</article>`,
+            )
+            .join('');
         const html = renderBranch();
         list.insertAdjacentHTML('beforeend', html);
       };
       const load = async () => {
-        const response = await fetch(`/api/comments?postId=${encodeURIComponent(postId)}${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`);
+        const response = await fetch(
+          `/api/comments?postId=${encodeURIComponent(postId)}${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`,
+        );
         if (!response.ok) throw new Error('comments');
-        const data = await response.json() as { items: CommentItem[]; nextCursor?: string | null };
+        const data = (await response.json()) as {
+          items: CommentItem[];
+          nextCursor?: string | null;
+        };
         if (!cursor) list.innerHTML = '';
         render(data.items);
         cursor = data.nextCursor || '';
         const more = section.querySelector('[data-load-more]');
         if (more instanceof HTMLElement) more.hidden = !cursor;
       };
-      try { await load(); } catch { list.innerHTML = '<p class="muted">Les commentaires sont temporairement indisponibles.</p>'; }
-      section.querySelector('[data-load-more]')?.addEventListener('click', () => load().catch(() => undefined));
+      try {
+        await load();
+      } catch {
+        list.innerHTML =
+          '<p class="muted">Les commentaires sont temporairement indisponibles.</p>';
+      }
+      section
+        .querySelector('[data-load-more]')
+        ?.addEventListener('click', () => load().catch(() => undefined));
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const status = form.querySelector('[data-form-status]');
         const data: Record<string, string> = {};
-        new FormData(form).forEach((value, key) => { if (typeof value === 'string') data[key] = value; });
-        const response = await fetch('/api/comments', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...data, postId, turnstileToken }) });
-        if (status) status.textContent = response.ok ? 'Merci. Votre commentaire sera publié après modération.' : 'Impossible d’envoyer le commentaire.';
-        if (response.ok) { form.reset(); turnstileToken = ''; }
+        new FormData(form).forEach((value, key) => {
+          if (typeof value === 'string') data[key] = value;
+        });
+        const response = await fetch('/api/comments', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ ...data, postId, turnstileToken }),
+        });
+        if (status)
+          status.textContent = response.ok
+            ? 'Merci. Votre commentaire sera publié après modération.'
+            : 'Impossible d’envoyer le commentaire.';
+        if (response.ok) {
+          form.reset();
+          turnstileToken = '';
+        }
       });
     };
-    if ('IntersectionObserver' in window) new IntersectionObserver((entries, observer) => { if (entries.some((entry) => entry.isIntersecting)) { observer.disconnect(); init(); } }).observe(section);
+    if ('IntersectionObserver' in window)
+      new IntersectionObserver((entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect();
+          init();
+        }
+      }).observe(section);
     else init();
   }
 </script>

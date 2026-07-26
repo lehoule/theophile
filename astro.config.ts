@@ -9,7 +9,8 @@ export default defineConfig({
     shikiConfig: { theme: 'github-light' },
     remarkRehype: {
       footnoteLabel: 'Références',
-      footnoteBackLabel: (referenceIndex: number, rereferenceIndex: number) => `Retour à la référence ${referenceIndex + 1}${rereferenceIndex > 1 ? `-${rereferenceIndex}` : ''}`,
+      footnoteBackLabel: (referenceIndex: number, rereferenceIndex: number) =>
+        `Retour à la référence ${referenceIndex + 1}${rereferenceIndex > 1 ? `-${rereferenceIndex}` : ''}`,
     },
   },
 });

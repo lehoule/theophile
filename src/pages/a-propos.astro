@@ -1,7 +1,39 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-const page = (await getCollection('pages', ({ data }) => !data.draft && data.slug === 'a-propos'))[0];
+const page = (
+  await getCollection(
+    'pages',
+    ({ data }) => !data.draft && data.slug === 'a-propos',
+  )
+)[0];
 const Content = page ? (await render(page)).Content : null;
 ---
-<Layout title="À propos"><article class="article"><header class="article-header"><p class="eyebrow">Théophile</p><h1>{page?.data.title || 'À propos'}</h1></header><div class="article-body">{Content ? <Content /> : <><p>Théophile explore la foi chrétienne avec une attention particulière à la raison, aux textes bibliques et aux sources historiques.</p><p>Cette page sera complétée avec le contenu de la page WordPress originale.</p></>}</div></article></Layout>
+
+<Layout title="À propos"
+  ><article class="article">
+    <header class="article-header">
+      <p class="eyebrow">Théophile</p><h1>{page?.data.title || 'À propos'}</h1>
+    </header><div class="article-body">
+      {
+        Content ? (
+          <Content />
+        ) : (
+          <>
+            <>
+              <p>
+                Théophile explore la foi chrétienne avec une attention
+                particulière à la raison, aux textes bibliques et aux sources
+                historiques.
+              </p>
+              <p>
+                Cette page sera complétée avec le contenu de la page WordPress
+                originale.
+              </p>
+            </>
+          </>
+        )
+      }
+    </div>
+  </article></Layout
+>

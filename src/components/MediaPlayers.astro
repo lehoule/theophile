@@ -1,6 +1,18 @@
 <script>
-  const extension = (url: string) => new URL(url, window.location.href).pathname.split('.').pop()?.toLowerCase() || '';
-  const media: Record<string, 'audio' | 'video'> = { mp3: 'audio', m4a: 'audio', ogg: 'audio', wav: 'audio', mp4: 'video', webm: 'video', mov: 'video' };
+  const extension = (url: string) =>
+    new URL(url, window.location.href).pathname
+      .split('.')
+      .pop()
+      ?.toLowerCase() || '';
+  const media: Record<string, 'audio' | 'video'> = {
+    mp3: 'audio',
+    m4a: 'audio',
+    ogg: 'audio',
+    wav: 'audio',
+    mp4: 'video',
+    webm: 'video',
+    mov: 'video',
+  };
   document.querySelectorAll('.article-body a[href]').forEach((anchor) => {
     if (!(anchor instanceof HTMLAnchorElement)) return;
     const kind = media[extension(anchor.href)];
@@ -10,7 +22,10 @@
     player.controls = true;
     player.preload = 'metadata';
     player.src = anchor.href;
-    player.setAttribute('aria-label', `Lecteur : ${anchor.textContent?.trim() || 'média'}`);
+    player.setAttribute(
+      'aria-label',
+      `Lecteur : ${anchor.textContent?.trim() || 'média'}`,
+    );
     player.className = 'media-player';
     anchor.insertAdjacentElement('afterend', player);
   });
