@@ -1,0 +1,17 @@
+---
+title: "La divinité de Jésus : Adoré comme le Père"
+slug: "la-divinite-de-jesus-adore-comme-le-pere"
+publishedAt: 2013-06-26T03:22:00.000Z
+updatedAt: 2017-01-08T02:06:12.000Z
+author: "sperron"
+categories: ["Bible","Divinité de Jésus","Jésus","Théologie"]
+tags: []
+commentId: "244"
+legacyWordPressId: 244
+draft: false
+---
+Dans son commentaire biblique, Jürgen Roloff affirme que c'est "la tendance générale d'Apocalypse de transférer les prédicats de Dieu à Jésus[^1]. Qu'est-ce qu'un prédicat? C'est une qualité, une propriété, une caractéristique que possède un sujet. Autrement dit, Roloff affirme que ce qui est dit de Dieu dans la Bible est souvent attribué à Jésus dans Apocalypse. Un exemple de cela concerne l'adoration. Dans l'Apocalypse, Jésus est adoré alors que personne excepté Dieu peut être adoré (premier et deuxième des 10 commandements en Exode 20:1-6). Un des thèmes les plus présents dans Apocalypse est celui de l'adoration. Dans les années 90 du premier siècle, l'empire romain devenait de plus en plus totalitaire et cela était manifeste avec l'imposition du culte de César. César Auguste qui avait régné de -27 à 14 ajouta à son titre la mention "Divi Fillius" qui veut dire "Fils du Divin", mais ce n'était qu'après la mort du César qu'il était vénéré. Les empereurs Caligula (37 à 41) et Claude (41 à 54) demanda d'être glorifié comme Dieu de leur vivant. Puis, dans les dernières années de l'empereur Domitien (81 à 96), l'empire romain assista pour la première fois à une propagation systématique et globale du culte de César. Domitien s'avait lui-même attribué les titres de "Seigneur et Dieu" (Jürgen Roloff, Revelation, p.9). Tout chrétien qui refusait d'adorer et rendre un culte à l'empereur Domitien risquait d'être mis à mort. La question de l'adoration était donc loin d'être théorique et lointaine. C'était une question de vie ou de mort autant physique que spirituelle. Vers la fin du livre, l'apôtre Jean tombe en adoration devant l'ange qui lui donna cette révélation, mais l'ange le corrigea en disant d'adorer seulement Dieu : "9 L'ange me dit : Écris : Heureux ceux qui sont appelés au festin de noces de l'Agneau ! Puis il me dit : Ce sont les paroles véritables de Dieu. 10 Et je tombai à ses pieds pour l'adorer, mais il me dit : Garde-toi de le faire ! Je suis ton compagnon de service et celui de tes frères qui ont le témoignage de Jésus. Adore Dieu !" (Apocalypse 19:9-10) Dieu seul peut donc être adoré! Or, à plusieurs reprises on voit dans l'Apocalypse que Jésus est adoré. Un des exemples flagrants est celui où il reçoit la même gloire et le même honneur que son Père au chapitre 5 : "12 Ils disaient d'une voix forte : L'Agneau \[Jésus\] qui a été immolé est digne de recevoir puissance, richesse, sagesse, force, honneur, gloire et louange. 13 Et toutes les créatures dans le ciel, sur la terre, sous la terre et sur la mer, et tout ce qui s'y trouve, je les entendis qui disaient : A celui qui est assis sur le trône \[le Père\] et à l'Agneau \[Jésus\], la louange, l'honneur, la gloire et le pouvoir aux siècles des siècles ! 14 Et les quatre êtres vivants disaient : Amen ! Et les anciens se prosternèrent et adorèrent." Craig Keener résume bien ce post : "L'Apocalypse est un livre clé qui révèle que Jésus est Dieu. Il n'y a pas de doute ici qu'il est approprié et approuvé d'adorer Jésus au même titre que d'adorer Dieu[^2].
+
+[^1]: Jürgen Roloff. 1993. _The Revelation of John_, _A Continental Commentary_. Minneapolis: Fortress, p.36
+
+[^2]: Craig Keener, Revelation : A vision of Hope, p.103

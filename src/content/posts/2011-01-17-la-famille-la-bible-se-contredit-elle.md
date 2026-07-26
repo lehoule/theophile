@@ -1,0 +1,21 @@
+---
+title: "La famille : La Bible se contredit-elle?"
+slug: "la-famille-la-bible-se-contredit-elle"
+publishedAt: 2011-01-17T01:22:00.000Z
+updatedAt: 2016-12-02T11:05:32.000Z
+author: "sperron"
+categories: ["Bible","Relations","Théologie"]
+tags: []
+commentId: "330"
+legacyWordPressId: 330
+draft: false
+---
+Voici deux passages de la Bible qui semblent en contradiction lorsqu'on les regarde au premier coup d'oeil :
+
+> Si quelqu'un n'a pas soin des siens, et principalement de ceux de sa famille, il a renié la foi, et il est pire qu'un infidèle. (1 Timothée 5:8)
+
+Et :
+
+> \[Jésus dit :\] Je suis venu mettre la division entre l'homme et son père, entre la fille et sa mère, entre la belle-fille et sa belle-mère et l'homme aura pour ennemis les gens de sa maison. Celui qui aime son père ou sa mère plus que moi n'est pas digne de moi, et celui qui aime son fils ou sa fille plus que moi n'est pas digne de moi. (Matthieu 10:35-37)
+
+Le premier des deux passages s'insère facilement dans notre contexte québécois, dans notre culture où nous avons une liberté religieuse. Imaginons un jeune homme de 16 ans habitant à Gatineau et qui décide de suivre Jésus. Il commence à lire la Bible et à aller à l'église. Après un temps, ses parents s'en rendent comptent. Pensez-vous qu'ils vont lui dire : "Si tu n'arrêtes pas tout de suite ta nouvelle religion, tu sors de chez nous et tu n'es plus notre fils!" ? Les chances sont assez faibles qu'en tant que Québécois, un membre de notre famille nous force à faire un choix entre eux ou Jésus. Le premier passage encouragerait donc le jeune croyant à prendre soin de ses parents, frères et soeurs, peu importe que ceux-ci soient pour ou contre sa nouvelle décision. Maintenant, parlons du deuxième passage qui est moins facilement compris par nous qui vivons dans une culture de tolérance et de diversité. Le deuxième passage serait probablement mieux compris, par exemple, par des musulmans qui viennent à placer leur foi en Jésus. Beaucoup d'entre eux savent que le jour où leur famille saura qu'ils ont renié l'Islam au profit du Christianisme, ils auront une opposition plus ou moins féroce. Ils savent qu'ils devront faire un choix. Dans le livre "Jésus et Mahomet", Mark Gabriel (qui habitait en Égypte à l'époque) explique que le jour où son père sut qu'il s'avait convertit, celui-ci sortit son fusil et tira sur lui à plusieurs reprises ! La question de "suivre Jésus" dans ce contexte a des implications complètement différentes. C'était la réalité à l'époque de Jésus et c'est encore la réalité dans plusieurs pays aujourd'hui. Ce n'est pas que Jésus _désire_ causer des divisions dans les familles, mais il est conscient que c'est un _effet_ potentiel lié à son message et il prépare ses nouveaux disciples au choix sérieux qu'ils s'apprêtent à faire. Lorsque l'on comprend qui Jésus est, ce qu'il a fait pour nous et les implications que cela a pour notre vie présente et notre éternité, on ne doit pas céder à la pression de nos proches s'ils nous forcent à l'abandonner. Encore une fois, tout cela est assez difficile à comprendre pour nous au Québec et c'est encore plus difficile pour ceux qui ne comprennent pas la portée de la croix... La Parole de Dieu ne se contredit aucunement dans son discours sur la relation entre le chrétien et sa famille. La Bible nous donne l'impératif de faire tout ce que l'on peut pour en prendre soin (principe général en contexte d'harmonie), mais _si_ les membres de notre famille nous force à abandonner notre foi en Christ, _s'ils_ désirent nous empêcher de suivre Jésus-Christ, _alors_ il nous faut mettre Jésus en premier, de sorte que nous sommes alors appelé à nous en séparer (exception au principe en cas de persécutions). Enfin, je terminerai en disant que cette première place que Jésus désire dans notre vie et qui est manifeste en contexte de persécutions, cette première place devrait aussi être refléter dans notre style de vie familiale peu importe le pays où nous vivons. Il s'agit donc d'être équilibré entre prendre soin de notre famille et se préoccuper du Royaume de Dieu. Lorsqu'un de ces deux aspects nous rend négligent par rapport à l'autre, un problème de déséquilibre devient évident... et un ajustement devient nécessaire.

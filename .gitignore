@@ -6,3 +6,4 @@ backups/
 .env
 .dev.vars
 worker/post-registry.generated.ts
+migration/

@@ -22,15 +22,29 @@ const dateFor = (item) => {
 const taxonomies = (item) => (Array.isArray(item.category) ? item.category : item.category ? [item.category] : []).map((category) => ({ name: typeof category === 'object' ? value(category) : String(category), domain: typeof category === 'object' ? String(category['@_domain'] || '') : '' })).filter((category) => category.name);
 const categories = (item) => taxonomies(item).filter((category) => category.domain !== 'post_tag').map((category) => category.name);
 const tags = (item) => taxonomies(item).filter((category) => category.domain === 'post_tag').map((category) => category.name);
+const markdownFootnotes = (markdown) => {
+  const references = [];
+  const body = markdown.replace(/\(\(([\s\S]*?)\)\)/g, (_, reference) => {
+    references.push(reference.trim());
+    return `[^${references.length}]`;
+  });
+
+  if (!references.length) return body;
+  const definitions = references.map((reference, index) => {
+    const lines = reference.split('\n');
+    return [`[^${index + 1}]: ${lines[0]}`, ...lines.slice(1).map((line) => `    ${line}`)].join('\n');
+  }).join('\n\n');
+  return `${body.trim()}\n\n${definitions}`;
+};
 function writeEntry(item, directory) {
   const id = Number(value(item['wp:post_id']));
   const title = value(item.title).trim();
   const slug = value(item['wp:post_name']).trim() || `wordpress-${id}`;
   const date = dateFor(item);
   if (!Number.isFinite(date.valueOf())) throw new Error(`Invalid date for WordPress item ${id}`);
-  const body = turndown.turndown(value(item['content:encoded']))
+  const body = markdownFootnotes(turndown.turndown(value(item['content:encoded']))
     .replace(/https?:\/\/(?:www\.)?theophile\.xyz\/wp-content\/uploads\//gi, 'https://media.theophile.xyz/')
-    .replace(/\/wp-content\/uploads\//gi, 'https://media.theophile.xyz/');
+    .replace(/\/wp-content\/uploads\//gi, 'https://media.theophile.xyz/'));
   const modified = new Date(value(item['wp:post_modified_gmt']) || value(item['wp:post_modified']) || date);
   const excerpt = value(item['excerpt:encoded']).trim();
   const frontmatter = [
@@ -41,7 +55,7 @@ function writeEntry(item, directory) {
     `commentId: ${yaml(String(id))}`, `legacyWordPressId: ${id}`, 'draft: false', '---', '',
   ].filter(Boolean).join('\n');
   fs.mkdirSync(directory, { recursive: true });
-  fs.writeFileSync(path.join(directory, `${id}-${slug}.md`), `${frontmatter}${body.trim()}\n`);
+  fs.writeFileSync(path.join(directory, `${date.toISOString().slice(0, 10)}-${slug}.md`), `${frontmatter}\n${body.trim()}\n`);
   const sourceBody = value(item['content:encoded']);
   const shortcodes = [...new Set(sourceBody.match(/\[[a-z][a-z0-9_-]*(?:\s[^\]]*)?\]/gi) || [])];
   const mediaReferences = [...new Set(sourceBody.match(/(?:https?:\/\/[^\s"')]+)?\/wp-content\/uploads\/[^\s"')]+/gi) || [])];
