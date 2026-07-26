@@ -57,6 +57,8 @@ const { postId, title } = Astro.props;
   </form>
 </section>
 <script>
+  import { decodeHtmlEntities } from '../data/comment-text';
+
   type CommentItem = {
     id: string;
     parentId: string | null;
@@ -101,7 +103,10 @@ const { postId, title } = Astro.props;
         "'": '&#39;',
       };
       const escapeHtml = (value: string) =>
-        value.replace(/[&<>"']/g, (char) => entities[char] || char);
+        decodeHtmlEntities(value).replace(
+          /[&<>"']/g,
+          (char) => entities[char] || char,
+        );
       const linkify = (value: string) =>
         escapeHtml(value)
           .replace(

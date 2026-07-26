@@ -13,18 +13,43 @@ const value = (entry) =>
   typeof entry === 'object' && entry !== null && '#text' in entry
     ? entry['#text']
     : String(entry ?? '');
+const decodeHtmlEntities = (text) =>
+  String(text ?? '').replace(
+    /&(#(?:x[\da-f]+|\d+)|amp|apos|gt|lt|nbsp|quot);/gi,
+    (match, entity) => {
+      if (entity.toLowerCase().startsWith('#x')) {
+        const codePoint = Number.parseInt(entity.slice(2), 16);
+        return Number.isInteger(codePoint) && codePoint <= 0x10ffff
+          ? String.fromCodePoint(codePoint)
+          : match;
+      }
+      if (entity.startsWith('#')) {
+        const codePoint = Number.parseInt(entity.slice(1), 10);
+        return Number.isInteger(codePoint) && codePoint <= 0x10ffff
+          ? String.fromCodePoint(codePoint)
+          : match;
+      }
+      return (
+        {
+          amp: '&',
+          apos: "'",
+          gt: '>',
+          lt: '<',
+          nbsp: ' ',
+          quot: '"',
+        }[entity.toLowerCase()] || match
+      );
+    },
+  );
 const safeText = (html) =>
-  String(html ?? '')
-    .replace(
-      /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
-      '$2 ($1)',
-    )
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .trim();
+  decodeHtmlEntities(
+    String(html ?? '')
+      .replace(
+        /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+        '$2 ($1)',
+      )
+      .replace(/<[^>]+>/g, ''),
+  ).trim();
 
 const orderParentsFirst = (records) => {
   const recordsById = new Map(records.map((record) => [record.id, record]));

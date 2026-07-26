@@ -38,4 +38,21 @@ describe('WordPress comment import ordering', () => {
     expect(result.rows[0]).toContain("'wp-comment-2', '42', NULL");
     expect(result.orphanParents).toBe(1);
   });
+
+  it('decodes HTML entities in imported comment text', () => {
+    const result = buildCommentRows([
+      {
+        'wp:post_id': '42',
+        'wp:comment': [
+          {
+            ...comment(1, 0),
+            'wp:comment_content':
+              'C&#039;est bon&nbsp;! &amp; merci. &lt;important&gt;',
+          },
+        ],
+      },
+    ]);
+
+    expect(result.rows[0]).toContain("'C''est bon ! & merci. <important>'");
+  });
 });
