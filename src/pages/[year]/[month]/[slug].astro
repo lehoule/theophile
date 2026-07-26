@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Comments from '../../../components/Comments.astro';
 import MediaPlayers from '../../../components/MediaPlayers.astro';
+import { categoryHref } from '../../../data/urls';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -41,6 +42,17 @@ const commentId =
           >{post.data.publishedAt.toLocaleDateString('fr-CA')}</time
         > · {post.data.author}
       </p><h1>{post.data.title}</h1>
+      {
+        post.data.categories.length > 0 && (
+          <ul class="tag-list" aria-label="Catégories">
+            {post.data.categories.map((category) => (
+              <li>
+                <a href={categoryHref(category)}>{category}</a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
     </header>
     <div class="article-body"><Content /></div>
     <MediaPlayers />

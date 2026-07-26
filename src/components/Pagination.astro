@@ -1,0 +1,22 @@
+---
+import { blogPageHref, getBlogPagination } from '../data/pagination';
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+}
+
+const { currentPage, totalPages } = Astro.props;
+const { previousPage, nextPage } = getBlogPagination(currentPage, totalPages);
+---
+
+{
+  (previousPage || nextPage) && (
+    <nav class="pagination" aria-label="Pagination des articles">
+      {previousPage && (
+        <a href={blogPageHref(previousPage)}>← Articles précédents</a>
+      )}
+      {nextPage && <a href={blogPageHref(nextPage)}>Articles suivants →</a>}
+    </nav>
+  )
+}

@@ -31,6 +31,7 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.1rem); }
 .hero { padding: 5rem 0 3rem; }
 .eyebrow { color: var(--accent); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
 .post-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+.pagination { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; }
 .post-card { padding: 1.4rem; border: 1px solid var(--line); background: rgba(255,255,255,.3); }
 .post-card h2 { margin: .25rem 0 .8rem; }
 .post-card h2 a { color: var(--ink); text-decoration: none; }

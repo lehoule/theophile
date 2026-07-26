@@ -1,24 +1,29 @@
 ---
 import { getCollection } from 'astro:content';
+import Pagination from '../../../components/Pagination.astro';
 import Layout from '../../../layouts/Layout.astro';
 import PostCard from '../../../components/PostCard.astro';
+import { BLOG_PAGE_SIZE } from '../../../data/pagination';
 import { postHref } from '../../../data/urls';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
-const pageSize = 10;
 export async function getStaticPaths() {
   const publishedPosts = (
     await getCollection('posts', ({ data }) => !data.draft)
   ).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-  const count = Math.max(1, Math.ceil(publishedPosts.length / 10));
+  const count = Math.max(1, Math.ceil(publishedPosts.length / BLOG_PAGE_SIZE));
   return Array.from({ length: count - 1 }, (_, index) => ({
     params: { page: String(index + 2) },
   }));
 }
 const page = Number(Astro.params.page);
-const pagePosts = posts.slice((page - 1) * pageSize, page * pageSize);
+const totalPages = Math.max(1, Math.ceil(posts.length / BLOG_PAGE_SIZE));
+const pagePosts = posts.slice(
+  (page - 1) * BLOG_PAGE_SIZE,
+  page * BLOG_PAGE_SIZE,
+);
 ---
 
 <Layout title={`Blog – page ${page}`}>
@@ -40,4 +45,5 @@ const pagePosts = posts.slice((page - 1) * pageSize, page * pageSize);
       <p>Cette page n’existe pas.</p>
     )
   }
+  <Pagination currentPage={page} totalPages={totalPages} />
 </Layout>
