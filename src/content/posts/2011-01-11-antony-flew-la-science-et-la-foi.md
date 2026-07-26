@@ -16,6 +16,6 @@ Flew était un académicien, philosophe et auteur de 40 livres dans sa vie. La
 
 * * *
 
-Voir aussi : [La frontière entre la science et la philosophie](http://www.theophile.xyz/2011/01/la-frontiere-entre-la-science-et-la-philosophie/)
+Voir aussi : [La frontière entre la science et la philosophie](/2011/01/la-frontiere-entre-la-science-et-la-philosophie/)
 
 [^1]: Anthony Flew and Roy Abraham Varghese. 2009. _There is a God : How the World's Most Notorious Atheist Changed his Mind_. New York: HarperCollins, p.88

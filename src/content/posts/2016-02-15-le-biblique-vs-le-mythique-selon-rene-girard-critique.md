@@ -10,7 +10,7 @@ commentId: "1514"
 legacyWordPressId: 1514
 draft: false
 ---
-Dans [l'article précédent](http://www.theophile.xyz/2016/02/le-biblique-vs-le-mythique-selon-rene-girard/), j'ai résumé la théorie mimétique de René Girard en me basant principalement sur son livre _Je vois Satan tomber comme l'éclair_. Maintenant, voici une appréciation critique de sa thèse...
+Dans [l'article précédent](/2016/02/le-biblique-vs-le-mythique-selon-rene-girard/), j'ai résumé la théorie mimétique de René Girard en me basant principalement sur son livre _Je vois Satan tomber comme l'éclair_. Maintenant, voici une appréciation critique de sa thèse...
 
 ## **Appréciation**
 

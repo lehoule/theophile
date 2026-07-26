@@ -83,9 +83,9 @@ Pour résumé, la force exercée par Jésus était dirigée vers les choses et n
 
 ## **Voir aussi :**
 
--   [Jésus chassant les vendeurs du temple : histoire des interprétations](http://www.theophile.xyz/2015/03/jesus-chassant-les-vendeurs-du-temple-histoire-des-interpretations/)
--   [La violence dans la Bible : “Je suis venu apporter l’épée” -Jésus](http://www.theophile.xyz/2014/11/la-violence-dans-la-bible-reponse-a-un-musulman-partie-1/)
--   [La violence dans la Bible : pourquoi Jésus incite-t-il à acheter des épées ?](http://www.theophile.xyz/2014/12/la-violence-dans-la-bible-reponse-a-un-musulman-partie-2/)
+-   [Jésus chassant les vendeurs du temple : histoire des interprétations](/2015/03/jesus-chassant-les-vendeurs-du-temple-histoire-des-interpretations/)
+-   [La violence dans la Bible : “Je suis venu apporter l’épée” -Jésus](/2014/11/la-violence-dans-la-bible-reponse-a-un-musulman-partie-1/)
+-   [La violence dans la Bible : pourquoi Jésus incite-t-il à acheter des épées ?](/2014/12/la-violence-dans-la-bible-reponse-a-un-musulman-partie-2/)
 
 [^1]: Carson, D. A. 1991. The Gospel According to John. Grand Rapids: William B. Eerdmans, p.179
 

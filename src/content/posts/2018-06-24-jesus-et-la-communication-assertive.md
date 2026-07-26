@@ -18,6 +18,6 @@ draft: false
 
 [^3]: Randy J. Paterson, _The Assertiveness Workbook..._, p. 19.
 
-[^4]: Sur cette question, voir [La violence dans la Bible : Jésus chassant les vendeurs dans le Temple](http://www.theophile.xyz/2015/02/la-violence-dans-la-bible-reponse-a-un-musulman-partie-3/) et [Jésus chassant les vendeurs du temple : histoire des interprétations](http://www.theophile.xyz/2015/03/jesus-chassant-les-vendeurs-du-temple-histoire-des-interpretations/) où je démontre que Jésus n'a pas utilisé le fouet pour frapper des hommes, mais pour faire sortir les animaux. Cependant, dans cet épisode, Jésus utilise clairement d'un style de communication agressif.
+[^4]: Sur cette question, voir [La violence dans la Bible : Jésus chassant les vendeurs dans le Temple](/2015/02/la-violence-dans-la-bible-reponse-a-un-musulman-partie-3/) et [Jésus chassant les vendeurs du temple : histoire des interprétations](/2015/03/jesus-chassant-les-vendeurs-du-temple-histoire-des-interpretations/) où je démontre que Jésus n'a pas utilisé le fouet pour frapper des hommes, mais pour faire sortir les animaux. Cependant, dans cet épisode, Jésus utilise clairement d'un style de communication agressif.
 
 [^5]: Le premier chapitre de Marc est clair : l'engouement autour de la figure "Jésus" fait boule de neige, le _hype_ est commencé. En 1,28 "sa renommée se répandit aussitôt dans tous les lieux environnants de la Galilée" et quelques versets plus loin, Jésus ne peut plus entrer publiquement dans une ville tellement sa popularité crée le chaos social (Mc 1,45).

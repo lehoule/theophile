@@ -70,6 +70,6 @@ En fin de compte, je pense qu'il y a une différence notoire entre affirmer que 
 
 ## **Voir aussi :**
 
-http://www.theophile.xyz/2015/02/la-violence-dans-la-bible-reponse-a-un-musulman-partie-3/
+/2015/02/la-violence-dans-la-bible-reponse-a-un-musulman-partie-3/
 
 [^1]: Alexis-Baker, Andy. 2012. Violence, Nonviolence and the Temple Incident in John 2: 13-15. Biblical Interpretation 20 (1-2):73-96.

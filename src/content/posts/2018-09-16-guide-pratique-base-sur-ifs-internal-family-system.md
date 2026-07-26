@@ -12,7 +12,7 @@ draft: false
 ---
 > Pourquoi t'abats-tu, mon âme, et gémis-tu au dedans de moi ? Espère en Dieu, car je le louerai encore. Il est mon salut et mon Dieu (Psaume 42,5.11).
 
-Dans [un article précédent](https://www.theophile.xyz/2018/09/le-systeme-familial-interieur-internal-family-system/), j'explique en quoi consiste la psychothérapie _Internal Family System_[^1]. Voici un guide facilitant la mise en pratique des notions. Ce guide est construit dans l'optique d'un problème d'ambivalence en cas de prise de décision, mais il peut facilement être adapté aussi aux comportements indésirables ou autres types d'application.
+Dans [un article précédent](/2018/09/le-systeme-familial-interieur-internal-family-system/), j'explique en quoi consiste la psychothérapie _Internal Family System_[^1]. Voici un guide facilitant la mise en pratique des notions. Ce guide est construit dans l'optique d'un problème d'ambivalence en cas de prise de décision, mais il peut facilement être adapté aussi aux comportements indésirables ou autres types d'application.
 
 ## **1 - Cibler une partie**
 

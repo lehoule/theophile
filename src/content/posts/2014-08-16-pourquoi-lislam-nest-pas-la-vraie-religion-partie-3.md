@@ -46,8 +46,8 @@ En bout de ligne, nous savons que l'Islam est une fausse religion car les donné
 
 ### Voir aussi :
 
--   [Pourquoi l'Islam n'est pas la vraie religion (partie 1)](http://www.theophile.xyz/2012/05/pourquoi-lislam-nest-pas-la-vraie-religion-partie-1/)
--   [Pourquoi l'Islam n'est pas la vraie religion (partie 2)](http://www.theophile.xyz/2013/01/pourquoi-lislam-nest-pas-la-vraie-religion-partie-2/)
+-   [Pourquoi l'Islam n'est pas la vraie religion (partie 1)](/2012/05/pourquoi-lislam-nest-pas-la-vraie-religion-partie-1/)
+-   [Pourquoi l'Islam n'est pas la vraie religion (partie 2)](/2013/01/pourquoi-lislam-nest-pas-la-vraie-religion-partie-2/)
 
 [^1]: Gerd Luedemann. 1994. The Resurrection of Jesus : History, Experience, Theology. Minneapolis: Fortress Press, p.39
 

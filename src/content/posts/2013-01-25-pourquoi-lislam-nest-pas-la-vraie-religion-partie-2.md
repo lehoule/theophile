@@ -28,5 +28,5 @@ Les musulmans ne peuvent donc pas dire que la Bible a été modifiée! Allez rel
 
 ### Voir aussi :
 
--   [Pourquoi l'Islam n'est pas la vraie religion (partie 1)](http://www.theophile.xyz/2012/05/pourquoi-lislam-nest-pas-la-vraie-religion-partie-1/)
--   [Pourquoi l'Islam n'est pas la vraie religion (partie 3)](http://www.theophile.xyz/2014/08/pourquoi-lislam-nest-pas-la-vraie-religion-partie-3/)
+-   [Pourquoi l'Islam n'est pas la vraie religion (partie 1)](/2012/05/pourquoi-lislam-nest-pas-la-vraie-religion-partie-1/)
+-   [Pourquoi l'Islam n'est pas la vraie religion (partie 3)](/2014/08/pourquoi-lislam-nest-pas-la-vraie-religion-partie-3/)

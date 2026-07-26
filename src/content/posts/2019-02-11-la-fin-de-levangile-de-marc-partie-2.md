@@ -10,7 +10,7 @@ commentId: "4988"
 legacyWordPressId: 4988
 draft: false
 ---
-Dans [l'article précédent](http://www.theophile.xyz/2018/07/la-fin-de-levangile-de-marc-partie-1/), j'ai exposé les pièces à conviction concernant les manuscrits existants qui nous permettent de reconstruire la fin de l'évangile de Marc. Il s'agissait de la première partie d'une série de deux sur la fin de Marc. Nous avons vu que les manuscrits les plus anciens n'avaient pas les v. 9-20. Comment expliquer cela ? Marc désirait-il vraiment terminer son évangile avec les v. 7-8 qui affirment que les femmes ne dirent rien de l'annonce de la résurrection, car elles avaient peur ?
+Dans [l'article précédent](/2018/07/la-fin-de-levangile-de-marc-partie-1/), j'ai exposé les pièces à conviction concernant les manuscrits existants qui nous permettent de reconstruire la fin de l'évangile de Marc. Il s'agissait de la première partie d'une série de deux sur la fin de Marc. Nous avons vu que les manuscrits les plus anciens n'avaient pas les v. 9-20. Comment expliquer cela ? Marc désirait-il vraiment terminer son évangile avec les v. 7-8 qui affirment que les femmes ne dirent rien de l'annonce de la résurrection, car elles avaient peur ?
 
 > 7 Mais allez et dites à ses disciples et à Pierre qu'il vous devance en Gallilée ; là, vous le verrez _comme il vous a dit_. 8 Et sortant, elles s'enfuirent du tombeau, car elles étaient dans le tremblement et l'émerveillement. _Et elles ne dirent rien à personne, car elles avaient peur_[^1] (Marc 16,7-8).
 

@@ -74,8 +74,8 @@ En d'autres mots, le Coran n'est pas la Parole de Dieu, mais une invention huma
 
 ### **Voir aussi :**
 
--   [Pourquoi l'Islam n'est pas la vraie religion (partie 2)](http://www.theophile.xyz/2013/01/pourquoi-lislam-nest-pas-la-vraie-religion-partie-2/)
--   [Pourquoi l'Islam n'est pas la vraie religion (partie 3)](http://www.theophile.xyz/2014/08/pourquoi-lislam-nest-pas-la-vraie-religion-partie-3/)
+-   [Pourquoi l'Islam n'est pas la vraie religion (partie 2)](/2013/01/pourquoi-lislam-nest-pas-la-vraie-religion-partie-2/)
+-   [Pourquoi l'Islam n'est pas la vraie religion (partie 3)](/2014/08/pourquoi-lislam-nest-pas-la-vraie-religion-partie-3/)
 
 [^1]: Mark Gabriel. 2007. _Jésus et Mahomet_. Romanel-sur-Lausanne: Ourania, p.234-235
 

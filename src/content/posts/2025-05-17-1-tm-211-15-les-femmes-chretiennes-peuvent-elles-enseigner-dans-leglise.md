@@ -158,7 +158,7 @@ Le passage de 1 Tm 2,11-15 doit être interprété à la lumière de son context
 
 [^11]: Michel Gourgues (_Les deux lettres à Timothée : La lettre à Tite_ (Commentaire biblique : Nouveau Testament, 14), Paris, Cerf, 2009, p. 161), cite Spicq, et affirme qu'il s'agit ici des mythes païens à proprement parler, c'est-à-dire "l'ensemble de légendes ou de récits traditionnels concernant les dieux, les demi-dieux ou les événements antérieurs aux premiers faits historiques connus." Cette référence aux mythes de vieilles femmes s'inscrit dans les v. 6 à 11, où Paul rappelle par deux fois la responsabilité de Timothée reliée à l'enseignement. 1 Tm 4,1-5 fait également référence à une autre fausse doctrine.
 
-[^12]: En 1 Corinthiens, Paul utilise fréquemment le pronom indéfini "[quelques-uns](https://www.theophile.xyz/2016/06/les-quelques-uns-en-1-corinthiens/)" pour aborder des problèmes initiés par des personnes, mais sans les nommer.
+[^12]: En 1 Corinthiens, Paul utilise fréquemment le pronom indéfini "[quelques-uns](/2016/06/les-quelques-uns-en-1-corinthiens/)" pour aborder des problèmes initiés par des personnes, mais sans les nommer.
 
 [^13]: Je m'inspire grandement de Michel Gourgues, _Les deux lettres à Timothée : La lettre à Tite_, p. 97, 116, 125, 133.
 
@@ -208,7 +208,7 @@ Le passage de 1 Tm 2,11-15 doit être interprété à la lumière de son context
 
 [^36]: Liv Albert, _Greek Mythology: The Gods, Goddesses, and Heroes Handbook_, New York NY, Simon & Schuster, 2021, p. 62-63.
 
-[^37]: Sur cette question, voir mon article sur le livre de Michaeal Heiser, intitulé "[L’assemblée divine : une vision israélite du monde spirituel](https://www.theophile.xyz/2018/06/lassemblee-divine-une-vision-israelite-du-monde-spirituel/)".
+[^37]: Sur cette question, voir mon article sur le livre de Michaeal Heiser, intitulé "[L’assemblée divine : une vision israélite du monde spirituel](/2018/06/lassemblee-divine-une-vision-israelite-du-monde-spirituel/)".
 
 [^38]: De nombreux théologiens estiment que les v. 14,34-35 de 1 Co, qui limitent la participation des femmes dans l’Église, ne représente pas la pensée de Paul, mais relèvent d’un slogan corinthien. Un "slogan corinthien" désigne une formule habituellement brève et frappante, propre à la communauté de Corinthe, qui résume une pratique ou une conviction locales et qui a pu circuler oralement, sans qu’elle émane nécessairement de l’enseignement direct de l’apôtre Paul. Sur cette question, voir Michel Gourgues, "Qui est misogyne : Paul ou certains Corinthiens ? Note sur 1 Co 14, 33b-36", dans _Des femmes aussi faisaient routes avec lui. Perspectives féministes sur la Bible, Montréal_, Médiaspaul, 1995, p. 153-159.
 

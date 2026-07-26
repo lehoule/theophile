@@ -1,27 +1,23 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 import TurndownService from 'turndown';
 
-const input = process.argv[2];
-if (!input)
-  throw new Error(
-    'Usage: node scripts/import-wordpress.mjs path/to/wordpress.xml',
+export function rewriteInternalSiteLinks(value) {
+  return value.replace(
+    /https?:\/\/(?:www\.)?theophile\.xyz/gi,
+    (match, offset, source) =>
+      source[offset + match.length] === '/' ? '' : '/',
   );
+}
+
 const parser = new XMLParser({
   ignoreAttributes: false,
   removeNSPrefix: false,
   isArray: (name) =>
     name === 'item' || name === 'category' || name === 'wp:postmeta',
 });
-const document = parser.parse(fs.readFileSync(input, 'utf8'));
-const items = document?.rss?.channel?.item || [];
-const posts = items.filter(
-  (item) => item['wp:post_type'] === 'post' && item['wp:status'] === 'publish',
-);
-const pages = items.filter(
-  (item) => item['wp:post_type'] === 'page' && item['wp:status'] === 'publish',
-);
 const turndown = new TurndownService({
   headingStyle: 'atx',
   bulletListMarker: '-',
@@ -96,13 +92,15 @@ function writeEntry(item, directory) {
   if (!Number.isFinite(date.valueOf()))
     throw new Error(`Invalid date for WordPress item ${id}`);
   const body = markdownFootnotes(
-    turndown
-      .turndown(value(item['content:encoded']))
-      .replace(
-        /https?:\/\/(?:www\.)?theophile\.xyz\/wp-content\/uploads\//gi,
-        'https://media.theophile.xyz/',
-      )
-      .replace(/\/wp-content\/uploads\//gi, 'https://media.theophile.xyz/'),
+    rewriteInternalSiteLinks(
+      turndown
+        .turndown(value(item['content:encoded']))
+        .replace(
+          /https?:\/\/(?:www\.)?theophile\.xyz\/wp-content\/uploads\//gi,
+          'https://media.theophile.xyz/',
+        )
+        .replace(/\/wp-content\/uploads\//gi, 'https://media.theophile.xyz/'),
+    ),
   );
   const modified = new Date(
     value(item['wp:post_modified_gmt']) ||
@@ -157,42 +155,62 @@ function writeEntry(item, directory) {
     mediaReferences,
   };
 }
-const importedPosts = posts.map((item) =>
-  writeEntry(item, 'src/content/posts'),
-);
-const importedPages = pages.map((item) =>
-  writeEntry(item, 'src/content/pages'),
-);
-fs.mkdirSync('migration', { recursive: true });
-fs.writeFileSync(
-  'migration/content-report.json',
-  JSON.stringify(
-    {
-      source: input,
-      posts: importedPosts.length,
-      pages: importedPages.length,
-      categories: [...new Set(importedPosts.flatMap((post) => post.categories))]
-        .length,
-      tags: [...new Set(importedPosts.flatMap((post) => post.tags))].length,
-      unknownShortcodes: [
-        ...new Set(
-          [...importedPosts, ...importedPages].flatMap(
-            (entry) => entry.shortcodes,
+function main(input) {
+  if (!input)
+    throw new Error(
+      'Usage: node scripts/import-wordpress.mjs path/to/wordpress.xml',
+    );
+
+  const document = parser.parse(fs.readFileSync(input, 'utf8'));
+  const items = document?.rss?.channel?.item || [];
+  const posts = items.filter(
+    (item) =>
+      item['wp:post_type'] === 'post' && item['wp:status'] === 'publish',
+  );
+  const pages = items.filter(
+    (item) =>
+      item['wp:post_type'] === 'page' && item['wp:status'] === 'publish',
+  );
+  const importedPosts = posts.map((item) =>
+    writeEntry(item, 'src/content/posts'),
+  );
+  const importedPages = pages.map((item) =>
+    writeEntry(item, 'src/content/pages'),
+  );
+  fs.mkdirSync('migration', { recursive: true });
+  fs.writeFileSync(
+    'migration/content-report.json',
+    JSON.stringify(
+      {
+        source: input,
+        posts: importedPosts.length,
+        pages: importedPages.length,
+        categories: [
+          ...new Set(importedPosts.flatMap((post) => post.categories)),
+        ].length,
+        tags: [...new Set(importedPosts.flatMap((post) => post.tags))].length,
+        unknownShortcodes: [
+          ...new Set(
+            [...importedPosts, ...importedPages].flatMap(
+              (entry) => entry.shortcodes,
+            ),
           ),
-        ),
-      ],
-      mediaReferences: [
-        ...new Set(
-          [...importedPosts, ...importedPages].flatMap(
-            (entry) => entry.mediaReferences,
+        ],
+        mediaReferences: [
+          ...new Set(
+            [...importedPosts, ...importedPages].flatMap(
+              (entry) => entry.mediaReferences,
+            ),
           ),
-        ),
-      ],
-    },
-    null,
-    2,
-  ),
-);
-console.log(
-  `Imported ${importedPosts.length} posts and ${importedPages.length} pages. Review migration/content-report.json before publishing.`,
-);
+        ],
+      },
+      null,
+      2,
+    ),
+  );
+  console.log(
+    `Imported ${importedPosts.length} posts and ${importedPages.length} pages. Review migration/content-report.json before publishing.`,
+  );
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) main(process.argv[2]);
