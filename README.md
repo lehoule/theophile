@@ -44,6 +44,12 @@ npm run dev:worker
 
 Open `http://localhost:8787`. `dev:worker` builds the static site first, then starts Wrangler with the local D1 binding. The test Turnstile keys in `.env.example` and `.dev.vars.example` are for development only; replace them with real values for a deployed environment. The admin API is protected by Cloudflare Access in production and is not an end-to-end local Access environment.
 
+For local media-upload and comment-moderation testing, `.dev.vars` may set
+`LOCAL_ADMIN_AUTH=true`. This bypass is accepted only for requests to
+localhost, `127.0.0.1`, or `::1`; production hosts still require Cloudflare
+Access. Local comment submissions also skip Turnstile in this mode; rate
+limits and all other comment validation remain active.
+
 Create an article locally:
 
 ```sh
@@ -113,7 +119,7 @@ node scripts/inventory-media.mjs /secure/path/wp-content/uploads
 
 5. Configure a Turnstile widget for `www.theophile.xyz` and set `PUBLIC_TURNSTILE_SITE_KEY` in the Cloudflare build environment before production.
 6. Configure a verified Cloudflare Email Service destination and set `ADMIN_EMAIL` in `wrangler.toml`. Set `PUBLIC_CF_ANALYTICS_TOKEN` in the build environment to enable cookie-free Web Analytics.
-7. Protect `/admin/comments/*` and `/api/admin/*` with a Cloudflare Access application restricted to the owner’s email. Access must add both the authenticated email and JWT headers.
+7. Protect `/admin/comments/*`, `/admin/media/*`, and `/api/admin/*` with a Cloudflare Access application restricted to the owner’s email. Access must add both the authenticated email and JWT headers.
    Set `ACCESS_AUDIENCE` to the Access application audience tag when you want the Worker to enforce the JWT audience as well.
 8. Deploy with `npm run deploy`, attach `www.theophile.xyz` as the Worker custom domain, and configure the apex domain to redirect to `www`.
 
@@ -133,5 +139,12 @@ Access-protected:
 - `PATCH /api/admin/comments/:id`
 - `POST /api/admin/comments/:id/replies`
 - `DELETE /api/admin/comments/:id`
+- `POST /api/admin/media`
+
+The media upload page is available at `/admin/media/`. Protect both
+`/admin/comments/*` and `/admin/media/*` with the Cloudflare Access application
+used for administration. The page sends files to the Worker, which validates
+the type and size before streaming them into the `theophile-media` R2 bucket;
+R2 credentials are never exposed to the browser.
 
 The public API never returns email addresses, IP hashes, or moderation metadata. All new comments are pending until approved.

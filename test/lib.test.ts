@@ -1,10 +1,13 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   adminEmail,
+  adminEmailWithLocalAuth,
   bad,
   cursorFor,
   hashIp,
   isSameOrigin,
+  isLocalDevelopment,
+  originForRequest,
   json,
   parseCursor,
   validateCommentInput,
@@ -209,6 +212,25 @@ describe('pagination cursors', () => {
 });
 
 describe('admin access validation', () => {
+  it('allows local development auth only on loopback requests', () => {
+    expect(
+      adminEmailWithLocalAuth(
+        new Request('http://localhost:8787/admin/comments/'),
+        'admin@example.com',
+        'app-audience',
+        'true',
+      ),
+    ).toBe('admin@example.com');
+    expect(
+      adminEmailWithLocalAuth(
+        new Request('https://www.example.com/admin/comments/'),
+        'admin@example.com',
+        'app-audience',
+        'true',
+      ),
+    ).toBeNull();
+  });
+
   it('accepts a matching, non-expired access assertion', () => {
     const request = new Request('https://www.example.com', {
       headers: {
@@ -268,5 +290,34 @@ describe('admin access validation', () => {
     expect(adminEmail(request, 'admin@example.com', 'app-audience')).toBe(
       'admin@example.com',
     );
+  });
+});
+
+describe('local development origins', () => {
+  it('uses the loopback origin only when local auth is enabled', () => {
+    const request = new Request('http://localhost:8787/api/comments', {
+      headers: { origin: 'http://localhost:8787' },
+    });
+    expect(originForRequest(request, 'https://www.example.com', 'true')).toBe(
+      'http://localhost:8787',
+    );
+    expect(
+      originForRequest(request, 'https://www.example.com', undefined),
+    ).toBe('https://www.example.com');
+  });
+
+  it('enables local-only development behavior on loopback requests', () => {
+    expect(
+      isLocalDevelopment(
+        new Request('http://localhost:8787/api/comments'),
+        'true',
+      ),
+    ).toBe(true);
+    expect(
+      isLocalDevelopment(
+        new Request('https://www.example.com/api/comments'),
+        'true',
+      ),
+    ).toBe(false);
   });
 });

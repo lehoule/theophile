@@ -1,27 +1,28 @@
 import { EmailMessage } from 'cloudflare:email';
 import { COMMENT_POSTS } from './post-registry.generated';
 import {
-  adminEmail,
+  adminEmailWithLocalAuth,
   bad,
   cursorFor,
   hashIp,
   isSameOrigin,
+  isLoopbackRequest,
+  isLocalDevelopment,
   json,
+  originForRequest,
   parseCursor,
   validateCommentInput,
   validateTurnstile,
 } from './lib';
+import { serveLocalMedia, uploadMedia, type MediaUploadEnv } from './media-api';
 
 interface EmailBinding {
   send(message: EmailMessage): Promise<void>;
 }
-interface Env {
+interface Env extends MediaUploadEnv {
   ASSETS: Fetcher;
   DB: D1Database;
   EMAIL?: EmailBinding;
-  SITE_ORIGIN: string;
-  ADMIN_EMAIL: string;
-  ACCESS_AUDIENCE?: string;
   TURNSTILE_SECRET: string;
   RATE_LIMIT_SECRET: string;
 }
@@ -115,7 +116,13 @@ async function createComment(
   env: Env,
   ctx: ExecutionContext,
 ): Promise<Response> {
-  if (request.method !== 'POST' || !isSameOrigin(request, env.SITE_ORIGIN))
+  if (
+    request.method !== 'POST' ||
+    !isSameOrigin(
+      request,
+      originForRequest(request, env.SITE_ORIGIN, env.LOCAL_ADMIN_AUTH),
+    )
+  )
     return bad('Not allowed', 403);
   let input: Record<string, unknown>;
   try {
@@ -127,14 +134,14 @@ async function createComment(
   const post = postById(postId);
   const comment = validateCommentInput(input);
   if (!post || !comment || comment.honeypot) return bad('Invalid comment');
-  if (
-    !(await validateTurnstile(
-      input.turnstileToken,
-      request,
-      env.TURNSTILE_SECRET,
-    ))
-  )
-    return bad('Turnstile validation failed', 403);
+  const turnstileValid = isLocalDevelopment(request, env.LOCAL_ADMIN_AUTH)
+    ? true
+    : await validateTurnstile(
+        input.turnstileToken,
+        request,
+        env.TURNSTILE_SECRET,
+      );
+  if (!turnstileValid) return bad('Turnstile validation failed', 403);
   const ipHash = await hashIp(request, env.RATE_LIMIT_SECRET);
   const windowStart = new Date(
     Math.floor(Date.now() / (15 * 60_000)) * 15 * 60_000,
@@ -176,12 +183,19 @@ async function createComment(
 }
 
 async function adminApi(request: Request, env: Env): Promise<Response> {
-  const administrator = adminEmail(
+  const administrator = adminEmailWithLocalAuth(
     request,
     env.ADMIN_EMAIL,
     env.ACCESS_AUDIENCE,
+    env.LOCAL_ADMIN_AUTH,
   );
   if (!administrator) return bad('Authentication required', 401);
+  if (
+    env.LOCAL_ADMIN_AUTH === 'true' &&
+    isLoopbackRequest(request) &&
+    !isSameOrigin(request, new URL(request.url).origin)
+  )
+    return bad('Not allowed', 403);
   const url = new URL(request.url);
   if (request.method === 'GET') {
     const status = url.searchParams.get('status') || 'pending';
@@ -297,6 +311,12 @@ export default {
         return await commentCounts(request, env);
       if (url.pathname === '/api/comments' && request.method === 'POST')
         return await createComment(request, env, ctx);
+      if (url.pathname.startsWith('/__local-media/')) {
+        const localMedia = await serveLocalMedia(request, env);
+        if (localMedia) return localMedia;
+      }
+      if (url.pathname === '/api/admin/media')
+        return await uploadMedia(request, env);
       if (url.pathname.startsWith('/api/admin/'))
         return await adminApi(request, env);
       return env.ASSETS.fetch(request);

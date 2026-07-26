@@ -176,3 +176,35 @@ export function adminEmail(
   }
   return email;
 }
+
+export function isLoopbackRequest(request: Request): boolean {
+  const hostname = new URL(request.url).hostname;
+  return ['localhost', '127.0.0.1', '::1', '[::1]'].includes(hostname);
+}
+
+export function originForRequest(
+  request: Request,
+  configuredOrigin: string,
+  localAuth: string | undefined,
+): string {
+  return localAuth === 'true' && isLoopbackRequest(request)
+    ? new URL(request.url).origin
+    : configuredOrigin;
+}
+
+export function isLocalDevelopment(
+  request: Request,
+  localAuth: string | undefined,
+): boolean {
+  return localAuth === 'true' && isLoopbackRequest(request);
+}
+
+export function adminEmailWithLocalAuth(
+  request: Request,
+  expected: string,
+  audience: string | undefined,
+  localAuth: string | undefined,
+): string | null {
+  if (localAuth === 'true' && isLoopbackRequest(request)) return expected;
+  return adminEmail(request, expected, audience);
+}

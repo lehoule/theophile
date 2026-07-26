@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Téléverser un média" noindex>
+  <section class="hero">
+    <p class="eyebrow">Administration</p>
+    <h1>Téléverser un média</h1>
+    <p class="lede">
+      Choisissez une image, un fichier audio, une vidéo ou un PDF. Le site vous
+      donnera ensuite le lien Markdown à coller dans un article.
+    </p>
+  </section>
+
+  <section class="media-uploader" data-media-uploader>
+    <form data-media-form>
+      <label for="media-file">Fichier</label>
+      <input
+        id="media-file"
+        name="file"
+        type="file"
+        accept=".jpg,.jpeg,.png,.gif,.webp,.svg,.mp3,.m4a,.ogg,.wav,.mp4,.webm,.mov,.pdf"
+        required
+      />
+      <p class="muted">Taille maximale : 100 Mo.</p>
+
+      <label for="media-alt">
+        Description de l’image
+        <span class="muted">(obligatoire pour les images)</span>
+      </label>
+      <input
+        id="media-alt"
+        name="alt"
+        type="text"
+        maxlength="300"
+        placeholder="Ex. Portrait de Sonny dans son bureau"
+      />
+
+      <label for="media-caption">Légende (facultatif)</label>
+      <input id="media-caption" name="caption" type="text" maxlength="500" />
+
+      <button class="button" type="submit">Téléverser</button>
+      <p class="form-status" data-media-status role="status" aria-live="polite">
+      </p>
+    </form>
+
+    <div class="media-result" data-media-result hidden>
+      <h2>Média prêt</h2>
+      <p>
+        <a data-media-link target="_blank" rel="noreferrer">Ouvrir le média</a>
+      </p>
+      <label for="media-markdown">À copier dans l’article</label>
+      <textarea id="media-markdown" data-media-markdown rows="3" readonly
+      ></textarea>
+      <button class="button secondary" data-copy-markdown type="button">
+        Copier le Markdown
+      </button>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  type UploadResponse = { url: string; markdown: string };
+  const root = document.querySelector('[data-media-uploader]');
+  const form = root?.querySelector('[data-media-form]');
+  const status = root?.querySelector('[data-media-status]');
+  const result = root?.querySelector('[data-media-result]');
+  const link = root?.querySelector('[data-media-link]');
+  const markdown = root?.querySelector('[data-media-markdown]');
+  const copy = root?.querySelector('[data-copy-markdown]');
+
+  const encoded = (value: string) => encodeURIComponent(value);
+
+  if (
+    form instanceof HTMLFormElement &&
+    status instanceof HTMLElement &&
+    result instanceof HTMLElement &&
+    link instanceof HTMLAnchorElement &&
+    markdown instanceof HTMLTextAreaElement
+  ) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const fileInput = form.querySelector('input[type="file"]');
+      const altInput = form.querySelector('input[name="alt"]');
+      const captionInput = form.querySelector('input[name="caption"]');
+      if (
+        !(fileInput instanceof HTMLInputElement) ||
+        !fileInput.files?.[0] ||
+        !(altInput instanceof HTMLInputElement) ||
+        !(captionInput instanceof HTMLInputElement)
+      )
+        return;
+
+      const file = fileInput.files[0];
+      status.textContent = 'Téléversement en cours…';
+      result.hidden = true;
+      const button = form.querySelector('button[type="submit"]');
+      if (button instanceof HTMLButtonElement) button.disabled = true;
+
+      try {
+        const response = await fetch('/api/admin/media', {
+          method: 'POST',
+          headers: {
+            'content-type': file.type || 'application/octet-stream',
+            'x-media-size': String(file.size),
+            'x-media-filename': encoded(file.name),
+            'x-media-alt': encoded(altInput.value),
+            'x-media-caption': encoded(captionInput.value),
+          },
+          body: file,
+        });
+        const data = (await response.json()) as
+          UploadResponse | { error?: string };
+        if (!response.ok || !('markdown' in data))
+          throw new Error('error' in data ? data.error : 'Upload failed');
+        link.href = data.url;
+        link.textContent = data.url;
+        markdown.value = data.markdown;
+        result.hidden = false;
+        status.textContent = 'Téléversement terminé.';
+      } catch (error) {
+        status.textContent =
+          error instanceof Error ? error.message : 'Le téléversement a échoué.';
+      } finally {
+        if (button instanceof HTMLButtonElement) button.disabled = false;
+      }
+    });
+
+    copy?.addEventListener('click', async () => {
+      if (!(markdown instanceof HTMLTextAreaElement)) return;
+      await navigator.clipboard.writeText(markdown.value);
+      if (copy instanceof HTMLButtonElement)
+        copy.textContent = 'Markdown copié';
+    });
+  }
+</script>

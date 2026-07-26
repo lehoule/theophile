@@ -54,6 +54,10 @@ input, textarea { width: 100%; border: 1px solid var(--line); border-radius: .25
 .button.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); margin-top: 1rem; }
 .muted { color: var(--muted); }
 .form-status { min-height: 1.5em; color: var(--accent-dark); }
+.media-uploader { max-width: 38rem; margin-bottom: 5rem; }
+.media-uploader input[type='file'] { padding: .5rem; }
+.media-result { margin-top: 2rem; padding: 1.25rem; border: 1px solid var(--line); background: rgba(255,255,255,.3); }
+.media-result textarea { resize: vertical; }
 .admin-toolbar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
 .admin-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
 .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
