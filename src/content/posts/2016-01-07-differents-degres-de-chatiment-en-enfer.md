@@ -1,0 +1,48 @@
+---
+title: "Différents degrés de châtiments en enfer"
+slug: "differents-degres-de-chatiment-en-enfer"
+publishedAt: 2016-01-07T11:57:38.000Z
+updatedAt: 2025-10-13T02:17:44.000Z
+author: "sperron"
+categories: ["Enfer","Évangiles","Exégèse","Interprétation","Justice","Synoptiques"]
+tags: []
+commentId: "1035"
+legacyWordPressId: 1035
+draft: false
+---
+Dans son livre _[The Jesus Scandals : Why he Shocked his Contemporaries (and still shocks today)](http://www.amazon.ca/Jesus-Scandals-Shocked-Contemporaries-Shocks/dp/0857210238/ref=sr_1_1?ie=UTF8&qid=1452148595&sr=8-1&keywords=JEsus+scandals)_, David Instone-Brewer présente une version de l'enfer de plus en plus courante dans le monde évangélique. D'après lui, l'enfer serait 1) un lieu de tourments proportionnels au mal commis et proportionnels au niveau de connaissance du mal qui était commis, après quoi 2) il y aurait anéantissement des personnes. Sans embarquer dans tout le débat sur le point 2) qui concerne la question de la nature ultime de l'enfer (annihilisme vs tourments éternels), j'aimerais seulement argumenter ici pour 1), pour ce point : Luc 12:47-48 fait référence au fait qu'il y aura différents degrés de châtiment en enfer. Lisons au moins les deux versets en question :
+
+> 47 Le serviteur qui, ayant connu la volonté de son maître, n'a rien préparé et n'a pas agi selon sa volonté, sera battu d'un grand nombre de coups. 48 Mais celui qui, ne l'ayant pas connue, a fait des choses dignes de châtiment, sera battu de peu de coups. On demandera beaucoup à qui l'on a beaucoup donné, et on exigera davantage de celui à qui l'on a beaucoup confié.
+
+Certains théologiens isolent ces versets de ceux qui les précèdent et croient que Jésus parle ici de la façon qu'il traitera les chrétiens sauvés au jugement dernier. Cependant, j'aimerais donner trois arguments qui supportent l'idée que ces versets font plutôt référence à divers degrés de châtiments qu'il y aura en enfer (contrairement à l'idée que ce texte parle de la façon que les chrétiens sauvés seront traités).
+
+## **1. Le contexte immédiat relie le sort du "faux serviteur" au sort des incroyants**
+
+En lisant les versets 47-48 dans leur contexte immédiat (12:39-48), on verrait que le serviteur en question est celui qui a commencé à maltraiter ses compagnons parce que son Maître (Jésus) tardait à venir (v.45). Au verset suivant, il est dit que le Maître de ce serviteur viendra au moment où il s'y en attend le moins et qu'il "lui donnera sa part avec les infidèles" (v.46). Or, il est clair que la part des infidèles est l'enfer[^1]!
+
+## **2\. Le châtiment du Christ était-il insuffisant?**
+
+Si "le serviteur" en question fait référence aux chrétiens sauvés et non au mauvais serviteur qui va en enfer, alors on peut se poser la question : mais le sacrifice de Christ n'était-il pas suffisant pour éviter le châtiment de Dieu? Pourquoi faudrait-il que les chrétiens soient châtiés si Christ a porté leurs péchés à la croix? Le v.48b semble être un principe général applicable autant aux sauvés pour leurs récompenses qu'aux injustes pour leurs châtiments : "On demandera beaucoup à qui l'on a beaucoup donné, et on exigera davantage de celui à qui l'on a beaucoup confié[^2]". Mais il serait trompeur de réinterpréter les phrases précédentes à la lumière de cette proposition générale à la fin. Les phrases précédentes ne font référence qu'aux injustes à cause de la notion de châtiment. Le principe "plus on a confié, plus on sera sévère" s'applique donc ici qu'aux faux serviteurs et non aux vrais serviteurs imparfaits. Sinon, cela impliquerait que le sacrifice de Christ était insuffisant. Pensons notamment à Ésaïe 53:5b : "Le châtiment qui nous donne la paix est tombé sur lui et c'est pas ses meurtrissures que nous sommes guéris." Dire que les chrétiens seront châtiés au jugement dernier pour leurs manquements équivaut à dire que le sacrifice de Christ était insuffisant pour apaiser la colère de Dieu, pour nous rendre justes à ses yeux. D'après moi, penser cela équivaut presque à un blasphème envers notre Seigneur qui dût passer par la croix pour prendre sur lui nos péchés et nous offrir sa perfection en échange[^3]. Il n'y a pas de châtiments pour les sauvés, mais que des récompenses. Cela implique que ce texte ne parle pas de comment seront traités ceux et celles qui iront au paradis.
+
+## **3\. Le parallèle en Matthieu parle clairement de l'enfer**
+
+Nous savons que Matthieu et Luc avaient en commun une même source (Q) qu'ils modifient selon leurs accents théologiques. Voici ce que donne une analyse synoptique comparée de la même péricope dans l'évangile de Matthieu et Luc (le plus important sont les différences qui sont soulignées en noir / le rose représente ce qu'ils ont littéralement en commun par rapport à la source Q) : [![Capture d’écran 2016-01-02 à 20.05.34](https://media.theophile.xyz/2016/01/Capture-d’écran-2016-01-02-à-20.05.34.png)](https://media.theophile.xyz/2016/01/Capture-d’écran-2016-01-02-à-20.05.34.png) Premièrement, considérez la fin de chaque péricope! Pour Luc, le mauvais serviteur a le même sort que les "infidèles" (12:46) alors que Matthieu écrit plutôt qu'il a le même sort que "les hypocrites" (24:51)! Je pense qu'il est donc légitime de penser que certains "serviteurs hypocrites" sont comme des "incroyants" (même mot que "infidèles" en grec). Mon "deuxièmement" est encore plus significatif : regardez au-delà de ce qualificatif : _La fin de Matthieu "C'est là qu'il y aura des pleurs et des grincements de dents" est équivalent de la fin de Luc où il parle de différents niveaux de châtiments dans les v.47-48_! La conclusion m'apparaît commandée par la logique : "pleurs et grincements de dents" est la façon mathéenne de faire référence à l'enfer et les différents niveaux de châtiment basés sur le savoir de la volonté du Maître est la façon lucanienne d'expliquer l'enfer. Troisièmement, notons en passant le souci lucanien au v.45 de parler de la gent masculine _et_ de la gent féminine par rapport à Matthieu (ça n'a absolument aucun rapport avec le sujet présent, mais très intéressant !). Quatrièmement, j'aimerais apporter votre attention sur la question de Pierre, encore unique à Luc, au v.41 "Pierre lui dit : Seigneur, est-ce à nous, ou à tous que tu adresses cette parabole?" Et Jésus ne répond pas, mais continue la parabole!!! Vous... qu'en pensez-vous? Est-ce qu'en parlant du "mauvais serviteur", Jésus s'adressait aussi à ses disciples (Luc 12:22), ou aux pharisiens (12:1) ou encore simplement à la foule qui s'intéressait à lui (Luc 12:12, 54)?
+
+## **Conclusion**
+
+Dieu est juste. Hitler n'aura pas la même place en enfer que George, le concierge qui a aussi rejeté Christ dans sa vie "tranquille". À la question "y'a-t-il différents degrés de châtiments en enfer ?", Francis Chan, en plus de pointer vers Luc 12.46-48, pointe aussi vers deux autres passages[^4] :
+
+-   Matthieu 11.23-24 : "Et toi, Capharnaüm, seras-tu élevée jusqu’au ciel ? Tu descendras jusqu’au séjour des morts ! Car si les miracles qui ont eu lieu chez toi avaient eu lieu à Sodome, elle subsisterait encore aujourd’hui. Aussi bien, je vous le déclare, au jour du jugement, le pays de Sodome _sera traité avec moins de rigueur que toi._"
+-   Romains 2.5-6 : "Par ton endurcissement, par ton cœur impénitent, tu amasses contre toi un trésor de colère pour le jour de la colère où se révélera le juste jugement de Dieu, qui rendra à chacun _selon ses œuvres..._"
+
+Cette thèse est aussi corroborée par le fait que d'autres textes bibliques appuient l'idée qu'il y a différentes récompenses dans le Royaume de Dieu (Mt 6.4, 6, 18-19, 10.41-42, 1 Co 3.11-15)[^5] ou encore par le concept de justice promut par l'Ancien Testament, notamment en Deutéronome 25.2 : "Si le coupable mérite d'être battu, le juge le fera étendre par terre et frapper en sa présence d'un nombre de coups proportionné à la gravité de sa faute." Cette idée de tourments proportionnels aux péchés commis est aussi consistante avec l'idée que les péchés ont, dans un sens, des niveaux de gravités différents (voir l'article [Les péchés sont-ils tous équivalents?](http://www.theophile.xyz/2012/12/les-peches-sont-ils-tous-equivalents/)).
+
+[^1]: Instone-Brewer, David. 2012. The Jesus Scandals : Why he Shocked his Contemporaries (and still shocks today). Oxford: Monarch Books, p.183
+
+[^2]: Par exemple, Jacques 3:1 dit que ceux qui enseignent la Parole de Dieu seront traités plus sévèrement.
+
+[^3]: Je pourrais énumérer une tonne de versets, mais il s'agit ici du COEUR de l'évangile. Je n'en citerai que trois. 1) Hébreux 9.12 : "Il est entré _une fois pour toutes_ dans le lieu très saint, non avec le sang des boucs et des veaux, mais avec son propre sang, ayant obtenu une rédemption éternelle." 2) 1 Pierre 3.18 : "_Christ aussi a souffert une fois pour les péchés_, lui juste pour des injustes, afin de nous amener à Dieu..." Que le Christ ait souffert "une fois" comme cela est suffisant pour devenir le chemin et la vie pour ceux qui croient en lui (Jean 14:6). Enfin, 3) Philippiens 3.9 où le but de l'apôtre Paul est "d'être trouvé en lui (Christ), non avec ma justice, celle qui vient de la loi, mais avec celle qui s'obtient par la foi en Christ, la justice qui vient de Dieu par la foi..." On ne se présente pas devant Dieu plus ou moins justes les uns par rapport aux autres. On se présente devant Dieu avec la justice de Christ point!
+
+[^4]: Francis Chan et Preston Sprinkle. 2011. _Erasing Hell: What God Said about Eternity, and the Things We've Made Up_. Colorado Springs: David C Cook, p.156
+
+[^5]: Douglas A Jacoby. 2013. _What's the Truth about Heaven and Hell?_ Eugene: Harvest House Publishers, p.63

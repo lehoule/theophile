@@ -1,0 +1,23 @@
+---
+title: "1 Corinthiens 8-10 et l’éducation de la conscience"
+slug: "1-corinthiens-8-10-et-leducation-de-la-conscience"
+publishedAt: 2020-04-12T05:19:04.000Z
+updatedAt: 2020-09-12T05:38:53.000Z
+author: "sperron"
+categories: ["Conscience morale","Corinthiens","Critique rédactionnelle"]
+tags: []
+commentId: "5965"
+legacyWordPressId: 5965
+draft: false
+---
+Dans son article intitulé "Coherence and Relevance of 1 Cor 8-10"[^1], Joël Delobel considère que 1 Co 8,6b[^2] est une addition paulinienne qui vise à renforcer l'argument de ceux qui ont la connaissance (p. 178). Cette affirmation n'est pas adossée d'arguments ou de références bibliographiques. Il suit ici Fee. Cependant, un peu plus loin, il affirme qu’« aucune réflexion systématique sur la théologie de la création, la sotériologie, l'eschatologie et la christologie ne peut ignorer 1 Co 8,4-6, où nous trouvons _les plus anciennes formules_ sur ces questions » (p. 188). La première partie de son article se concentre sur le problème de la cohérence en 1 Co 8-10. Il décrira notamment les différentes propositions qui ont été faites pour résoudre les tensions tout en démontrant leurs faiblesses (p. 178-182). Ensuite, Delobel propose une nouvelle interprétation pour pallier à l'apparente incohérence (interprétation qui m’apparaît peu novatrice en réalité) : « Due to the variety of situations in which Christians may have to deal with sacrificial food, Paul cannot give a simple and uniform answer to the problem περὶ τῶν εἰδωλοθύτων. (…) Paul is consistent in arguing that idol food is neutral in principle, but that it can have various meanings according to the cultural and cultic context » (p. 186). La deuxième partie de l’article met en valeur la pertinence contemporaine des thèmes abordés dans la section sur les viandes sacrifiées aux idoles. Delobel note que certaines cultures non occidentales sont encore confrontées à des offrandes religieuses offertes aux dieux. Pour une application plus près de chez nous, l’auteur énumère différents thèmes importants pour l'élaboration d'une théologie systématique. Le théologien moderne voudra considérer 1 Co 8-10 pour approfondir les doctrines telles que la christologie, la sotériologie, la cosmologie et l'eschatologie. Toute réflexion sur la liberté chrétienne (sa réalité et ses limites) devrait aussi passer par ces trois chapitres corinthiens. 1 Co 9,19-23 donne beaucoup à penser concernant l’inculturation, c’est-à-dire l’adaptation de l’Évangile aux différentes cultures. Ces chapitres éclairent également le thème de l’eucharistie (9,14-22). Mais c’est surtout l’éducation de la conscience qui retiendra l’intérêt de Delobel. Il en sortira entre autres quelques grandes lignes :
+
+-   Paul dit son propre point de vue sans compromis : les idoles ne sont rien et la liberté ne peut être enlevé par les consciences faibles (cf. 10,29),
+-   La connaissance seule ne peut être un facteur suffisant pour déterminer son attitude vis-à-vis un proche : « Love can require temporary and partial restraint in the practice of justified freedom out of respect for another person’s conscience, event if this conscience is erring. Love can limit freedom, if not in principle, at least in practice » (p. 189).
+-   La section donne l’impression que même si les « connaissants » ont raison sur le plan théologique, c’est seulement eux qui doivent s’adapter aux consciences faibles, mais en 1 Co 10,25-27, Paul encourage clairement les faibles à progresser dans leur usage de leur liberté chrétienne. L’ensemble de la lettre qui sera lue à toute la communauté servira aussi à l’édification de leur compréhension théologique.
+
+Sur ce dernier élément, Delobel me semble présupposer que les faibles avaient aussi des scrupules par rapport aux viandes offertes au marché et chez des hôtes alors qu’il est possible de penser que Paul ne fait qu’imaginer un scénario afin d'instruire les Corinthiens plus amplement. Néanmoins, il est plausible que certaines personnes avaient réellement des problèmes avec les viandes en tant que telles, comme le commencement de la section l’indique : « concernant les choses sacrifiées aux idoles » et non « concernant la participation les repas dans les temples païens ». Ce texte est utile pour la considération de l’ensemble de la section 1 Co 8-10 et pour la pertinence de la question.
+
+[^1]: Joël Delobel, "Coherence and Relevance of 1 Cor 8-10", dans _The Corinthian Correspondence_, Reimund Bieringer (éd.), Leuven, Leuven University Press, 1996, p. 177-190.
+
+[^2]: La clause sur Jésus : "Mais pour nous, il y a un seul Dieu, le Père, de qui viennent toutes choses et vers qui nous \[allons\] et un seul Seigneur, Jésus Christ, par qui sont toutes choses et par qui nous \[allons à Dieu au Père\].

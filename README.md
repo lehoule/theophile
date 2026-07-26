@@ -2,6 +2,17 @@
 
 Astro/TypeScript static publishing platform and Cloudflare Worker/D1 comment API for [theophile.xyz](https://www.theophile.xyz/).
 
+## Copyright and license
+
+This repository is proprietary and all rights are reserved. The articles and
+other original creative content may be read and linked to, but may not be
+copied, scraped, mirrored, republished, translated, adapted, sold, or used for
+AI/ML training without prior written permission. Short quotations are allowed
+only where applicable law permits them and must include clear attribution and
+a link to the original. See [LICENSE](LICENSE) for the complete terms.
+
+Third-party works and dependencies remain subject to their own licenses.
+
 ## Local setup
 
 Install Node.js 22 and dependencies:
@@ -27,6 +38,8 @@ Create an article locally:
 ```sh
 node scripts/create-post.mjs "Mon nouveau titre"
 ```
+
+See [WRITING.md](WRITING.md) for the writer’s guide, including Markdown, references and the publishing checklist.
 
 Set `draft: false` only when an article is ready to publish. Because the repository is public, do not push private drafts.
 
