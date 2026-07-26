@@ -4,17 +4,40 @@ import Layout from '../../../layouts/Layout.astro';
 import PostCard from '../../../components/PostCard.astro';
 import { postHref } from '../../../data/urls';
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
 const pageSize = 10;
 export async function getStaticPaths() {
-  const publishedPosts = (await getCollection('posts', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  const publishedPosts = (
+    await getCollection('posts', ({ data }) => !data.draft)
+  ).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
   const count = Math.max(1, Math.ceil(publishedPosts.length / 10));
-  return Array.from({ length: count - 1 }, (_, index) => ({ params: { page: String(index + 2) } }));
+  return Array.from({ length: count - 1 }, (_, index) => ({
+    params: { page: String(index + 2) },
+  }));
 }
 const page = Number(Astro.params.page);
 const pagePosts = posts.slice((page - 1) * pageSize, page * pageSize);
 ---
+
 <Layout title={`Blog – page ${page}`}>
   <section class="hero"><p class="eyebrow">Archives</p><h1>Blog</h1></section>
-  {pagePosts.length ? <div class="post-grid">{pagePosts.map((post) => <PostCard title={post.data.title} href={postHref(post.data.publishedAt, post.data.slug)} date={post.data.publishedAt} excerpt={post.data.excerpt} categories={post.data.categories} />)}</div> : <p>Cette page n’existe pas.</p>}
+  {
+    pagePosts.length ? (
+      <div class="post-grid">
+        {pagePosts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            href={postHref(post.data.publishedAt, post.data.slug)}
+            date={post.data.publishedAt}
+            excerpt={post.data.excerpt}
+            categories={post.data.categories}
+          />
+        ))}
+      </div>
+    ) : (
+      <p>Cette page n’existe pas.</p>
+    )
+  }
 </Layout>

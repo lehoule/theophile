@@ -1,28 +1,101 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 ---
+
 <Layout title="Modération des commentaires" noindex>
-  <section class="hero"><p class="eyebrow">Administration</p><h1>Commentaires en attente</h1><p class="lede">Cette page doit être protégée par un chemin Cloudflare Access avant mise en production.</p></section>
+  <section class="hero">
+    <p class="eyebrow">Administration</p><h1>Commentaires en attente</h1><p
+      class="lede"
+    >
+      Cette page doit être protégée par un chemin Cloudflare Access avant mise
+      en production.
+    </p>
+  </section>
   <section class="comments" data-admin-comments>
-    <div class="admin-toolbar"><button class="button secondary" data-status="pending">En attente</button><button class="button secondary" data-status="approved">Approuvés</button><button class="button secondary" data-status="spam">Indésirables</button></div>
+    <div class="admin-toolbar">
+      <button class="button secondary" data-status="pending">En attente</button
+      ><button class="button secondary" data-status="approved">Approuvés</button
+      ><button class="button secondary" data-status="spam">Indésirables</button>
+    </div>
     <div data-admin-list><p class="muted">Chargement…</p></div>
   </section>
 </Layout>
 <script>
-  type AdminItem = { id: string; author_name: string; post_id: string; body: string; post?: { title?: string } | null };
+  type AdminItem = {
+    id: string;
+    author_name: string;
+    post_id: string;
+    body: string;
+    post?: { title?: string } | null;
+  };
   const root = document.querySelector('[data-admin-comments]');
   if (root instanceof HTMLElement) {
     let status = 'pending';
     const list = root.querySelector('[data-admin-list]');
     const render = (items: AdminItem[]) => {
       if (!list) return;
-      const entities: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-      const escape = (value: unknown) => String(value ?? '').replace(/[&<>"']/g, (char) => entities[char] || char);
-      list.innerHTML = items.length ? items.map((item) => `<article class="comment" data-id="${escape(item.id)}"><header><strong>${escape(item.author_name)}</strong><span class="muted">${escape(item.post?.title || item.post_id)}</span></header><p>${escape(item.body)}</p><div class="admin-actions"><button class="button" data-action="approved">Approuver</button><button class="button secondary" data-action="spam">Indésirable</button><button class="button secondary" data-action="reply">Répondre</button><button class="button secondary" data-action="delete">Supprimer</button></div></article>`).join('') : '<p class="muted">Aucun commentaire dans cette liste.</p>';
+      const entities: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      };
+      const escape = (value: unknown) =>
+        String(value ?? '').replace(
+          /[&<>"']/g,
+          (char) => entities[char] || char,
+        );
+      list.innerHTML = items.length
+        ? items
+            .map(
+              (item) =>
+                `<article class="comment" data-id="${escape(item.id)}"><header><strong>${escape(item.author_name)}</strong><span class="muted">${escape(item.post?.title || item.post_id)}</span></header><p>${escape(item.body)}</p><div class="admin-actions"><button class="button" data-action="approved">Approuver</button><button class="button secondary" data-action="spam">Indésirable</button><button class="button secondary" data-action="reply">Répondre</button><button class="button secondary" data-action="delete">Supprimer</button></div></article>`,
+            )
+            .join('')
+        : '<p class="muted">Aucun commentaire dans cette liste.</p>';
     };
-    const load = async () => { if (!list) return; const response = await fetch(`/api/admin/comments?status=${status}`); if (!response.ok) { list.innerHTML = '<p>Accès refusé ou service indisponible.</p>'; return; } const data = await response.json() as { items: AdminItem[] }; render(data.items); };
-    root.querySelectorAll('[data-status]').forEach((button) => button.addEventListener('click', () => { status = button.getAttribute('data-status') || 'pending'; load(); }));
-    root.addEventListener('click', async (event) => { const target = event.target; if (!(target instanceof HTMLButtonElement)) return; const action = target.dataset.action; const article = target.closest('[data-id]'); if (!action || !article) return; const id = article.getAttribute('data-id'); const body = action === 'reply' ? window.prompt('Réponse') : null; if (action === 'reply' && !body) return; const response = action === 'delete' ? await fetch(`/api/admin/comments/${id}`, { method: 'DELETE' }) : action === 'reply' ? await fetch(`/api/admin/comments/${id}/replies`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ body }) }) : await fetch(`/api/admin/comments/${id}`, { method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ status: action }) }); if (response.ok) load(); });
+    const load = async () => {
+      if (!list) return;
+      const response = await fetch(`/api/admin/comments?status=${status}`);
+      if (!response.ok) {
+        list.innerHTML = '<p>Accès refusé ou service indisponible.</p>';
+        return;
+      }
+      const data = (await response.json()) as { items: AdminItem[] };
+      render(data.items);
+    };
+    root.querySelectorAll('[data-status]').forEach((button) =>
+      button.addEventListener('click', () => {
+        status = button.getAttribute('data-status') || 'pending';
+        load();
+      }),
+    );
+    root.addEventListener('click', async (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLButtonElement)) return;
+      const action = target.dataset.action;
+      const article = target.closest('[data-id]');
+      if (!action || !article) return;
+      const id = article.getAttribute('data-id');
+      const body = action === 'reply' ? window.prompt('Réponse') : null;
+      if (action === 'reply' && !body) return;
+      const response =
+        action === 'delete'
+          ? await fetch(`/api/admin/comments/${id}`, { method: 'DELETE' })
+          : action === 'reply'
+            ? await fetch(`/api/admin/comments/${id}/replies`, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ body }),
+              })
+            : await fetch(`/api/admin/comments/${id}`, {
+                method: 'PATCH',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ status: action }),
+              });
+      if (response.ok) load();
+    });
     load();
   }
 </script>
