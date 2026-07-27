@@ -24,7 +24,6 @@ interface Env extends MediaUploadEnv {
   DB: D1Database;
   EMAIL?: EmailBinding;
   TURNSTILE_SECRET: string;
-  RATE_LIMIT_SECRET: string;
 }
 
 const postById = (id: string) => COMMENT_POSTS.find((post) => post.id === id);
@@ -142,7 +141,7 @@ async function createComment(
         env.TURNSTILE_SECRET,
       );
   if (!turnstileValid) return bad('Turnstile validation failed', 403);
-  const ipHash = await hashIp(request, env.RATE_LIMIT_SECRET);
+  const ipHash = await hashIp(request);
   const windowStart = new Date(
     Math.floor(Date.now() / (15 * 60_000)) * 15 * 60_000,
   ).toISOString();
@@ -186,7 +185,6 @@ async function adminApi(request: Request, env: Env): Promise<Response> {
   const administrator = adminEmailWithLocalAuth(
     request,
     env.ADMIN_EMAIL,
-    env.ACCESS_AUDIENCE,
     env.LOCAL_ADMIN_AUTH,
   );
   if (!administrator) return bad('Authentication required', 401);

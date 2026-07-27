@@ -120,13 +120,12 @@ describe('IP hashing and Turnstile validation', () => {
     const firstRequest = new Request('https://www.example.com', {
       headers: { 'CF-Connecting-IP': '192.0.2.1' },
     });
-    const sameIp = await hashIp(firstRequest, 'secret');
-    const repeated = await hashIp(firstRequest, 'secret');
+    const sameIp = await hashIp(firstRequest);
+    const repeated = await hashIp(firstRequest);
     const differentIp = await hashIp(
       new Request('https://www.example.com', {
         headers: { 'CF-Connecting-IP': '192.0.2.2' },
       }),
-      'secret',
     );
 
     expect(sameIp).toMatch(/^[0-9a-f]{64}$/);
@@ -217,7 +216,6 @@ describe('admin access validation', () => {
       adminEmailWithLocalAuth(
         new Request('http://localhost:8787/admin/comments/'),
         'admin@example.com',
-        'app-audience',
         'true',
       ),
     ).toBe('admin@example.com');
@@ -225,7 +223,6 @@ describe('admin access validation', () => {
       adminEmailWithLocalAuth(
         new Request('https://www.example.com/admin/comments/'),
         'admin@example.com',
-        'app-audience',
         'true',
       ),
     ).toBeNull();
@@ -243,9 +240,7 @@ describe('admin access validation', () => {
       },
     });
 
-    expect(adminEmail(request, 'admin@example.com', 'app-audience')).toBe(
-      'Admin@Example.com',
-    );
+    expect(adminEmail(request, 'admin@example.com')).toBe('Admin@Example.com');
   });
 
   it.each([
@@ -256,7 +251,6 @@ describe('admin access validation', () => {
       { email: 'admin@example.com', exp: Math.floor(Date.now() / 1000) - 1 },
     ],
     ['wrong token email', { email: 'other@example.com' }],
-    ['wrong audience', { email: 'admin@example.com', aud: ['different-app'] }],
   ])('rejects %s', (_label, payload) => {
     const headers = new Headers({
       'CF-Access-Authenticated-User-Email': 'admin@example.com',
@@ -271,7 +265,6 @@ describe('admin access validation', () => {
       adminEmail(
         new Request('https://www.example.com', { headers }),
         'admin@example.com',
-        'app-audience',
       ),
     ).toBeNull();
   });
@@ -287,9 +280,21 @@ describe('admin access validation', () => {
       },
     });
 
-    expect(adminEmail(request, 'admin@example.com', 'app-audience')).toBe(
-      'admin@example.com',
-    );
+    expect(adminEmail(request, 'admin@example.com')).toBe('admin@example.com');
+  });
+
+  it('does not require an application audience', () => {
+    const request = new Request('https://www.example.com', {
+      headers: {
+        'CF-Access-Authenticated-User-Email': 'admin@example.com',
+        'CF-Access-Jwt-Assertion': jwt({
+          email: 'admin@example.com',
+          aud: ['different-app'],
+        }),
+      },
+    });
+
+    expect(adminEmail(request, 'admin@example.com')).toBe('admin@example.com');
   });
 });
 

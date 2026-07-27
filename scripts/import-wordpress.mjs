@@ -97,9 +97,9 @@ function writeEntry(item, directory) {
         .turndown(value(item['content:encoded']))
         .replace(
           /https?:\/\/(?:www\.)?theophile\.xyz\/wp-content\/uploads\//gi,
-          'https://media.theophile.xyz/',
+          'https://media.theophile.blog/',
         )
-        .replace(/\/wp-content\/uploads\//gi, 'https://media.theophile.xyz/'),
+        .replace(/\/wp-content\/uploads\//gi, 'https://media.theophile.blog/'),
     ),
   );
   const modified = new Date(

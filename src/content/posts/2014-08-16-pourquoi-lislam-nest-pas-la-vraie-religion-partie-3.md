@@ -26,7 +26,7 @@ Deuxièmement, en soutenant une telle affirmation, le Coran se positionne à l'e
 
 > "1 Je vous rappelle, frères, l'Évangile que je vous ai annoncé, que vous avez reçu, dans lequel vous avez persévéré, 2 et par lequel vous êtes sauvés, si vous le retenez tel que je vous l'ai annoncé; autrement, vous auriez cru en vain. 3 Je vous ai enseigné avant tout, comme je l'avais aussi reçu, que Christ est mort pour nos péchés, selon les Écritures; 4 qu'il a été enseveli, et qu'il est ressuscité le troisième jour, selon les Écritures; 5 et qu'il est apparu à Céphas, puis aux douze. 6 Ensuite, il est apparu à plus de cinq cents frères à la fois, dont la plupart sont encore vivants, et dont quelques-uns sont morts. 7 Ensuite, il est apparu à Jacques, puis à tous les apôtres. 8 Après eux tous, il m'est aussi apparu à moi, comme à l'avorton..."
 
-[![](https://media.theophile.xyz/2014/08/1-Corinthiens-153-7-credo.png)](https://media.theophile.xyz/2014/08/1-Corinthiens-153-7-credo.png)
+[![](https://media.theophile.blog/2014/08/1-Corinthiens-153-7-credo.png)](https://media.theophile.blog/2014/08/1-Corinthiens-153-7-credo.png)
 
 Selon les experts en critique des formes, cette tradition remonte au début des années 30 et vient directement des apôtres :
 

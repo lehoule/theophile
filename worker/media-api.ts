@@ -16,7 +16,6 @@ import {
 
 export interface MediaUploadEnv {
   ADMIN_EMAIL: string;
-  ACCESS_AUDIENCE?: string;
   LOCAL_ADMIN_AUTH?: string;
   SITE_ORIGIN: string;
   MEDIA: R2Bucket;
@@ -32,7 +31,6 @@ function administratorForMedia(
     email: adminEmailWithLocalAuth(
       request,
       env.ADMIN_EMAIL,
-      env.ACCESS_AUDIENCE,
       env.LOCAL_ADMIN_AUTH,
     ),
     local,
@@ -85,7 +83,7 @@ export async function uploadMedia(
 
   const origin = local
     ? new URL(request.url).origin
-    : (env.MEDIA_PUBLIC_ORIGIN || 'https://media.theophile.xyz').replace(
+    : (env.MEDIA_PUBLIC_ORIGIN || 'https://media.theophile.blog').replace(
         /\/+$/,
         '',
       );

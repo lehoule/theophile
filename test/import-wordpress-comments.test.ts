@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { buildCommentRows } from '../scripts/import-wordpress-comments.mjs';
+import {
+  buildCommentRows,
+  renderCommentImport,
+} from '../scripts/import-wordpress-comments.mjs';
 
 const comment = (id: number, parent: number, approved = '1') => ({
   'wp:comment_id': String(id),
@@ -12,6 +15,21 @@ const comment = (id: number, parent: number, approved = '1') => ({
 });
 
 describe('WordPress comment import ordering', () => {
+  it('renders D1-compatible SQL without manual transaction statements', () => {
+    const result = buildCommentRows([
+      {
+        'wp:post_id': '42',
+        'wp:comment': [comment(1, 0)],
+      },
+    ]);
+
+    const sql = renderCommentImport(result.rows);
+
+    expect(sql).not.toContain('BEGIN TRANSACTION');
+    expect(sql).not.toContain('COMMIT');
+    expect(sql).toContain('INSERT OR IGNORE INTO comments');
+  });
+
   it('writes approved parents before their replies', () => {
     const result = buildCommentRows([
       {

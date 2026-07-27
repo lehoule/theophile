@@ -3,7 +3,7 @@ import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.theophile.xyz',
+  site: 'https://www.theophile.blog',
   output: 'static',
   integrations: [sitemap()],
   markdown: {

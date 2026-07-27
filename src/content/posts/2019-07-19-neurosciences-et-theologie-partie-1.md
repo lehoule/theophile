@@ -65,7 +65,7 @@ Ainsi, l’engouement que crée le domaine des neurosciences comme nouvelle inte
 
 [^10]: Serge N. Schiffmann, "Deux décennies de recherche en neuroscience : avancées et perspectives", _Cahiers de psychologie clinique_, 1 (2013), p. 80.
 
-[^11]: Cyclopharma, _Leader en solutions d’imagerie moléculaire_, en ligne, \[[http://cyclopharma.frhttps://media.theophile.xyz/2016/09/DP-CYCLOPHARMA-2016.pdf](http://cyclopharma.frhttps://media.theophile.xyz/2016/09/DP-CYCLOPHARMA-2016.pdf)\] Consulté le 19 mars 2018.
+[^11]: Cyclopharma, _Leader en solutions d’imagerie moléculaire_, en ligne, \[[http://cyclopharma.frhttps://media.theophile.blog/2016/09/DP-CYCLOPHARMA-2016.pdf](http://cyclopharma.frhttps://media.theophile.blog/2016/09/DP-CYCLOPHARMA-2016.pdf)\] Consulté le 19 mars 2018.
 
 [^12]: Jean-Yves Nau, "L’exploration du cerveau soumise à la question éthique", _Revue Médicale Suisse_, 4 (2008), p. 935.
 

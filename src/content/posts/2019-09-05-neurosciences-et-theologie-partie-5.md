@@ -54,11 +54,11 @@ Quatrièmement, la vitalité de l’être humain dépend du souffle de Dieu qui 
 
 En Gn 2-3, après que la vie ait été présentée comme un don Dieu (Gn 2,7) qui s’inscrit dans la continuité (Gn 2,17), la précarité de l’être humain est niée (Gn 3,4), puis réafirmée par Dieu (Gn 3,19). Walter Brueggemann propose ce modèle[^17] :
 
-[![](https://media.theophile.xyz/2020/01/Capture-d’écran-le-2020-01-02-à-23.17.37.png)](https://media.theophile.xyz/2020/01/Capture-d’écran-le-2020-01-02-à-23.17.37.png)
+[![](https://media.theophile.blog/2020/01/Capture-d’écran-le-2020-01-02-à-23.17.37.png)](https://media.theophile.blog/2020/01/Capture-d’écran-le-2020-01-02-à-23.17.37.png)
 
 Le déni du lien de notre dépendance à la générosité divine appelle à la révélation concrète que Dieu disait vrai : l’être humain devient mortel. Or, l’inverse est aussi vrai bibliquement. La vue de la mort des hommes rappelle à Dieu son désir de générosité envers l’humain. Cela est apparent dans le Ps 103 où la finitude humaine se trouve encastré dans l’attitude généreuse de Dieu[^18] :
 
-[![](https://media.theophile.xyz/2019/09/Ce-que-nous-sommes.png)](https://media.theophile.xyz/2019/09/Ce-que-nous-sommes.png)
+[![](https://media.theophile.blog/2019/09/Ce-que-nous-sommes.png)](https://media.theophile.blog/2019/09/Ce-que-nous-sommes.png)
 
 Cette anthropologie théologique mettant l’accent sur la précarité de l’existence humaine a été l’objet des réflexions philosophiques de Blaise Pascal. François Chirpaz résume la pensée de Pascal en démontrant qu’il s’inspire de la tradition hébraïque sur ce point :
 

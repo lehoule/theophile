@@ -132,6 +132,8 @@ export const buildCommentRows = (items) => {
   return { rows, approved, orphanParents };
 };
 
+export const renderCommentImport = (rows) => `${rows.join('\n')}\n`;
+
 export const generateCommentImport = (
   input,
   outputDirectory = process.cwd(),
@@ -145,7 +147,7 @@ export const generateCommentImport = (
   fs.mkdirSync(migrationDirectory, { recursive: true });
   fs.writeFileSync(
     path.join(backupsDirectory, 'comment-import.sql'),
-    `BEGIN TRANSACTION;\n${rows.join('\n')}\nCOMMIT;\n`,
+    renderCommentImport(rows),
   );
   fs.writeFileSync(
     path.join(migrationDirectory, 'comment-report.json'),

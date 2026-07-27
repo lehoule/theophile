@@ -1,6 +1,4 @@
 # Local Worker values. Copy to .dev.vars; never commit the copied file.
 TURNSTILE_SECRET=1x0000000000000000000000000000000AA
-RATE_LIMIT_SECRET=local-development-secret-change-me
 ADMIN_EMAIL=owner@example.test
-ACCESS_AUDIENCE=REPLACE_WITH_ACCESS_AUDIENCE_TAG
 LOCAL_ADMIN_AUTH=true

@@ -62,22 +62,12 @@ export function validateCommentInput(input: unknown): {
   return { name, email, body, honeypot };
 }
 
-export async function hashIp(
-  request: Request,
-  secret: string,
-): Promise<string> {
+export async function hashIp(request: Request): Promise<string> {
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   const data = new TextEncoder().encode(
-    `${secret}:${ip}:${new Date().toISOString().slice(0, 10)}`,
+    `rate-limit:${ip}:${new Date().toISOString().slice(0, 10)}`,
   );
-  const key = await crypto.subtle.importKey(
-    'raw',
-    new TextEncoder().encode(secret),
-    { name: 'HMAC', hash: 'SHA-256' },
-    false,
-    ['sign'],
-  );
-  const digest = await crypto.subtle.sign('HMAC', key, data);
+  const digest = await crypto.subtle.digest('SHA-256', data);
   return [...new Uint8Array(digest)]
     .map((byte) => byte.toString(16).padStart(2, '0'))
     .join('');
@@ -144,11 +134,7 @@ function decodeJwtPayload(token: string): Record<string, unknown> | null {
   }
 }
 
-export function adminEmail(
-  request: Request,
-  expected: string,
-  audience?: string,
-): string | null {
+export function adminEmail(request: Request, expected: string): string | null {
   const email = request.headers.get('CF-Access-Authenticated-User-Email');
   const jwt = request.headers.get('CF-Access-Jwt-Assertion');
   if (!email || !jwt || email.toLowerCase() !== expected.toLowerCase())
@@ -168,12 +154,6 @@ export function adminEmail(
         : '';
   if (tokenEmail && tokenEmail.toLowerCase() !== email.toLowerCase())
     return null;
-  if (audience && !audience.startsWith('REPLACE_')) {
-    const tokenAudience = Array.isArray(payload.aud)
-      ? payload.aud.map(String)
-      : [String(payload.aud || '')];
-    if (!tokenAudience.includes(audience)) return null;
-  }
   return email;
 }
 
@@ -202,9 +182,8 @@ export function isLocalDevelopment(
 export function adminEmailWithLocalAuth(
   request: Request,
   expected: string,
-  audience: string | undefined,
   localAuth: string | undefined,
 ): string | null {
   if (localAuth === 'true' && isLoopbackRequest(request)) return expected;
-  return adminEmail(request, expected, audience);
+  return adminEmail(request, expected);
 }

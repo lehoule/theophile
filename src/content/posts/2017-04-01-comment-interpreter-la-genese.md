@@ -22,7 +22,7 @@ Ne pas faire l'effort herméneutique de chercher à comprendre la vision du mon
 
 ## **2\. Non des vérités scientifiques, mais théologiques**
 
-Nous apprenons que le texte n'a pas comme objectif de communiquer des vérités scientifiques (comment Dieu a créé), mais théologiques (qui est Dieu, pourquoi l'être humain a-t-il été créé, pourquoi la condition humaine est-elle à la fois dotée de grandeur et de misère, etc.). Voici la comparaison entre les premières phrases du récit de la Genèse et les premières phrases du récit Enuma Elish, un mythe cosmogonique babylonien datant du 12e siècle av. J-C. [![](https://media.theophile.xyz/2017/03/Comparaison-Genese-Enuma-Elish-1.png)](https://media.theophile.xyz/2017/03/Comparaison-Genese-Enuma-Elish-1.png) Plusieurs ressemblances frappent :
+Nous apprenons que le texte n'a pas comme objectif de communiquer des vérités scientifiques (comment Dieu a créé), mais théologiques (qui est Dieu, pourquoi l'être humain a-t-il été créé, pourquoi la condition humaine est-elle à la fois dotée de grandeur et de misère, etc.). Voici la comparaison entre les premières phrases du récit de la Genèse et les premières phrases du récit Enuma Elish, un mythe cosmogonique babylonien datant du 12e siècle av. J-C. [![](https://media.theophile.blog/2017/03/Comparaison-Genese-Enuma-Elish-1.png)](https://media.theophile.blog/2017/03/Comparaison-Genese-Enuma-Elish-1.png) Plusieurs ressemblances frappent :
 
 -   Les deux récits commencent en rappelant un temps primordial où le ciel et la terre n'existaient pas.
 -   Les eaux représentent l'élément de base de la création.

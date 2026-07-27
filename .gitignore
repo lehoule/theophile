@@ -5,5 +5,7 @@ dist/
 backups/
 .env
 .dev.vars
+.media-upload-state.json
 worker/post-registry.generated.ts
 migration/
+media-manifest.json

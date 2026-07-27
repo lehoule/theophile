@@ -1,6 +1,6 @@
 # Théophile
 
-Astro/TypeScript static publishing platform and Cloudflare Worker/D1 comment API for [theophile.xyz](https://www.theophile.xyz/).
+Astro/TypeScript static publishing platform and Cloudflare Worker/D1 comment API for [theophile.blog](https://www.theophile.blog/).
 
 ## Copyright and license
 
@@ -70,7 +70,7 @@ npm run build
 npm run db:import:local
 ```
 
-The first importer creates Markdown in `src/content/posts` and `src/content/pages`. The second creates the idempotent SQL file `backups/comment-import.sql`; the local import command applies it to D1. Run `npm run registry` whenever you need to inspect or regenerate the commentable-post registry.
+The first importer creates Markdown in `src/content/posts` and `src/content/pages`. The second creates the idempotent SQL file `backups/comment-import.sql`; it intentionally contains no manual transaction wrapper because `wrangler d1 execute --file` manages the import transaction. The local import command applies it to D1. Run `npm run registry` whenever you need to inspect or regenerate the commentable-post registry.
 
 ## WordPress migration
 
@@ -99,10 +99,37 @@ Generate the typed inventory before uploading originals (generated WordPress siz
 node scripts/inventory-media.mjs /secure/path/wp-content/uploads
 ```
 
+The inventory only includes files under WordPress's `YYYY/MM` upload paths;
+plugin-generated directories such as `wpconsent` are excluded.
+
+Preview the R2 migration first. This verifies every source file exists and its
+SHA-256 checksum matches the manifest without uploading anything:
+
+```sh
+npm run media:upload -- /secure/path/wp-content/uploads --dry-run
+```
+
+After reviewing the dry-run output, authenticate Wrangler with the Cloudflare
+account that owns the bucket and upload the originals:
+
+```sh
+npx wrangler login
+npm run media:upload -- /secure/path/wp-content/uploads
+```
+
+The uploader preserves each `YYYY/MM/...` key, sets the recorded MIME type,
+and uploads to the `theophile-media` bucket. It uses the manifest checksum to
+avoid uploading a file from the wrong WordPress export. After each successful
+upload it atomically records the key and checksum in
+`.media-upload-state.json`, so a later run skips completed files after a
+failure. Use `--state=/path/to/state.json` when you want the state file in a
+different location. The migration media directory stays outside this
+repository.
+
 ## Cloudflare setup
 
 1. Create a production D1 database named `theophile-comments` and replace `database_id` in `wrangler.toml`.
-2. Create R2 buckets named `theophile-media` and `theophile-private`; attach the media bucket to `media.theophile.xyz` and do not make the private bucket public.
+2. Create R2 buckets named `theophile-media` and `theophile-private`; attach the media bucket to `media.theophile.blog` and do not make the private bucket public.
 3. Apply migrations locally first, then remotely:
 
    ```sh
@@ -114,14 +141,12 @@ node scripts/inventory-media.mjs /secure/path/wp-content/uploads
 
    ```sh
    npx wrangler secret put TURNSTILE_SECRET
-   npx wrangler secret put RATE_LIMIT_SECRET
    ```
 
-5. Configure a Turnstile widget for `www.theophile.xyz` and set `PUBLIC_TURNSTILE_SITE_KEY` in the Cloudflare build environment before production.
-6. Configure a verified Cloudflare Email Service destination and set `ADMIN_EMAIL` in `wrangler.toml`. Set `PUBLIC_CF_ANALYTICS_TOKEN` in the build environment to enable cookie-free Web Analytics.
+5. Configure a Turnstile widget for `www.theophile.blog` and set `PUBLIC_TURNSTILE_SITE_KEY` in the Cloudflare build environment before production.
+6. Set `ADMIN_EMAIL` in `wrangler.toml` for admin authentication. Email notifications are currently disabled. Set `PUBLIC_CF_ANALYTICS_TOKEN` in the build environment to enable cookie-free Web Analytics.
 7. Protect `/admin/comments/*`, `/admin/media/*`, and `/api/admin/*` with a Cloudflare Access application restricted to the owner’s email. Access must add both the authenticated email and JWT headers.
-   Set `ACCESS_AUDIENCE` to the Access application audience tag when you want the Worker to enforce the JWT audience as well.
-8. Deploy with `npm run deploy`, attach `www.theophile.xyz` as the Worker custom domain, and configure the apex domain to redirect to `www`.
+8. Deploy with `npm run deploy`, attach `www.theophile.blog` as the Worker custom domain, and configure the apex domain to redirect to `www`.
 
 The local/public Turnstile site key is supplied as the build variable `PUBLIC_TURNSTILE_SITE_KEY`; the secret key is stored only with `wrangler secret put TURNSTILE_SECRET`.
 

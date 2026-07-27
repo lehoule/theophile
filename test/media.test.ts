@@ -21,12 +21,10 @@ const accessHeaders = () => ({
 const environment = (put = vi.fn().mockResolvedValue(undefined)) =>
   ({
     ADMIN_EMAIL: 'admin@example.com',
-    ACCESS_AUDIENCE: 'media-app',
-    SITE_ORIGIN: 'https://www.theophile.xyz',
+    SITE_ORIGIN: 'https://www.theophile.blog',
     TURNSTILE_SECRET: 'secret',
-    RATE_LIMIT_SECRET: 'secret',
     MEDIA: { put },
-    MEDIA_PUBLIC_ORIGIN: 'https://media.theophile.xyz',
+    MEDIA_PUBLIC_ORIGIN: 'https://media.theophile.blog',
   }) as unknown as Parameters<typeof uploadMedia>[1];
 
 afterEach(() => {
@@ -54,11 +52,11 @@ describe('media helpers', () => {
       markdownForMedia(
         'image/jpeg',
         'photo.jpg',
-        'https://media.theophile.xyz/2026/07/photo.jpg',
+        'https://media.theophile.blog/2026/07/photo.jpg',
         'Une [photo]\navec une description',
       ),
     ).toBe(
-      '![Une photo avec une description](https://media.theophile.xyz/2026/07/photo.jpg)',
+      '![Une photo avec une description](https://media.theophile.blog/2026/07/photo.jpg)',
     );
   });
 });
@@ -67,7 +65,7 @@ describe('media upload API', () => {
   it('rejects unauthenticated uploads without touching R2', async () => {
     const put = vi.fn();
     const response = await uploadMedia(
-      new Request('https://www.theophile.xyz/api/admin/media', {
+      new Request('https://www.theophile.blog/api/admin/media', {
         method: 'POST',
         body: 'file',
       }),
@@ -100,10 +98,10 @@ describe('media upload API', () => {
     expect(localResponse.status).toBe(201);
 
     const productionResponse = await uploadMedia(
-      new Request('https://www.theophile.xyz/api/admin/media', {
+      new Request('https://www.theophile.blog/api/admin/media', {
         method: 'POST',
         headers: {
-          origin: 'https://www.theophile.xyz',
+          origin: 'https://www.theophile.blog',
           'content-type': 'audio/mpeg',
           'content-length': '4',
           'x-media-filename': 'conference.mp3',
@@ -149,7 +147,7 @@ describe('media upload API', () => {
 
     const productionResponse = await serveLocalMedia(
       new Request(
-        'https://www.theophile.xyz/__local-media/2026/07/conference-abc123.mp3',
+        'https://www.theophile.blog/__local-media/2026/07/conference-abc123.mp3',
       ),
       env,
     );
@@ -159,11 +157,11 @@ describe('media upload API', () => {
   it('uploads an authorized file and returns a copyable Markdown snippet', async () => {
     const put = vi.fn().mockResolvedValue(undefined);
     const response = await uploadMedia(
-      new Request('https://www.theophile.xyz/api/admin/media', {
+      new Request('https://www.theophile.blog/api/admin/media', {
         method: 'POST',
         headers: {
           ...accessHeaders(),
-          origin: 'https://www.theophile.xyz',
+          origin: 'https://www.theophile.blog',
           'content-type': 'image/jpeg',
           'content-length': '4',
           'x-media-filename': encodeURIComponent('Été.jpg'),
@@ -180,7 +178,7 @@ describe('media upload API', () => {
       expect.objectContaining({
         mime: 'image/jpeg',
         url: expect.stringMatching(
-          /^https:\/\/media\.theophile\.xyz\/\d{4}\/\d{2}\//,
+          /^https:\/\/media\.theophile\.blog\/\d{4}\/\d{2}\//,
         ),
         markdown: expect.stringContaining('Une photo estivale'),
       }),
@@ -192,13 +190,13 @@ describe('media upload API', () => {
     const put = vi.fn();
     const base = {
       ...accessHeaders(),
-      origin: 'https://www.theophile.xyz',
+      origin: 'https://www.theophile.blog',
       'content-type': 'text/html',
       'content-length': '4',
       'x-media-filename': 'page.html',
     };
     const unsupported = await uploadMedia(
-      new Request('https://www.theophile.xyz/api/admin/media', {
+      new Request('https://www.theophile.blog/api/admin/media', {
         method: 'POST',
         headers: base,
         body: 'data',
@@ -208,11 +206,11 @@ describe('media upload API', () => {
     expect(unsupported.status).toBe(415);
 
     const oversized = await uploadMedia(
-      new Request('https://www.theophile.xyz/api/admin/media', {
+      new Request('https://www.theophile.blog/api/admin/media', {
         method: 'POST',
         headers: {
           ...accessHeaders(),
-          origin: 'https://www.theophile.xyz',
+          origin: 'https://www.theophile.blog',
           'content-type': 'image/jpeg',
           'content-length': String(MAX_MEDIA_BYTES + 1),
           'x-media-filename': 'large.jpg',

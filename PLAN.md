@@ -21,7 +21,7 @@ Coût prévu :
 - Utiliser Pagefind pour la recherche statique française, Cloudflare Web Analytics sans cookies, ainsi que les métadonnées canonical, Open Graph et `BlogPosting`.
 - Définir une collection de contenu validée avec `title`, `slug`, `publishedAt`, `updatedAt`, `excerpt`, `author`, `categories`, `tags`, `featuredMedia`, `commentId`, `legacyWordPressId`, `draft` et SEO facultatif.
 - Conserver les articles en Markdown sans HTML ni JSX. Les notes utilisent `[^n]`; les liens MP3 et vidéo autonomes sont transformés en lecteurs accessibles par le moteur de rendu.
-- Héberger les médias sur `media.theophile.xyz` dans R2, avec transformations responsives et manifeste typé contenant clé, MIME, dimensions, texte alternatif, légende et checksum.
+- Héberger les médias sur `media.theophile.blog` dans R2, avec transformations responsives et manifeste typé contenant clé, MIME, dimensions, texte alternatif, légende et checksum.
 - Le dépôt GitHub constitue le CMS : commandes locales de création, aperçu, validation et publication. Les brouillons privés ne sont jamais poussés puisque le dépôt est public.
 
 ## Système de commentaires Cloudflare
@@ -30,7 +30,7 @@ Coût prévu :
 - Le formulaire accepte un nom de 2–80 caractères, une adresse courriel facultative et un commentaire en texte brut de 2–5 000 caractères. Le rendu échappe toujours le HTML et transforme seulement les URL valides en liens `nofollow ugc`.
 - Tous les nouveaux commentaires sont créés avec le statut `pending`; ils ne deviennent visibles qu’après approbation.
 - Valider Turnstile côté Worker, comme l’exige Cloudflare, puis appliquer : contrôle d’origine, champ piège, maximum de trois liens, détection de doublons, trois soumissions par tranche de quinze minutes et dix par jour pour un même hash IP. [Validation serveur Turnstile](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/).
-- Ne jamais conserver l’adresse IP brute. Utiliser un HMAC avec secret Worker pour la limitation, puis supprimer les entrées temporaires après 24 heures.
+- Ne jamais conserver l’adresse IP brute. Utiliser un hash SHA-256 limité à la journée pour la limitation, puis supprimer les entrées temporaires après 24 heures.
 - Modéliser D1 avec :
   - `comments` : identifiant UUID, `post_id`, parent facultatif, identifiant WordPress facultatif, nom, courriel privé facultatif, corps texte, statut, source et dates;
   - `moderation_events` : commentaire, action, administrateur et date;

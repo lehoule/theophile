@@ -16,10 +16,10 @@ describe('site URLs', () => {
 
   it('encodes each media path segment and optional image width', () => {
     expect(mediaUrl('audio/Mon fichier.mp3')).toBe(
-      'https://media.theophile.xyz/audio/Mon%20fichier.mp3',
+      'https://media.theophile.blog/audio/Mon%20fichier.mp3',
     );
     expect(mediaUrl('images/été photo.jpg', 800)).toBe(
-      'https://media.theophile.xyz/cdn-cgi/image/width=800,format=auto/images/%C3%A9t%C3%A9%20photo.jpg',
+      'https://media.theophile.blog/cdn-cgi/image/width=800,format=auto/images/%C3%A9t%C3%A9%20photo.jpg',
     );
   });
 });
