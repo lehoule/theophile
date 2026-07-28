@@ -1,4 +1,6 @@
 <script>
+  import { youtubeEmbedUrl } from '../data/youtube';
+
   const extension = (url: string) =>
     new URL(url, window.location.href).pathname
       .split('.')
@@ -13,20 +15,41 @@
     webm: 'video',
     mov: 'video',
   };
+  const enableYoutube = document.querySelector('.videos-article') !== null;
   document.querySelectorAll('.article-body a[href]').forEach((anchor) => {
     if (!(anchor instanceof HTMLAnchorElement)) return;
     const kind = media[extension(anchor.href)];
-    if (!kind || anchor.dataset.playerAdded) return;
+    let youtubeUrl: string | null = null;
+    if (enableYoutube) {
+      try {
+        youtubeUrl = youtubeEmbedUrl(anchor.href);
+      } catch {
+        // This link is not a YouTube video.
+      }
+    }
+    if ((!kind && !youtubeUrl) || anchor.dataset.playerAdded) return;
     anchor.dataset.playerAdded = 'true';
-    const player = document.createElement(kind) as HTMLMediaElement;
-    player.controls = true;
-    player.preload = 'metadata';
-    player.src = anchor.href;
-    player.setAttribute(
-      'aria-label',
-      `Lecteur : ${anchor.textContent?.trim() || 'média'}`,
-    );
-    player.className = 'media-player';
+    const player = youtubeUrl
+      ? document.createElement('iframe')
+      : (document.createElement(kind) as HTMLMediaElement);
+    if (youtubeUrl && player instanceof HTMLIFrameElement) {
+      player.src = youtubeUrl;
+      player.title = anchor.textContent?.trim() || 'Vidéo YouTube';
+      player.loading = 'lazy';
+      player.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      player.allowFullscreen = true;
+      player.className = 'media-player youtube-player';
+    } else if (player instanceof HTMLMediaElement) {
+      player.controls = true;
+      player.preload = 'metadata';
+      player.src = anchor.href;
+      player.setAttribute(
+        'aria-label',
+        `Lecteur : ${anchor.textContent?.trim() || 'média'}`,
+      );
+      player.className = 'media-player';
+    }
     anchor.insertAdjacentElement('afterend', player);
   });
 </script>

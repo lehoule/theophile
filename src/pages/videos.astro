@@ -1,12 +1,26 @@
 ---
+import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import MediaPlayers from '../components/MediaPlayers.astro';
+
+const page = (
+  await getCollection(
+    'pages',
+    ({ data }) => !data.draft && data.slug === 'videos',
+  )
+)[0];
+
+if (!page) throw new Error('The videos page content is missing.');
+const { Content } = await render(page);
 ---
 
-<Layout title="Vidéos"
-  ><section class="hero">
-    <p class="eyebrow">Théophile</p><h1>Vidéos</h1><p class="lede">
-      Une sélection de conférences et de réflexions en vidéo sera ajoutée lors
-      de la migration.
-    </p>
-  </section></Layout
->
+<Layout title="Vidéos">
+  <section class="hero">
+    <p class="eyebrow">Théophile</p><h1>{page.data.title}</h1>
+    <p class="lede">Une sélection de conférences et de réflexions.</p>
+  </section>
+  <article class="article videos-article">
+    <div class="article-body"><Content /></div>
+    <MediaPlayers />
+  </article>
+</Layout>

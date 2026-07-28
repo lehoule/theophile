@@ -42,6 +42,7 @@ h2 { font-size: clamp(1.45rem, 3vw, 2.1rem); }
 .article-body { font: 1.1rem/1.8 Georgia, 'Times New Roman', serif; }
 .article-body img { max-width: 100%; height: auto; }
 .media-player { display: block; width: min(100%, 42rem); margin: 1rem 0 1.5rem; }
+.youtube-player { aspect-ratio: 16 / 9; height: auto; border: 0; }
 .article-body blockquote { margin-inline: 0; padding-left: 1.25rem; border-left: 3px solid var(--accent); color: #4c4840; }
 .comments { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 .comment { padding: 1rem 0; border-bottom: 1px solid var(--line); }
