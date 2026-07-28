@@ -8,36 +8,80 @@ import { postHref } from '../data/urls';
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
+const [featuredPost, ...remainingPosts] = posts;
 ---
 
 <Layout>
-  <section class="hero">
-    <p class="eyebrow">Foi · raison · culture</p>
-    <h1>Penser la foi avec rigueur et liberté.</h1>
-    <p class="lede">
-      {site.description} Des textes d’exégèse, de théologie et de réflexion sur le
-      monde chrétien.
-    </p>
-    <p><a class="button" href="/blog/">Lire les articles</a></p>
+  <section class="hero home-hero" data-reveal>
+    <div class="hero-rail" aria-hidden="true">
+      <span>Depuis 2010</span>
+      <span>Archives ouvertes</span>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">Foi · raison · culture</p>
+      <h1>Penser la foi <em>avec rigueur</em> et liberté.</h1>
+      <p class="lede">
+        {site.description} Des textes d’exégèse, de théologie et de réflexion sur
+        le monde chrétien.
+      </p>
+      <p>
+        <a class="text-link" href="/blog/"
+          >Parcourir les archives <span aria-hidden="true">→</span></a
+        >
+      </p>
+    </div>
+    <p class="hero-glyph" aria-hidden="true">Θ</p>
   </section>
-  <section aria-labelledby="recent-title">
+  <section class="home-articles" aria-labelledby="recent-title" data-reveal>
     <div class="section-heading">
-      <p class="eyebrow">À découvrir</p><h2 id="recent-title">
-        Articles récents
-      </h2>
+      <div>
+        <p class="eyebrow">Dernières parutions</p>
+        <h2 id="recent-title">Le cahier récent</h2>
+      </div>
+      <p>
+        Notes, essais et lectures pour une foi qui n’esquive pas les questions.
+      </p>
     </div>
     {
-      posts.length ? (
-        <div class="post-grid">
-          {posts.slice(0, 6).map((post) => (
-            <PostCard
-              title={post.data.title}
-              href={postHref(post.data.publishedAt, post.data.slug)}
-              date={post.data.publishedAt}
-              excerpt={post.data.excerpt}
-              categories={post.data.categories}
-            />
-          ))}
+      featuredPost ? (
+        <div class="editorial-grid">
+          <PostCard
+            title={featuredPost.data.title}
+            href={postHref(
+              featuredPost.data.publishedAt,
+              featuredPost.data.slug,
+            )}
+            date={featuredPost.data.publishedAt}
+            excerpt={featuredPost.data.excerpt}
+            categories={featuredPost.data.categories}
+            variant="featured"
+            index={1}
+          />
+          <div class="editorial-secondary">
+            {remainingPosts.slice(0, 2).map((post, index) => (
+              <PostCard
+                title={post.data.title}
+                href={postHref(post.data.publishedAt, post.data.slug)}
+                date={post.data.publishedAt}
+                excerpt={post.data.excerpt}
+                categories={post.data.categories}
+                index={index + 2}
+              />
+            ))}
+          </div>
+          <div class="editorial-index" aria-label="Autres articles récents">
+            {remainingPosts.slice(2, 5).map((post, index) => (
+              <PostCard
+                title={post.data.title}
+                href={postHref(post.data.publishedAt, post.data.slug)}
+                date={post.data.publishedAt}
+                excerpt={post.data.excerpt}
+                categories={post.data.categories}
+                variant="index"
+                index={index + 4}
+              />
+            ))}
+          </div>
         </div>
       ) : (
         <p class="muted">

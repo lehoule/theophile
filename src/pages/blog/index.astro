@@ -21,13 +21,15 @@ const totalPages = Math.max(1, Math.ceil(posts.length / BLOG_PAGE_SIZE));
   {
     posts.length ? (
       <div class="post-grid">
-        {posts.slice(0, BLOG_PAGE_SIZE).map((post) => (
+        {posts.slice(0, BLOG_PAGE_SIZE).map((post, index) => (
           <PostCard
             title={post.data.title}
             href={postHref(post.data.publishedAt, post.data.slug)}
             date={post.data.publishedAt}
             excerpt={post.data.excerpt}
             categories={post.data.categories}
+            variant={index === 0 ? 'featured' : 'standard'}
+            index={index + 1}
           />
         ))}
       </div>

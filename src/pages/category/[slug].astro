@@ -23,13 +23,14 @@ const { name, posts } = Astro.props;
     <p class="eyebrow">Catégorie</p><h1>{name}</h1>
   </section><div class="post-grid">
     {
-      posts.map((post) => (
+      posts.map((post, index) => (
         <PostCard
           title={post.data.title}
           href={postHref(post.data.publishedAt, post.data.slug)}
           date={post.data.publishedAt}
           excerpt={post.data.excerpt}
           categories={post.data.categories}
+          index={index + 1}
         />
       ))
     }

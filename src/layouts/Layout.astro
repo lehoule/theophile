@@ -1,5 +1,10 @@
 ---
 import { site } from '../data/site';
+import literataNormalUrl from '@fontsource-variable/literata/files/literata-latin-standard-normal.woff2?url';
+import literataItalicUrl from '@fontsource-variable/literata/files/literata-latin-standard-italic.woff2?url';
+import literataGreekUrl from '@fontsource-variable/literata/files/literata-greek-standard-normal.woff2?url';
+import azeretMonoUrl from '@fontsource-variable/azeret-mono/files/azeret-mono-latin-wght-normal.woff2?url';
+import '../styles/fonts.css';
 import '../styles/global.css';
 
 interface Props {
@@ -25,6 +30,17 @@ const {
 } = Astro.props;
 const pageTitle = title === site.title ? title : `${title} – ${site.title}`;
 const canonical = new URL(Astro.url.pathname, site.origin).toString();
+const navigation = [
+  { href: '/', label: 'Accueil', index: '01' },
+  { href: '/blog/', label: 'Blog', index: '02' },
+  { href: '/videos/', label: 'Vidéos', index: '03' },
+  { href: '/a-propos/', label: 'À propos', index: '04' },
+  { href: '/recherche/', label: 'Recherche', index: '05' },
+];
+const isCurrent = (href: string) =>
+  href === '/'
+    ? Astro.url.pathname === href
+    : Astro.url.pathname.startsWith(href);
 const structuredData = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': type === 'article' ? 'BlogPosting' : 'WebSite',
@@ -43,6 +59,34 @@ const structuredData = JSON.stringify({
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      rel="preload"
+      href={literataNormalUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={literataItalicUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={literataGreekUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={azeretMonoUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -71,22 +115,39 @@ const structuredData = JSON.stringify({
     <a class="skip-link" href="#main-content">Aller au contenu</a>
     <header class="site-header">
       <div class="shell header-inner">
-        <a class="brand" href="/">Théophile</a>
+        <a class="brand" href="/" aria-label="Théophile — accueil">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-symbol">Θ</span>
+          </span>
+          <span class="brand-name">Théophile</span>
+          <span class="brand-note">Carnet de foi<br />et de raison</span>
+        </a>
         <nav aria-label="Navigation principale">
-          <a href="/">Accueil</a>
-          <a href="/blog/">Blog</a>
-          <a href="/videos/">Vidéos</a>
-          <a href="/a-propos/">À propos</a>
-          <a href="/recherche/">Recherche</a>
+          {
+            navigation.map((item) => (
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+              >
+                <span aria-hidden="true">{item.index}</span>
+                {item.label}
+              </a>
+            ))
+          }
         </nav>
       </div>
     </header>
-    <main id="main-content" class="shell"><slot /></main>
+    <main id="main-content" class="shell page-shell"><slot /></main>
     <footer class="site-footer">
       <div class="shell footer-inner">
-        <span>Théophile © 2015–{new Date().getFullYear()}</span>
-        <a href="/cookie-policy/">Confidentialité</a>
-        <a href="/rss.xml">Flux RSS</a>
+        <div class="footer-signature">
+          <span class="footer-mark" aria-hidden="true">Θ</span>
+          <span>Théophile © 2015–{new Date().getFullYear()}</span>
+        </div>
+        <nav aria-label="Navigation secondaire">
+          <a href="/cookie-policy/">Confidentialité</a>
+          <a href="/rss.xml">Flux RSS</a>
+        </nav>
       </div>
     </footer>
   </body>

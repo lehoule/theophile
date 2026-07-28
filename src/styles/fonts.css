@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 200 900;
+  src: url('../../node_modules/@fontsource-variable/literata/files/literata-latin-standard-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00ff, U+0131, U+0152-0153, U+02bb-02bc, U+02c6, U+02da, U+02dc, U+0304,
+    U+0308, U+0329, U+2000-206f, U+20ac, U+2122, U+2191, U+2193, U+2212, U+2215, U+feff,
+    U+fffd;
+}
+
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: italic;
+  font-display: optional;
+  font-weight: 200 900;
+  src: url('../../node_modules/@fontsource-variable/literata/files/literata-latin-standard-italic.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00ff, U+0131, U+0152-0153, U+02bb-02bc, U+02c6, U+02da, U+02dc, U+0304,
+    U+0308, U+0329, U+2000-206f, U+20ac, U+2122, U+2191, U+2193, U+2212, U+2215, U+feff,
+    U+fffd;
+}
+
+@font-face {
+  font-family: 'Literata Variable';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 200 900;
+  src: url('../../node_modules/@fontsource-variable/literata/files/literata-greek-standard-normal.woff2')
+    format('woff2-variations');
+  unicode-range: U+0370-0377, U+037a-037f, U+0384-038a, U+038c, U+038e-03a1, U+03a3-03ff;
+}
+
+@font-face {
+  font-family: 'Azeret Mono Variable';
+  font-style: normal;
+  font-display: optional;
+  font-weight: 100 900;
+  src: url('../../node_modules/@fontsource-variable/azeret-mono/files/azeret-mono-latin-wght-normal.woff2')
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00ff, U+0131, U+0152-0153, U+02bb-02bc, U+02c6, U+02da, U+02dc, U+0304,
+    U+0308, U+0329, U+2000-206f, U+20ac, U+2122, U+2191, U+2193, U+2212, U+2215, U+feff,
+    U+fffd;
+}

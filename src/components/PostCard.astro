@@ -5,17 +5,37 @@ interface Props {
   date: Date;
   excerpt?: string;
   categories?: string[];
+  variant?: 'featured' | 'standard' | 'index';
+  index?: number;
 }
 import { categoryHref } from '../data/urls';
-const { title, href, date, excerpt, categories = [] } = Astro.props;
+const {
+  title,
+  href,
+  date,
+  excerpt,
+  categories = [],
+  variant = 'standard',
+  index,
+} = Astro.props;
 ---
 
-<article class="post-card">
-  <p class="eyebrow">
-    <time datetime={date.toISOString()}>{date.toLocaleDateString('fr-CA')}</time
-    >
-  </p>
-  <h2><a href={href}>{title}</a></h2>
+<article class:list={['post-card', `post-card--${variant}`]}>
+  <div class="post-card-meta">
+    {
+      index && (
+        <span class="post-number" aria-hidden="true">
+          {String(index).padStart(2, '0')}
+        </span>
+      )
+    }
+    <p class="eyebrow">
+      <time datetime={date.toISOString()}
+        >{date.toLocaleDateString('fr-CA')}</time
+      >
+    </p>
+  </div>
+  <h2><a href={href}><span>{title}</span></a></h2>
   {excerpt && <p>{excerpt}</p>}
   {
     categories.length > 0 && (
@@ -28,4 +48,7 @@ const { title, href, date, excerpt, categories = [] } = Astro.props;
       </ul>
     )
   }
+  <a class="post-card-read" href={href} aria-label={`Lire : ${title}`}>
+    Lire l’essai <span aria-hidden="true">↗</span>
+  </a>
 </article>
