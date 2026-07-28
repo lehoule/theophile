@@ -638,6 +638,12 @@ h3 {
   border: 1px solid var(--line);
 }
 
+.article-body img.align-right {
+  float: right;
+  max-width: 45%;
+  margin: 0 0 1.5rem 2rem;
+}
+
 .article-body blockquote {
   position: relative;
   margin: 2.5rem 0;
@@ -657,6 +663,15 @@ h3 {
   font-family: var(--mono);
   font-size: 0.8rem;
   font-style: normal;
+}
+
+@media (max-width: 36rem) {
+  .article-body img.align-right {
+    float: none;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+  }
 }
 
 .media-player {

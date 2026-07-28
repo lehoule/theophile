@@ -3,6 +3,10 @@ import { describe, expect, it } from 'vitest';
 
 const layout = readFileSync('src/layouts/Layout.astro', 'utf8');
 const homePage = readFileSync('src/pages/index.astro', 'utf8');
+const aboutPage = readFileSync(
+  'src/content/pages/2015-10-08-a-propos.md',
+  'utf8',
+);
 const styles = readFileSync('src/styles/global.css', 'utf8');
 const fontStyles = readFileSync('src/styles/fonts.css', 'utf8');
 const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as {
@@ -42,5 +46,20 @@ describe('editorial design system', () => {
     expect(homePage).toContain('data-reveal');
     expect(styles).toContain('@keyframes folio-reveal');
     expect(styles).toContain('@media (prefers-reduced-motion: reduce)');
+  });
+
+  it('shows the available author portrait on the about page', () => {
+    const portraitUrl =
+      'https://media.theophile.blog/2020/04/27971581_10160143080155245_3911814555783645094_n.jpg';
+
+    expect(aboutPage).toContain(
+      `[![Portrait de Sonny Perron-Nault](${portraitUrl})](${portraitUrl})`,
+    );
+    expect(aboutPage).toContain('{.align-right width=300}');
+    expect(aboutPage).not.toContain(
+      '27971581_10160143080155245_3911814555783645094_n-300x300.jpg',
+    );
+    expect(aboutPage).not.toMatch(/<img|<a\s/i);
+    expect(styles).toContain('.article-body img.align-right');
   });
 });

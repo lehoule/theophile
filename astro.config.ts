@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
+import remarkImageAttributes from './src/plugins/remark-image-attributes';
 
 export default defineConfig({
   site: 'https://www.theophile.blog',
@@ -9,6 +10,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: { theme: 'github-light' },
     processor: unified({
+      remarkPlugins: [remarkImageAttributes],
       remarkRehype: {
         footnoteLabel: 'Références',
         footnoteBackLabel: (referenceIndex: number, rereferenceIndex: number) =>
