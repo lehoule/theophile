@@ -144,7 +144,7 @@ repository.
    ```
 
 5. Configure a Turnstile widget for `www.theophile.blog` and set `PUBLIC_TURNSTILE_SITE_KEY` in the Cloudflare build environment before production.
-6. Set `ADMIN_EMAIL` in `wrangler.toml` for admin authentication. Email notifications are currently disabled. Set `PUBLIC_CF_ANALYTICS_TOKEN` in the build environment to enable cookie-free Web Analytics.
+6. Set `ADMIN_EMAIL` in `wrangler.toml` for admin authentication. Email notifications are currently disabled.
 7. Protect `/admin/comments/*`, `/admin/media/*`, and `/api/admin/*` with a Cloudflare Access application restricted to the owner’s email. Access must add both the authenticated email and JWT headers.
 8. Deploy with `npm run deploy`, attach `www.theophile.blog` as the Worker custom domain, and configure the apex domain to redirect to `www`.
 

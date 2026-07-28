@@ -66,18 +66,6 @@ const structuredData = JSON.stringify({
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <script is:inline type="application/ld+json" set:html={structuredData} />
-    {
-      import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN && (
-        <script
-          is:inline
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={JSON.stringify({
-            token: import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN,
-          })}
-        />
-      )
-    }
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu</a>
