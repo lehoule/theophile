@@ -111,7 +111,7 @@ const structuredData = JSON.stringify({
     <meta property="og:url" content={canonical} />
     <script is:inline type="application/ld+json" set:html={structuredData} />
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main-content">Aller au contenu</a>
     <header class="site-header">
       <div class="shell header-inner">
@@ -140,14 +140,34 @@ const structuredData = JSON.stringify({
     <main id="main-content" class="shell page-shell"><slot /></main>
     <footer class="site-footer">
       <div class="shell footer-inner">
-        <div class="footer-signature">
+        <div class="footer-masthead">
           <span class="footer-mark" aria-hidden="true">Θ</span>
-          <span>Théophile © 2015–{new Date().getFullYear()}</span>
+          <div>
+            <p class="footer-kicker">Carnet de foi et de raison</p>
+            <p class="footer-title">Continuer la réflexion.</p>
+            <p class="footer-description">
+              Théologie, philosophie et culture au fil des textes.
+            </p>
+          </div>
         </div>
-        <nav aria-label="Navigation secondaire">
-          <a href="/cookie-policy/">Confidentialité</a>
-          <a href="/rss.xml">Flux RSS</a>
-        </nav>
+        <div class="footer-navigation">
+          <nav aria-label="Explorer Théophile">
+            <p>Explorer</p>
+            <a href="/blog/">Tous les articles</a>
+            <a href="/videos/">Vidéos</a>
+            <a href="/recherche/">Recherche</a>
+          </nav>
+          <nav aria-label="À propos de Théophile">
+            <p>À propos</p>
+            <a href="/a-propos/">Le projet</a>
+            <a href="/rss.xml">Flux RSS</a>
+            <a href="/cookie-policy/">Confidentialité</a>
+          </nav>
+        </div>
+        <div class="footer-colophon">
+          <span>Théophile © 2015–{new Date().getFullYear()}</span>
+          <a href="#top">Retour en haut <span aria-hidden="true">↑</span></a>
+        </div>
       </div>
     </footer>
   </body>

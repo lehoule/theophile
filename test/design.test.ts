@@ -37,6 +37,17 @@ describe('editorial design system', () => {
     expect(styles).not.toMatch(/\.brand-mark,[\s\S]*?border-radius:\s*50%/);
   });
 
+  it('turns the footer into a useful editorial colophon', () => {
+    expect(layout).toContain('class="footer-masthead"');
+    expect(layout).toContain('Continuer la réflexion.');
+    expect(layout).toContain('aria-label="Explorer Théophile"');
+    expect(layout).toContain('aria-label="À propos de Théophile"');
+    expect(layout).toContain('href="#top"');
+    expect(layout).toContain('<body id="top">');
+    expect(styles).toContain("content: 'Θ';");
+    expect(styles).toContain('.footer-colophon');
+  });
+
   it('uses an asymmetric lead-story composition on the homepage', () => {
     expect(homePage).toContain('class="editorial-grid"');
     expect(homePage).toContain('variant="featured"');

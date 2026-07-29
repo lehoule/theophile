@@ -116,8 +116,7 @@ a:hover {
   color: var(--ink);
 }
 
-.brand-mark,
-.footer-mark {
+.brand-mark {
   display: grid;
   place-items: center;
   width: 2.8rem;
@@ -158,15 +157,13 @@ a:hover {
   text-transform: uppercase;
 }
 
-.site-header nav,
-.site-footer nav {
+.site-header nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 1.35rem;
 }
 
-.site-header nav a,
-.site-footer nav a {
+.site-header nav a {
   position: relative;
   color: var(--ink);
   font-family: var(--mono);
@@ -202,39 +199,150 @@ a:hover {
 }
 
 .site-footer {
+  position: relative;
   margin-top: 7rem;
-  color: var(--muted);
+  overflow: hidden;
+  color: var(--paper-deep);
   background: var(--ink);
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  border-top: 0.35rem solid var(--wine);
+}
+
+.site-footer::before {
+  position: absolute;
+  top: -0.34em;
+  right: -0.05em;
+  color: transparent;
+  content: 'Θ';
+  font-family: var(--serif);
+  font-size: clamp(14rem, 28vw, 27rem);
+  font-weight: 230;
+  line-height: 1;
+  pointer-events: none;
+  -webkit-text-stroke: 1px rgba(223, 210, 188, 0.12);
 }
 
 .footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 9rem;
-  padding-block: 2rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(18rem, 1.6fr) minmax(18rem, 1fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  padding-block: clamp(4rem, 8vw, 7rem) 2rem;
 }
 
-.footer-signature {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+.footer-masthead {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
 }
 
 .footer-mark {
+  display: block;
   color: var(--brass);
   font-family: var(--serif);
-  font-size: 1.35rem;
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 0.82;
 }
 
-.site-footer a {
+.footer-kicker,
+.footer-navigation p,
+.footer-colophon {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 560;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.footer-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--brass);
+}
+
+.footer-title {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--paper-light);
+  font-size: clamp(2.25rem, 5vw, 4.8rem);
+  font-weight: 430;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.footer-description {
+  max-width: 34rem;
+  margin: 1.4rem 0 0;
+  color: #a99f8e;
+  font-size: 0.95rem;
+}
+
+.footer-navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(8rem, 1fr));
+  gap: 2rem;
+  align-self: start;
+  padding-top: 0.2rem;
+}
+
+.site-footer nav {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.footer-navigation p {
+  margin: 0 0 0.65rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(223, 210, 188, 0.25);
+  color: var(--brass);
+}
+
+.site-footer nav a {
+  width: fit-content;
   color: var(--paper-deep);
+  font-size: 0.95rem;
+  text-decoration-color: transparent;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.site-footer nav a:hover {
+  color: var(--paper-light);
+  text-decoration-color: var(--brass);
+}
+
+.footer-colophon {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(1rem, 4vw, 3rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(223, 210, 188, 0.25);
+  color: #8c8375;
+}
+
+.footer-colophon a {
+  color: var(--paper-deep);
+  text-decoration: none;
+}
+
+.footer-colophon a span {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: var(--brass);
+  font-size: 0.9rem;
+  transition: transform 180ms ease;
+}
+
+.footer-colophon a:hover {
+  color: var(--paper-light);
+}
+
+.footer-colophon a:hover span {
+  transform: translateY(-0.18rem);
 }
 
 h1,
@@ -1056,9 +1164,23 @@ textarea:focus {
   }
 
   .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-navigation {
+    width: 100%;
+  }
+
+  .footer-colophon {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  .site-footer::before {
+    top: auto;
+    right: -0.15em;
+    bottom: -0.25em;
   }
 }
 
