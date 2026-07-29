@@ -32,4 +32,3 @@ custom_domain = true
 [vars]
 SITE_ORIGIN = "https://theophile.blog"
 MEDIA_PUBLIC_ORIGIN = "https://media.theophile.blog"
-PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAAD_XjXMICMdNudti"

@@ -4,4 +4,5 @@ export const site = {
   origin: 'https://www.theophile.blog',
   language: 'fr',
   author: 'Théophile',
+  turnstileSiteKey: '0x4AAAAAAD_XjXMICMdNudti',
 };

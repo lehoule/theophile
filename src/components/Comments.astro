@@ -3,6 +3,8 @@ interface Props {
   postId: string;
   title: string;
 }
+import { site } from '../data/site';
+
 const { postId, title } = Astro.props;
 ---
 
@@ -46,11 +48,7 @@ const { postId, title } = Astro.props;
     <label class="honeypot" aria-hidden="true"
       >Site web <input name="website" tabindex="-1" autocomplete="off" /></label
     >
-    <div
-      class="turnstile"
-      data-turnstile
-      data-site-key={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || ''}
-    >
+    <div class="turnstile" data-turnstile data-site-key={site.turnstileSiteKey}>
     </div>
     <button class="button" type="submit">Envoyer pour modération</button>
     <p class="form-status" data-form-status role="status"></p>
