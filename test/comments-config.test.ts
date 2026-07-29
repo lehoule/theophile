@@ -17,5 +17,9 @@ describe('comment form configuration', () => {
     expect(comments).toContain("'error-callback': (code)");
     expect(comments).toContain("'expired-callback': () =>");
     expect(comments).toContain("script.addEventListener('error'");
+    expect(comments).toContain(
+      'render=explicit&onload=onTheophileTurnstileLoad',
+    );
+    expect(comments).not.toContain("script.addEventListener('load'");
   });
 });

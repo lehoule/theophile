@@ -1,6 +1,7 @@
 /// <reference types="astro/client" />
 
 interface Window {
+  onTheophileTurnstileLoad?: () => void;
   turnstile?: {
     render: (
       element: HTMLElement,

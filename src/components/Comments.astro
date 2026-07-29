@@ -95,46 +95,46 @@ const { postId, title } = Astro.props;
       };
       if (turnstile instanceof HTMLElement && siteKey) {
         status.textContent = 'Chargement de la vérification anti-robot…';
-        const script = document.createElement('script');
-        script.src =
-          'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-        script.async = true;
-        document.head.appendChild(script);
-        script.addEventListener('load', () => {
-          if (window.turnstile) {
-            turnstileWidgetId = window.turnstile.render(turnstile, {
-              sitekey: siteKey,
-              callback: (token) => {
-                turnstileToken = token;
-                submit.disabled = false;
-                status.textContent = '';
-              },
-              'error-callback': (code) => {
-                verificationUnavailable(
-                  `La vérification anti-robot a échoué (code ${code}). Rechargez la page et réessayez.`,
-                );
-                return true;
-              },
-              'expired-callback': () =>
-                verificationUnavailable(
-                  'La vérification anti-robot a expiré. Attendez son renouvellement avant de réessayer.',
-                ),
-              'timeout-callback': () =>
-                verificationUnavailable(
-                  'La vérification anti-robot a expiré. Rechargez la page et réessayez.',
-                ),
-            });
-          } else {
+        window.onTheophileTurnstileLoad = () => {
+          if (!window.turnstile) {
             verificationUnavailable(
               'La vérification anti-robot est indisponible. Rechargez la page et réessayez.',
             );
+            return;
           }
-        });
+          turnstileWidgetId = window.turnstile.render(turnstile, {
+            sitekey: siteKey,
+            callback: (token) => {
+              turnstileToken = token;
+              submit.disabled = false;
+              status.textContent = '';
+            },
+            'error-callback': (code) => {
+              verificationUnavailable(
+                `La vérification anti-robot a échoué (code ${code}). Rechargez la page et réessayez.`,
+              );
+              return true;
+            },
+            'expired-callback': () =>
+              verificationUnavailable(
+                'La vérification anti-robot a expiré. Attendez son renouvellement avant de réessayer.',
+              ),
+            'timeout-callback': () =>
+              verificationUnavailable(
+                'La vérification anti-robot a expiré. Rechargez la page et réessayez.',
+              ),
+          });
+        };
+        const script = document.createElement('script');
+        script.src =
+          'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTheophileTurnstileLoad';
+        script.async = true;
         script.addEventListener('error', () =>
           verificationUnavailable(
             'La vérification anti-robot n’a pas pu être chargée. Vérifiez que votre navigateur ne la bloque pas, puis rechargez la page.',
           ),
         );
+        document.head.appendChild(script);
       } else {
         verificationUnavailable(
           'La vérification anti-robot n’est pas configurée.',
