@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 const layout = readFileSync('src/layouts/Layout.astro', 'utf8');
 const homePage = readFileSync('src/pages/index.astro', 'utf8');
+const blogPage = readFileSync('src/pages/blog/index.astro', 'utf8');
 const aboutPage = readFileSync(
   'src/content/pages/2015-10-08-a-propos.md',
   'utf8',
@@ -40,6 +41,11 @@ describe('editorial design system', () => {
     expect(homePage).toContain('class="editorial-grid"');
     expect(homePage).toContain('variant="featured"');
     expect(homePage).toContain('class="editorial-index"');
+  });
+
+  it('uses standard cards throughout the blog listing', () => {
+    expect(blogPage).not.toContain('variant="featured"');
+    expect(blogPage).not.toContain("? 'featured' : 'standard'");
   });
 
   it('provides a reduced-motion treatment for the coordinated reveal', () => {
