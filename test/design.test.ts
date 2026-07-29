@@ -43,6 +43,25 @@ describe('editorial design system', () => {
     expect(homePage).toContain('class="editorial-index"');
   });
 
+  it('keeps the homepage glyph decorative without narrowing mobile content', () => {
+    expect(styles).toMatch(
+      /\.home-hero\s*{[^}]*grid-template-columns: 3\.5rem minmax\(0, 1fr\)/,
+    );
+    expect(styles).toMatch(/\.hero-glyph\s*{[^}]*position: absolute/);
+    expect(styles).toMatch(
+      /@media \(max-width: 46rem\)[\s\S]*?\.hero-glyph\s*{\s*display: none;/,
+    );
+  });
+
+  it('extends mobile page separators to the viewport edge outside articles', () => {
+    expect(styles).toContain('.page-shell > .hero');
+    expect(styles).toContain('.page-shell > .home-articles');
+    expect(styles).toContain('.page-shell > .post-grid');
+    expect(styles).toContain('width: calc(100% + 2rem);');
+    expect(styles).toContain('.home-articles > .section-heading');
+    expect(styles).toContain('.home-articles .editorial-index');
+  });
+
   it('uses standard cards throughout the blog listing', () => {
     expect(blogPage).not.toContain('variant="featured"');
     expect(blogPage).not.toContain("? 'featured' : 'standard'");

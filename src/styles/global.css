@@ -307,10 +307,15 @@ h3 {
 
 .home-hero {
   display: grid;
-  grid-template-columns: 3.5rem minmax(0, 1fr) minmax(9rem, 0.35fr);
+  grid-template-columns: 3.5rem minmax(0, 1fr);
   gap: clamp(1.5rem, 5vw, 4.5rem);
   align-items: stretch;
   min-height: min(48rem, calc(100vh - 7.4rem));
+}
+
+.hero-copy,
+.hero-rail {
+  z-index: 1;
 }
 
 .hero-copy {
@@ -342,12 +347,16 @@ h3 {
 }
 
 .hero-glyph {
+  position: absolute;
+  right: 0;
+  z-index: 0;
   align-self: center;
   margin: 0;
   color: transparent;
   font-size: clamp(10rem, 24vw, 21rem);
   font-weight: 220;
   line-height: 0.8;
+  pointer-events: none;
   -webkit-text-stroke: 1px rgba(118, 29, 44, 0.24);
   transform: translateX(4%);
 }
@@ -931,9 +940,7 @@ textarea:focus {
   }
 
   .hero-glyph {
-    position: absolute;
     right: -4rem;
-    z-index: -1;
     opacity: 0.6;
   }
 }
@@ -941,6 +948,43 @@ textarea:focus {
 @media (max-width: 46rem) {
   .shell {
     width: min(calc(100% - 2rem), var(--max));
+  }
+
+  .page-shell > .hero,
+  .page-shell > .home-articles,
+  .page-shell > .post-grid,
+  .page-shell > .comments {
+    width: calc(100% + 2rem);
+    margin-inline: -1rem;
+  }
+
+  .page-shell > .hero {
+    padding-inline: 1rem;
+  }
+
+  .page-shell > .post-grid {
+    padding-inline: 1rem;
+  }
+
+  .page-shell > .comments {
+    padding-inline: 1rem;
+  }
+
+  .page-shell > .home-articles {
+    padding-inline: 1rem;
+  }
+
+  .home-articles > .section-heading,
+  .home-articles > .editorial-grid {
+    width: calc(100% + 2rem);
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+
+  .home-articles .editorial-index {
+    width: calc(100% + 2rem);
+    margin-inline: -1rem;
+    padding-inline: 1rem;
   }
 
   .brand {
@@ -972,8 +1016,7 @@ textarea:focus {
   }
 
   .hero-glyph {
-    top: 4rem;
-    right: -5rem;
+    display: none;
   }
 
   .section-heading,
