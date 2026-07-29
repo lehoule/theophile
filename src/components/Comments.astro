@@ -58,6 +58,7 @@ const { postId, title } = Astro.props;
 </section>
 <script>
   import { decodeHtmlEntities } from '../data/comment-text';
+  import { isBrowserLoopback } from '../data/local-development';
 
   type CommentItem = {
     id: string;
@@ -84,6 +85,7 @@ const { postId, title } = Astro.props;
         return;
       let turnstileToken = '';
       let turnstileWidgetId = '';
+      const localDevelopment = isBrowserLoopback(window.location.hostname);
       const turnstile = section.querySelector('[data-turnstile]');
       const siteKey =
         turnstile instanceof HTMLElement ? turnstile.dataset.siteKey : '';
@@ -92,7 +94,10 @@ const { postId, title } = Astro.props;
         submit.disabled = true;
         status.textContent = message;
       };
-      if (turnstile instanceof HTMLElement && siteKey) {
+      if (localDevelopment) {
+        if (turnstile instanceof HTMLElement) turnstile.hidden = true;
+        submit.disabled = false;
+      } else if (turnstile instanceof HTMLElement && siteKey) {
         status.textContent = 'Chargement de la vérification anti-robot…';
         window.onTheophileTurnstileLoad = () => {
           if (!window.turnstile) {
@@ -206,7 +211,7 @@ const { postId, title } = Astro.props;
         ?.addEventListener('click', () => load().catch(() => undefined));
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        if (!turnstileToken) {
+        if (!localDevelopment && !turnstileToken) {
           verificationUnavailable(
             'Attendez la fin de la vérification anti-robot avant d’envoyer le commentaire.',
           );
@@ -236,7 +241,7 @@ const { postId, title } = Astro.props;
             'Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.';
         } finally {
           turnstileToken = '';
-          if (!status.textContent.startsWith('Merci.')) submit.disabled = true;
+          submit.disabled = !localDevelopment;
         }
       });
     };

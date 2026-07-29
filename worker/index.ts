@@ -14,6 +14,7 @@ import {
   validateCommentInput,
   validateTurnstile,
 } from './lib';
+import { deleteComment, editReply } from './comment-moderation';
 import { serveLocalMedia, uploadMedia, type MediaUploadEnv } from './media-api';
 
 interface EmailBinding {
@@ -191,7 +192,10 @@ async function adminApi(request: Request, env: Env): Promise<Response> {
   if (
     env.LOCAL_ADMIN_AUTH === 'true' &&
     isLoopbackRequest(request) &&
-    !isSameOrigin(request, new URL(request.url).origin)
+    !isSameOrigin(
+      request,
+      originForRequest(request, env.SITE_ORIGIN, env.LOCAL_ADMIN_AUTH),
+    )
   )
     return bad('Not allowed', 403);
   const url = new URL(request.url);
@@ -201,18 +205,35 @@ async function adminApi(request: Request, env: Env): Promise<Response> {
     const limit = 50;
     const query = cursor
       ? env.DB.prepare(
-          'SELECT id, post_id, parent_id, author_name, author_email, body, status, source, created_at, updated_at FROM comments WHERE status = ? AND (created_at > ? OR (created_at = ? AND id > ?)) ORDER BY created_at ASC, id ASC LIMIT ?',
+          'SELECT id, post_id, parent_id, author_name, author_email, body, status, source, created_at, updated_at FROM comments WHERE status = ? AND parent_id IS NULL AND (created_at > ? OR (created_at = ? AND id > ?)) ORDER BY created_at ASC, id ASC LIMIT ?',
         ).bind(status, cursor.createdAt, cursor.createdAt, cursor.id, limit + 1)
       : env.DB.prepare(
-          'SELECT id, post_id, parent_id, author_name, author_email, body, status, source, created_at, updated_at FROM comments WHERE status = ? ORDER BY created_at ASC, id ASC LIMIT ?',
+          'SELECT id, post_id, parent_id, author_name, author_email, body, status, source, created_at, updated_at FROM comments WHERE status = ? AND parent_id IS NULL ORDER BY created_at ASC, id ASC LIMIT ?',
         ).bind(status, limit + 1);
     const result = await query.all<Record<string, unknown>>();
     const rows = result.results.slice(0, limit);
+    const repliesByParent = new Map<string, Record<string, unknown>[]>();
+    if (rows.length) {
+      const placeholders = rows.map(() => '?').join(',');
+      const replies = await env.DB.prepare(
+        `SELECT c.id, c.post_id, c.parent_id, c.author_name, c.body, c.status, c.created_at, EXISTS (SELECT 1 FROM moderation_events m WHERE m.comment_id = c.id AND m.action = 'reply') AS is_admin_reply FROM comments c WHERE c.parent_id IN (${placeholders}) AND c.status = 'approved' ORDER BY c.created_at ASC, c.id ASC`,
+      )
+        .bind(...rows.map((row) => String(row.id)))
+        .all<Record<string, unknown>>();
+      for (const reply of replies.results) {
+        const parentId = String(reply.parent_id);
+        repliesByParent.set(parentId, [
+          ...(repliesByParent.get(parentId) || []),
+          reply,
+        ]);
+      }
+    }
     const last = rows.at(-1);
     return json({
       items: rows.map((row) => ({
         ...row,
         post: postById(String(row.post_id)) || null,
+        replies: repliesByParent.get(String(row.id)) || [],
       })),
       nextCursor:
         result.results.length > limit && last
@@ -221,11 +242,11 @@ async function adminApi(request: Request, env: Env): Promise<Response> {
     });
   }
   const match = url.pathname.match(
-    /^\/api\/admin\/comments\/([^/]+)(?:\/replies)?$/,
+    /^\/api\/admin\/comments\/([^/]+)(?:\/(replies|reply))?$/,
   );
   if (!match) return bad('Not found', 404);
   const id = match[1];
-  const isReply = url.pathname.endsWith('/replies');
+  const operation = match[2] || '';
   let payload: Record<string, unknown> = {};
   if (request.method !== 'DELETE') {
     try {
@@ -234,27 +255,39 @@ async function adminApi(request: Request, env: Env): Promise<Response> {
       return bad('Invalid JSON');
     }
   }
-  const existing = await env.DB.prepare('SELECT * FROM comments WHERE id = ?')
+  const existing = await env.DB.prepare(
+    "SELECT c.*, EXISTS (SELECT 1 FROM moderation_events m WHERE m.comment_id = c.id AND m.action = 'reply') AS is_admin_reply FROM comments c WHERE c.id = ?",
+  )
     .bind(id)
-    .first<{ post_id: string; parent_id: string | null; body: string }>();
+    .first<{
+      post_id: string;
+      parent_id: string | null;
+      body: string;
+      is_admin_reply: number;
+    }>();
   if (!existing) return bad('Comment not found', 404);
   const now = new Date().toISOString();
-  if (isReply && request.method === 'POST') {
+  if (operation === 'replies' && request.method === 'POST') {
     const body = typeof payload.body === 'string' ? payload.body.trim() : '';
     if (body.length < 2 || body.length > 5000) return bad('Invalid reply');
     const replyId = crypto.randomUUID();
-    await env.DB.prepare(
-      "INSERT INTO comments (id, post_id, parent_id, author_name, body, status, source, created_at, updated_at) VALUES (?, ?, ?, ?, ?, 'approved', 'live', ?, ?)",
-    )
-      .bind(replyId, existing.post_id, id, 'Théophile', body, now, now)
-      .run();
-    await env.DB.prepare(
-      'INSERT INTO moderation_events (id, comment_id, action, administrator, created_at) VALUES (?, ?, ?, ?, ?)',
-    )
-      .bind(crypto.randomUUID(), replyId, 'reply', administrator, now)
-      .run();
+    await env.DB.batch([
+      env.DB.prepare(
+        "INSERT INTO comments (id, post_id, parent_id, author_name, body, status, source, created_at, updated_at) VALUES (?, ?, ?, ?, ?, 'approved', 'live', ?, ?)",
+      ).bind(replyId, existing.post_id, id, 'Théophile', body, now, now),
+      env.DB.prepare(
+        'INSERT INTO moderation_events (id, comment_id, action, administrator, created_at) VALUES (?, ?, ?, ?, ?)',
+      ).bind(crypto.randomUUID(), replyId, 'reply', administrator, now),
+    ]);
     return json({ id: replyId, status: 'approved' }, { status: 201 });
   }
+  if (operation === 'reply' && request.method === 'PATCH') {
+    if (!existing.is_admin_reply) return bad('Reply not found', 404);
+    const body = typeof payload.body === 'string' ? payload.body.trim() : '';
+    if (body.length < 2 || body.length > 5000) return bad('Invalid reply');
+    return editReply(env.DB, id, body, administrator, now);
+  }
+  if (operation) return bad('Method not allowed', 405);
   if (request.method === 'PATCH') {
     const status = payload.status;
     if (!['approved', 'spam', 'pending', 'deleted'].includes(String(status)))
@@ -272,25 +305,7 @@ async function adminApi(request: Request, env: Env): Promise<Response> {
     return json({ id, status });
   }
   if (request.method === 'DELETE') {
-    const child = await env.DB.prepare(
-      'SELECT id FROM comments WHERE parent_id = ? LIMIT 1',
-    )
-      .bind(id)
-      .first();
-    if (child)
-      await env.DB.prepare(
-        "UPDATE comments SET status = 'deleted', author_name = 'Commentaire supprimé', author_email = NULL, body = 'Ce commentaire a été supprimé.', updated_at = ? WHERE id = ?",
-      )
-        .bind(now, id)
-        .run();
-    else
-      await env.DB.prepare('DELETE FROM comments WHERE id = ?').bind(id).run();
-    await env.DB.prepare(
-      'INSERT INTO moderation_events (id, comment_id, action, administrator, created_at) VALUES (?, ?, ?, ?, ?)',
-    )
-      .bind(crypto.randomUUID(), id, 'delete', administrator, now)
-      .run();
-    return json({ id, status: 'deleted' });
+    return deleteComment(env.DB, id, administrator, now);
   }
   return bad('Method not allowed', 405);
 }

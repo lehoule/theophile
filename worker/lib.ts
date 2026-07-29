@@ -168,7 +168,10 @@ export function adminEmail(
 
 export function isLoopbackRequest(request: Request): boolean {
   const hostname = new URL(request.url).hostname;
-  return ['localhost', '127.0.0.1', '::1', '[::1]'].includes(hostname);
+  const connectingIp = request.headers.get('cf-connecting-ip') || '';
+  return [hostname, connectingIp].some((value) =>
+    ['localhost', '127.0.0.1', '::1', '[::1]'].includes(value),
+  );
 }
 
 export function originForRequest(
@@ -176,9 +179,21 @@ export function originForRequest(
   configuredOrigin: string,
   localAuth: string | undefined,
 ): string {
-  return localAuth === 'true' && isLoopbackRequest(request)
-    ? new URL(request.url).origin
-    : configuredOrigin;
+  if (localAuth !== 'true' || !isLoopbackRequest(request))
+    return configuredOrigin;
+  const requestOrigin = new URL(request.url).origin;
+  const browserOrigin = request.headers.get('origin');
+  if (!browserOrigin) return requestOrigin;
+  try {
+    const originUrl = new URL(browserOrigin);
+    return ['localhost', '127.0.0.1', '::1', '[::1]'].includes(
+      originUrl.hostname,
+    )
+      ? originUrl.origin
+      : requestOrigin;
+  } catch {
+    return requestOrigin;
+  }
 }
 
 export function isLocalDevelopment(

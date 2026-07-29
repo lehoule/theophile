@@ -5,6 +5,7 @@ import {
   bad,
   cursorFor,
   hashIp,
+  isLoopbackRequest,
   isSameOrigin,
   isLocalDevelopment,
   originForRequest,
@@ -228,6 +229,17 @@ describe('admin access validation', () => {
     ).toBeNull();
   });
 
+  it('recognizes Wrangler loopback requests rewritten to a custom domain', () => {
+    const request = new Request('https://theophile.blog/admin/comments/', {
+      headers: { 'cf-connecting-ip': '127.0.0.1' },
+    });
+
+    expect(isLoopbackRequest(request)).toBe(true);
+    expect(adminEmailWithLocalAuth(request, 'admin@example.com', 'true')).toBe(
+      'admin@example.com',
+    );
+  });
+
   it('accepts a matching, non-expired access assertion', () => {
     const request = new Request('https://www.example.com', {
       headers: {
@@ -309,6 +321,32 @@ describe('local development origins', () => {
     expect(
       originForRequest(request, 'https://www.example.com', undefined),
     ).toBe('https://www.example.com');
+  });
+
+  it('uses the browser loopback origin when Wrangler rewrites the request URL', () => {
+    const request = new Request('https://theophile.blog/api/comments', {
+      headers: {
+        'cf-connecting-ip': '127.0.0.1',
+        origin: 'http://localhost:8787',
+      },
+    });
+
+    expect(originForRequest(request, 'https://theophile.blog', 'true')).toBe(
+      'http://localhost:8787',
+    );
+  });
+
+  it('does not trust a non-loopback browser origin in local mode', () => {
+    const request = new Request('https://theophile.blog/api/comments', {
+      headers: {
+        'cf-connecting-ip': '127.0.0.1',
+        origin: 'https://malicious.example',
+      },
+    });
+
+    expect(originForRequest(request, 'https://theophile.blog', 'true')).toBe(
+      'https://theophile.blog',
+    );
   });
 
   it('enables local-only development behavior on loopback requests', () => {

@@ -26,6 +26,8 @@ import Layout from '../../layouts/Layout.astro';
     author_name: string;
     post_id: string;
     body: string;
+    is_admin_reply?: number;
+    replies?: AdminItem[];
     post?: { title?: string } | null;
   };
   const root = document.querySelector('[data-admin-comments]');
@@ -46,11 +48,20 @@ import Layout from '../../layouts/Layout.astro';
           /[&<>"']/g,
           (char) => entities[char] || char,
         );
+      const renderReplies = (replies: AdminItem[] = []) =>
+        replies.length
+          ? `<div class="admin-replies">${replies
+              .map(
+                (reply) =>
+                  `<article class="comment" data-id="${escape(reply.id)}" data-admin-reply="${reply.is_admin_reply ? 'true' : 'false'}"><header><strong>${escape(reply.author_name)}</strong><span class="muted">Réponse</span></header><p data-comment-body>${escape(reply.body)}</p>${reply.is_admin_reply ? '<div class="admin-actions"><button class="button secondary" data-action="edit">Modifier</button><button class="button secondary" data-action="delete">Supprimer</button></div>' : ''}</article>`,
+              )
+              .join('')}</div>`
+          : '';
       list.innerHTML = items.length
         ? items
             .map(
               (item) =>
-                `<article class="comment" data-id="${escape(item.id)}"><header><strong>${escape(item.author_name)}</strong><span class="muted">${escape(item.post?.title || item.post_id)}</span></header><p>${escape(item.body)}</p><div class="admin-actions"><button class="button" data-action="approved">Approuver</button><button class="button secondary" data-action="spam">Indésirable</button><button class="button secondary" data-action="reply">Répondre</button><button class="button secondary" data-action="delete">Supprimer</button></div></article>`,
+                `<article class="comment" data-id="${escape(item.id)}"><header><strong>${escape(item.author_name)}</strong><span class="muted">${escape(item.post?.title || item.post_id)}</span></header><p data-comment-body>${escape(item.body)}</p><div class="admin-actions"><button class="button" data-action="approved">Approuver</button><button class="button secondary" data-action="spam">Indésirable</button><button class="button secondary" data-action="reply">Répondre</button><button class="button secondary" data-action="delete">Supprimer</button></div>${renderReplies(item.replies)}</article>`,
             )
             .join('')
         : '<p class="muted">Aucun commentaire dans cette liste.</p>';
@@ -78,8 +89,16 @@ import Layout from '../../layouts/Layout.astro';
       const article = target.closest('[data-id]');
       if (!action || !article) return;
       const id = article.getAttribute('data-id');
-      const body = action === 'reply' ? window.prompt('Réponse') : null;
-      if (action === 'reply' && !body) return;
+      const currentBody = article.querySelector(
+        '[data-comment-body]',
+      )?.textContent;
+      const body =
+        action === 'reply'
+          ? window.prompt('Réponse')
+          : action === 'edit'
+            ? window.prompt('Modifier la réponse', currentBody || '')
+            : null;
+      if ((action === 'reply' || action === 'edit') && !body) return;
       const response =
         action === 'delete'
           ? await fetch(`/api/admin/comments/${id}`, { method: 'DELETE' })
@@ -89,11 +108,17 @@ import Layout from '../../layouts/Layout.astro';
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify({ body }),
               })
-            : await fetch(`/api/admin/comments/${id}`, {
-                method: 'PATCH',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify({ status: action }),
-              });
+            : action === 'edit'
+              ? await fetch(`/api/admin/comments/${id}/reply`, {
+                  method: 'PATCH',
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({ body }),
+                })
+              : await fetch(`/api/admin/comments/${id}`, {
+                  method: 'PATCH',
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({ status: action }),
+                });
       if (response.ok) load();
     });
     load();
