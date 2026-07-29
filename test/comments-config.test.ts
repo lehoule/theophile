@@ -21,5 +21,8 @@ describe('comment form configuration', () => {
       'render=explicit&onload=onTheophileTurnstileLoad',
     );
     expect(comments).not.toContain("script.addEventListener('load'");
+    expect(comments).not.toContain(
+      'window.turnstile = window.turnstile || undefined',
+    );
   });
 });
