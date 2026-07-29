@@ -6,6 +6,7 @@ updatedAt: 2025-09-14T08:58:07.000Z
 author: "sperron"
 categories: ["Existence de Dieu"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2025/09/milky-way-6337038_1920.jpg"
 commentId: "7264"
 legacyWordPressId: 7264
 draft: false

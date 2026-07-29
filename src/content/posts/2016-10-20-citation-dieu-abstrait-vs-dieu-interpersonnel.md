@@ -6,6 +6,7 @@ updatedAt: 2018-01-27T01:40:18.000Z
 author: "sperron"
 categories: ["Dieu","Relations","Spiritualité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/10/human-1138001_1920b.png"
 commentId: "2480"
 legacyWordPressId: 2480
 draft: false

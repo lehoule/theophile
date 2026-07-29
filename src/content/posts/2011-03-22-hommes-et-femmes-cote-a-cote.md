@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T03:05:33.000Z
 author: "sperron"
 categories: ["Bible","Évangiles","Exégèse","Femmes","Synoptiques","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/03/couple-1149645_1920.jpg"
 commentId: "326"
 legacyWordPressId: 326
 draft: false

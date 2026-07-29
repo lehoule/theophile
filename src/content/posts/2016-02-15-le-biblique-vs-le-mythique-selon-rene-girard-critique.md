@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:55:06.000Z
 author: "sperron"
 categories: ["Argument anthropologique","Bible","Désir","Mimétisme","Mythes","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/01/book-863418.jpg"
 commentId: "1514"
 legacyWordPressId: 1514
 draft: false

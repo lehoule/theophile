@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:35:11.000Z
 author: "sperron"
 categories: ["Coran","Islam","Religions","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/08/vehicle-60763_1920.jpg"
 commentId: "184"
 legacyWordPressId: 184
 draft: false

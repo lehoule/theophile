@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T11:33:12.000Z
 author: "sperron"
 categories: ["Choix","Livre","Postmodernité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/05/forest-682003.jpg"
 commentId: "346"
 legacyWordPressId: 346
 draft: false

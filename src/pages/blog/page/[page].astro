@@ -38,6 +38,7 @@ const pagePosts = posts.slice(
             date={post.data.publishedAt}
             excerpt={post.data.excerpt}
             categories={post.data.categories}
+            image={post.data.featuredMedia}
             index={(page - 1) * BLOG_PAGE_SIZE + index + 1}
           />
         ))}

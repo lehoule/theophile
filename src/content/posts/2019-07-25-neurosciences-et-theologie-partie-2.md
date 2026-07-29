@@ -6,6 +6,7 @@ updatedAt: 2019-12-27T07:26:49.000Z
 author: "sperron"
 categories: ["Anthropologie","Bonheur","Éthique","Liberté","Neurosciences"]
 tags: ["autonomie","médicaments","psychothérapie","Théologie"]
+featuredMedia: "https://media.theophile.blog/2019/07/drugs-1728381_1920.jpg"
 commentId: "5543"
 legacyWordPressId: 5543
 draft: false

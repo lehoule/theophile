@@ -6,6 +6,7 @@ updatedAt: 2024-10-07T05:58:14.000Z
 author: "sperron"
 categories: ["Christianisme primitif","Christologie primitive","Monothéisme","Origine du Christianisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/03/The-Climax-of-the-Covenant-Wright.jpg"
 commentId: "5712"
 legacyWordPressId: 5712
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T03:04:13.000Z
 author: "sperron"
 categories: ["Bible","Évangiles","Histoire de l'église","Synoptiques"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/02/old-letters-436501_1920.jpg"
 commentId: "295"
 legacyWordPressId: 295
 draft: false

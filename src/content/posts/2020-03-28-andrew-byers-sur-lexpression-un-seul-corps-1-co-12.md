@@ -6,6 +6,7 @@ updatedAt: 2025-04-08T07:44:41.000Z
 author: "sperron"
 categories: ["Christianisme primitif","Christologie primitive","Sociologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/03/paper-3213924_1920.jpg"
 commentId: "5726"
 legacyWordPressId: 5726
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2025-03-17T22:51:52.000Z
 author: "sperron"
 categories: ["Bible","Paul (l'apôtre)"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2012/04/church-2020258_1920.jpg"
 commentId: "278"
 legacyWordPressId: 278
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2024-09-11T06:55:59.000Z
 author: "sperron"
 categories: ["Argument des prophéties","Bible","Jésus","Systématique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/08/neuschwanstein-532850_1920.jpg"
 commentId: "306"
 legacyWordPressId: 306
 draft: false

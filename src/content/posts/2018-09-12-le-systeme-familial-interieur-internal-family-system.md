@@ -6,6 +6,7 @@ updatedAt: 2025-03-18T01:22:54.000Z
 author: "sperron"
 categories: ["Connaissance de soi","Désir","Psychologie","Spiritualité","Théologie pastorale"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/10/Inside-Out.jpg"
 commentId: "2490"
 legacyWordPressId: 2490
 draft: false

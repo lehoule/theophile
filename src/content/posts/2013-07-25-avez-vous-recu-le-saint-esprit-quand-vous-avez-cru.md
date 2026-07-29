@@ -6,6 +6,7 @@ updatedAt: 2019-04-13T04:00:09.000Z
 author: "sperron"
 categories: ["Bible","Saint-Esprit","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/2110_I_wanna_be_in_the_LIGHT_creationswap.jpg"
 commentId: "241"
 legacyWordPressId: 241
 draft: false

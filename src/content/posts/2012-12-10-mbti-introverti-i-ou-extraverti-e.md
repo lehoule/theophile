@@ -6,6 +6,7 @@ updatedAt: 2023-08-11T03:37:41.000Z
 author: "sperron"
 categories: ["Connaissance de soi","MBTI","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2012/12/man-2425121_1280.jpg"
 commentId: "255"
 legacyWordPressId: 255
 draft: false

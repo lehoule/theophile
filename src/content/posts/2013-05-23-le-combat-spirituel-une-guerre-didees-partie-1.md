@@ -6,6 +6,7 @@ updatedAt: 2016-12-03T02:08:14.000Z
 author: "sperron"
 categories: ["Apologétique","Intellect","Spiritualité","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2013/05/stormtrooper-1343772_960_720.jpg"
 commentId: "246"
 legacyWordPressId: 246
 draft: false

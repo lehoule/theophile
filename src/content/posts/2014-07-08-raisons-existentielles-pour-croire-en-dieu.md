@@ -6,6 +6,7 @@ updatedAt: 2017-11-01T07:28:29.000Z
 author: "sperron"
 categories: ["Argument existentiel","Désir","Existence de Dieu"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/2110_I_wanna_be_in_the_LIGHT_creationswap.jpg"
 commentId: "188"
 legacyWordPressId: 188
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2022-10-12T05:23:28.000Z
 author: "sperron"
 categories: ["Bonheur","Culture","Intellect"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/10/IMG_6606.jpg"
 commentId: "584"
 legacyWordPressId: 584
 draft: false

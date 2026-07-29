@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:54:04.000Z
 author: "sperron"
 categories: ["Mimétisme","Paul (l'apôtre)","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/06/bible-276067_1280.jpg"
 commentId: "1984"
 legacyWordPressId: 1984
 draft: false

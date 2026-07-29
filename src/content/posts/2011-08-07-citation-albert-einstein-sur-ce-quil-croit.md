@@ -6,6 +6,7 @@ updatedAt: 2016-12-23T22:19:10.000Z
 author: "sperron"
 categories: ["Citation","Existence de Dieu","Foi","Science"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/08/galaxy-10994_1280.jpg"
 commentId: "309"
 legacyWordPressId: 309
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2024-01-14T10:17:15.000Z
 author: "sperron"
 categories: ["Bible","Contradiction","Évangiles","Humilité","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/08/child-1837263_1920.jpg"
 commentId: "310"
 legacyWordPressId: 310
 draft: false

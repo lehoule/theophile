@@ -6,6 +6,7 @@ updatedAt: 2025-08-17T05:34:44.000Z
 author: "sperron"
 categories: ["Bible","Christianisme primitif","Conversion","Galates","Paul (l'apôtre)"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2025/01/Capture-decran-le-2025-01-31-a-14.42.14.png"
 commentId: "6703"
 legacyWordPressId: 6703
 draft: false

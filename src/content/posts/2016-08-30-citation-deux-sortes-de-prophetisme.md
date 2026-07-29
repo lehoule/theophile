@@ -6,6 +6,7 @@ updatedAt: 2017-06-16T03:56:57.000Z
 author: "sperron"
 categories: ["Église","Histoire de l'église","Justice","Pauvreté"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/08/microphone-1206362_1920.jpg"
 commentId: "2446"
 legacyWordPressId: 2446
 draft: false

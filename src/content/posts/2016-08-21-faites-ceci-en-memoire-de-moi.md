@@ -6,6 +6,7 @@ updatedAt: 2016-11-14T09:48:42.000Z
 author: "sperron"
 categories: ["Spiritualité","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/08/jesus-231724_1920.jpg"
 commentId: "2266"
 legacyWordPressId: 2266
 draft: false

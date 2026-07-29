@@ -466,6 +466,51 @@ h3 {
   justify-content: space-between;
 }
 
+.post-image {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.post-image::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(118, 29, 44, 0.3), transparent 62%),
+    rgba(174, 127, 43, 0.12);
+  content: '';
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.post-image a,
+.post-image img {
+  display: block;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.58) sepia(0.12) contrast(0.92);
+}
+
+.post-image--card {
+  margin-bottom: 1.5rem;
+  aspect-ratio: 16 / 9;
+}
+
+.post-image--card a {
+  height: 100%;
+}
+
+.post-image--article {
+  margin: -1.5rem 0 3rem;
+  aspect-ratio: 16 / 9;
+}
+
 .post-number {
   color: var(--brass);
   font-family: var(--mono);

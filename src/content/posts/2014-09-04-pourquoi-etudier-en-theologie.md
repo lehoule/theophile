@@ -6,6 +6,7 @@ updatedAt: 2016-12-03T01:58:58.000Z
 author: "sperron"
 categories: ["Bible","Culture","Dialogue critique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/09/picjumbo.com_HNCK8426.jpg"
 commentId: "182"
 legacyWordPressId: 182
 draft: false

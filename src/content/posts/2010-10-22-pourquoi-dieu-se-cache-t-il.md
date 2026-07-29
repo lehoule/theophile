@@ -6,6 +6,7 @@ updatedAt: 2020-03-28T04:40:17.000Z
 author: "sperron"
 categories: ["Apologétique","Blaise Pascal","Foi","Intellect","Le Dieu caché"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/10/photo-1429041966141-44d228a42775.jpg"
 commentId: "339"
 legacyWordPressId: 339
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2019-03-20T04:59:51.000Z
 author: "sperron"
 categories: ["Connaissance de soi","Origines","Psychologie","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/01/church-1935793_1920.jpg"
 commentId: "5184"
 legacyWordPressId: 5184
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T22:20:05.000Z
 author: "sperron"
 categories: ["Bible","Paul (l'apôtre)","Romains","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/06/sunshine-432132.jpg"
 commentId: "344"
 legacyWordPressId: 344
 draft: false

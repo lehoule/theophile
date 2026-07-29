@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:33:01.000Z
 author: "sperron"
 categories: ["Actualité","Islam","Religions","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/01/crime-64067_640.jpg"
 commentId: "166"
 legacyWordPressId: 166
 draft: false

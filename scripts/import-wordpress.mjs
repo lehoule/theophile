@@ -31,6 +31,32 @@ const value = (entry) =>
     ? entry['#text']
     : String(entry ?? '');
 const yaml = (value) => JSON.stringify(value);
+const postMeta = (item, key) =>
+  (item['wp:postmeta'] || []).find(
+    (entry) => value(entry['wp:meta_key']) === key,
+  );
+export function featuredMediaByAttachmentId(items) {
+  return new Map(
+    items
+      .filter((item) => item['wp:post_type'] === 'attachment')
+      .map((item) => [
+        value(item['wp:post_id']),
+        value(item['wp:attachment_url'])
+          .replace(
+            /^https?:\/\/(?:www\.)?theophile\.xyz\/wp-content\/uploads\//i,
+            'https://media.theophile.blog/',
+          )
+          .trim(),
+      ])
+      .filter(([, url]) => url),
+  );
+}
+export function featuredMediaFor(item, mediaByAttachmentId) {
+  const thumbnail = postMeta(item, '_thumbnail_id');
+  return thumbnail
+    ? mediaByAttachmentId.get(value(thumbnail['wp:meta_value']))
+    : undefined;
+}
 const dateFor = (item) => {
   const raw =
     value(item['wp:post_date_gmt']) ||
@@ -84,7 +110,7 @@ const markdownFootnotes = (markdown) => {
     .join('\n\n');
   return `${body.trim()}\n\n${definitions}`;
 };
-function writeEntry(item, directory) {
+function writeEntry(item, directory, mediaByAttachmentId) {
   const id = Number(value(item['wp:post_id']));
   const title = value(item.title).trim();
   const slug = value(item['wp:post_name']).trim() || `wordpress-${id}`;
@@ -108,6 +134,7 @@ function writeEntry(item, directory) {
       date,
   );
   const excerpt = value(item['excerpt:encoded']).trim();
+  const featuredMedia = featuredMediaFor(item, mediaByAttachmentId);
   const frontmatter = [
     '---',
     `title: ${yaml(title)}`,
@@ -120,6 +147,7 @@ function writeEntry(item, directory) {
     `author: ${yaml(value(item['dc:creator']) || 'Théophile')}`,
     `categories: ${yaml(categories(item))}`,
     `tags: ${yaml(tags(item))}`,
+    featuredMedia ? `featuredMedia: ${yaml(featuredMedia)}` : '',
     `commentId: ${yaml(String(id))}`,
     `legacyWordPressId: ${id}`,
     'draft: false',
@@ -171,11 +199,12 @@ function main(input) {
     (item) =>
       item['wp:post_type'] === 'page' && item['wp:status'] === 'publish',
   );
+  const mediaByAttachmentId = featuredMediaByAttachmentId(items);
   const importedPosts = posts.map((item) =>
-    writeEntry(item, 'src/content/posts'),
+    writeEntry(item, 'src/content/posts', mediaByAttachmentId),
   );
   const importedPages = pages.map((item) =>
-    writeEntry(item, 'src/content/pages'),
+    writeEntry(item, 'src/content/pages', mediaByAttachmentId),
   );
   fs.mkdirSync('migration', { recursive: true });
   fs.writeFileSync(

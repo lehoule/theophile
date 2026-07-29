@@ -6,6 +6,7 @@ updatedAt: 2020-01-02T20:20:31.000Z
 author: "sperron"
 categories: ["Authenticité","Bonheur","Connaissance de soi","Éthique","Neurosciences"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/12/mind-544404_1920.png"
 commentId: "5629"
 legacyWordPressId: 5629
 draft: false

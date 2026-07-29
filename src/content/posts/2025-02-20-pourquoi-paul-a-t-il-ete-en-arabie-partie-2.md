@@ -6,6 +6,7 @@ updatedAt: 2025-08-17T05:58:59.000Z
 author: "sperron"
 categories: ["Christianisme primitif","Exégèse","Galates","Paul (l'apôtre)","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2025/02/Flux_Dev_A_passionately_fervent_Apostle_Paul_aged_35_years_old_2.jpeg"
 commentId: "6723"
 legacyWordPressId: 6723
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2026-06-06T05:43:24.000Z
 author: "sperron"
 categories: ["Apologétique","Résurrection"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/11/cross-66700_1280.jpg"
 commentId: "338"
 legacyWordPressId: 338
 draft: false

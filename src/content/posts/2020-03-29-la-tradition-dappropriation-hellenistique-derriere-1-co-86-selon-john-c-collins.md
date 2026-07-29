@@ -6,6 +6,7 @@ updatedAt: 2025-04-08T07:46:49.000Z
 author: "sperron"
 categories: ["Christianisme primitif","Christologie primitive","Philosophie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/03/greece-1594689_1920.jpg"
 commentId: "5746"
 legacyWordPressId: 5746
 draft: false

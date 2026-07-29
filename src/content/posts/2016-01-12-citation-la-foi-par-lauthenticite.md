@@ -6,6 +6,7 @@ updatedAt: 2016-03-17T08:30:23.000Z
 author: "sperron"
 categories: ["Authenticité","Foi","Souffrance"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/01/photo-1416424312427-baefa7707d85.jpg"
 commentId: "1325"
 legacyWordPressId: 1325
 draft: false

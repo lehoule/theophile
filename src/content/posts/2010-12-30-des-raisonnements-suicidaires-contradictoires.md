@@ -6,6 +6,7 @@ updatedAt: 2015-11-10T11:31:59.000Z
 author: "sperron"
 categories: ["Apologétique","Livre","Pensée critique","Philosophie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/12/olympia-643763.jpg"
 commentId: "336"
 legacyWordPressId: 336
 draft: false

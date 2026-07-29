@@ -6,6 +6,7 @@ updatedAt: 2026-03-25T00:42:27.000Z
 author: "sperron"
 categories: ["Apologétique","Bible","Islam","Jésus","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/12/kid-1077793_960_720.jpg"
 commentId: "2524"
 legacyWordPressId: 2524
 draft: false

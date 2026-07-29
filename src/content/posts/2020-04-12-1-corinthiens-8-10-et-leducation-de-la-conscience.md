@@ -6,6 +6,7 @@ updatedAt: 2020-09-12T05:38:53.000Z
 author: "sperron"
 categories: ["Conscience morale","Corinthiens","Critique rédactionnelle"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/09/books-1655783_1920.jpg"
 commentId: "5965"
 legacyWordPressId: 5965
 draft: false

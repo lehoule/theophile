@@ -6,6 +6,7 @@ updatedAt: 2026-03-03T09:52:15.000Z
 author: "sperron"
 categories: ["Pensée critique","Philosophie","Sophisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2012/08/mikewildadventure-marcus-aurelius-8062790_1280.jpg"
 commentId: "268"
 legacyWordPressId: 268
 draft: false

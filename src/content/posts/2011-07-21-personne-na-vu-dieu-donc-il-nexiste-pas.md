@@ -6,6 +6,7 @@ updatedAt: 2026-03-03T10:41:16.000Z
 author: "sperron"
 categories: ["Apologétique","Existence de Dieu","Le Dieu caché"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/07/chiemseherin-milky-way-8999255_1280.jpg"
 commentId: "313"
 legacyWordPressId: 313
 draft: false

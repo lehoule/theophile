@@ -6,6 +6,7 @@ updatedAt: 2016-04-27T00:49:19.000Z
 author: "sperron"
 categories: ["Citation","Église","Mission"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/photo-1429030150151-548690082f0b.jpg"
 commentId: "351"
 legacyWordPressId: 351
 draft: false

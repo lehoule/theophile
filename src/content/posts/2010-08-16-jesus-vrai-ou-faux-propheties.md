@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:47:38.000Z
 author: "sperron"
 categories: ["Blaise Pascal","Évangiles","Prophéties","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/08/the-first-139665_1920.jpg"
 commentId: "341"
 legacyWordPressId: 341
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T12:48:21.000Z
 author: "sperron"
 categories: ["Citation","Intellect","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/12/man-219928_1280.jpg"
 commentId: "171"
 legacyWordPressId: 171
 draft: false

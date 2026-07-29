@@ -6,6 +6,7 @@ updatedAt: 2018-10-10T23:51:55.000Z
 author: "sperron"
 categories: ["Citation","Environnement","Paul (l'apôtre)","Salut"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/10/sunrise-1756274_1920.jpg"
 commentId: "4656"
 legacyWordPressId: 4656
 draft: false

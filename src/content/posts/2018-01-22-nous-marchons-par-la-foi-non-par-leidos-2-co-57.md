@@ -6,6 +6,7 @@ updatedAt: 2025-05-28T23:31:06.000Z
 author: "sperron"
 categories: ["Foi","Paul (l'apôtre)","Spiritualité","Théologie biblique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/01/old-letters-436501_1920.jpg"
 commentId: "3701"
 legacyWordPressId: 3701
 draft: false

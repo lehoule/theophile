@@ -6,6 +6,7 @@ updatedAt: 2020-09-25T01:49:43.000Z
 author: "sperron"
 categories: ["Anthropologie","Éthique","Humilité","Liberté","Neurosciences"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/12/doctor-650534_960_720.jpg"
 commentId: "5617"
 legacyWordPressId: 5617
 draft: false

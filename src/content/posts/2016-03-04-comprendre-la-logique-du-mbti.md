@@ -6,6 +6,7 @@ updatedAt: 2018-01-27T01:56:07.000Z
 author: "sperron"
 categories: ["Connaissance de soi","Intellect","MBTI"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/03/light-bulb-1060884_1920.jpg"
 commentId: "1488"
 legacyWordPressId: 1488
 draft: false

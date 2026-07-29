@@ -6,6 +6,7 @@ updatedAt: 2017-04-03T03:46:35.000Z
 author: "sperron"
 categories: ["Athéisme","Existence de Dieu","Philosophie","Science"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/12/photo-1444703686981-a3abbc4d4fe3.jpg"
 commentId: "292"
 legacyWordPressId: 292
 draft: false

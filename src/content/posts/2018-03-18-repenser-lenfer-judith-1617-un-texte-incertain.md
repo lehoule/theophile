@@ -6,6 +6,7 @@ updatedAt: 2025-01-02T08:32:40.000Z
 author: "sperron"
 categories: ["Critique textuelle","Enfer","Intertestamentaire"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/05/guy-2617866_960_720.jpg"
 commentId: "4164"
 legacyWordPressId: 4164
 draft: false

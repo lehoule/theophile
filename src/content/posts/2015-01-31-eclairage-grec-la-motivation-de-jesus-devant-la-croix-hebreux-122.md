@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T12:43:17.000Z
 author: "sperron"
 categories: ["Grec biblique","Interprétation","Jésus"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/09/cross-66700_1280.jpg"
 commentId: "165"
 legacyWordPressId: 165
 draft: false

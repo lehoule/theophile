@@ -6,6 +6,7 @@ updatedAt: 2024-12-15T06:31:28.000Z
 author: "sperron"
 categories: ["Apologétique","Bible","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/08/bible-879085_1920.jpg"
 commentId: "307"
 legacyWordPressId: 307
 draft: false

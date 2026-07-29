@@ -6,6 +6,7 @@ updatedAt: 2026-06-06T06:24:47.000Z
 author: "sperron"
 categories: ["Apologétique","Foi","Historicité","Résurrection"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/06/Capture-d’écran-2014-07-01-à-00.40.47.png"
 commentId: "217"
 legacyWordPressId: 217
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2018-06-24T05:50:06.000Z
 author: "sperron"
 categories: ["Bible","Moralité","Systématique","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2012/12/snake.jpg"
 commentId: "254"
 legacyWordPressId: 254
 draft: false

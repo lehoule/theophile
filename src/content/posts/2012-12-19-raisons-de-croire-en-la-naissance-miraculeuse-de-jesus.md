@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:39:37.000Z
 author: "sperron"
 categories: ["Évangiles","Fiabilité de la Bible","Historicité","Jésus","Miracles"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/12/christmas-911251_1920.jpg"
 commentId: "253"
 legacyWordPressId: 253
 draft: false

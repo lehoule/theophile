@@ -6,6 +6,7 @@ updatedAt: 2016-12-02T11:05:32.000Z
 author: "sperron"
 categories: ["Bible","Relations","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/01/family-591581_1920.jpg"
 commentId: "330"
 legacyWordPressId: 330
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:38:13.000Z
 author: "sperron"
 categories: ["Apologétique","Philosophie","Relations","Sophisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/statue-756624.jpg"
 commentId: "287"
 legacyWordPressId: 287
 draft: false

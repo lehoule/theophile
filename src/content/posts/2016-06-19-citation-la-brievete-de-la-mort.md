@@ -6,6 +6,7 @@ updatedAt: 2016-07-15T00:29:24.000Z
 author: "sperron"
 categories: ["Citation","Jésus","Mort","Vie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/06/war-1371810_1280.jpg"
 commentId: "2084"
 legacyWordPressId: 2084
 draft: false

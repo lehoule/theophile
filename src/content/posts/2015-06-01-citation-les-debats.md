@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T12:22:39.000Z
 author: "sperron"
 categories: ["Citation","Dialogue critique","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/05/55H.jpg"
 commentId: "156"
 legacyWordPressId: 156
 draft: false

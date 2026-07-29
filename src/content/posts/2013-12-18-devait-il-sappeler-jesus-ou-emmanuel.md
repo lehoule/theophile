@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:39:20.000Z
 author: "sperron"
 categories: ["Christologie primitive","Contradiction","Évangiles","Exégèse","Jésus","Noël","Résurrection","Vie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2013/12/bible-1149924_1920.jpg"
 commentId: "231"
 legacyWordPressId: 231
 draft: false

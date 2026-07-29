@@ -6,6 +6,7 @@ updatedAt: 2018-06-30T00:26:21.000Z
 author: "sperron"
 categories: ["Bible","Enfer","Justice","Philosophie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/06/administration-ancient-architecture-208603.jpg"
 commentId: "4011"
 legacyWordPressId: 4011
 draft: false

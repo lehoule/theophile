@@ -6,6 +6,7 @@ updatedAt: 2020-09-14T06:26:18.000Z
 author: "sperron"
 categories: ["Christianisme primitif","Christologie primitive","Corinthiens","Origine du Christianisme","Tradition prépaulinienne"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/09/blur-1283865_1920.jpg"
 commentId: "5971"
 legacyWordPressId: 5971
 draft: false

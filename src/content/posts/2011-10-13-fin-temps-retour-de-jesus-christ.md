@@ -6,6 +6,7 @@ updatedAt: 2019-04-06T06:51:47.000Z
 author: "sperron"
 categories: ["Bible","Eschatologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2017/04/Jésus77.jpg"
 commentId: "2806"
 legacyWordPressId: 2806
 draft: false

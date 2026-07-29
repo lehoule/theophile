@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:35:25.000Z
 author: "sperron"
 categories: ["Bible","Coran","Islam","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2013/01/quran-89066.jpg"
 commentId: "250"
 legacyWordPressId: 250
 draft: false

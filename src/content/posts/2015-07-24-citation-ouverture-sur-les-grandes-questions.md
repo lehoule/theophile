@@ -6,6 +6,7 @@ updatedAt: 2016-03-17T08:58:42.000Z
 author: "sperron"
 categories: ["Citation","Existentialisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/07/embassy-935558_1280.png"
 commentId: "42"
 legacyWordPressId: 42
 draft: false

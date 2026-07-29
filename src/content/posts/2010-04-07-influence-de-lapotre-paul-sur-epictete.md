@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T22:30:24.000Z
 author: "sperron"
 categories: ["Paul (l'apôtre)","Stoïcisme","Théologie naturelle"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/statue-756624.jpg"
 commentId: "355"
 legacyWordPressId: 355
 draft: false

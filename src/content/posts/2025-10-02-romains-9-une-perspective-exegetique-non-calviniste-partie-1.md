@@ -6,6 +6,7 @@ updatedAt: 2025-10-25T03:09:05.000Z
 author: "sperron"
 categories: ["Calvinisme","Exégèse","Paul (l'apôtre)","Romains","Sotériologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2025/05/Une-lecture-non-calviniste-de-Romains-9-Une-perspective-exegetique2.png"
 commentId: "7150"
 legacyWordPressId: 7150
 draft: false

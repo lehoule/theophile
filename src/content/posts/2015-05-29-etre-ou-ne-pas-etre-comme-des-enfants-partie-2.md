@@ -6,6 +6,7 @@ updatedAt: 2023-07-21T20:05:33.000Z
 author: "sperron"
 categories: ["Foi","Interprétation","Pensée critique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/05/child-945422_1280.jpg"
 commentId: "157"
 legacyWordPressId: 157
 draft: false

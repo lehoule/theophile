@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:39:58.000Z
 author: "sperron"
 categories: ["Bonheur","Jésus","Livre","Pacifisme","Religions","Sagesse","Spiritualité","Vie","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/11/yin-yang-99824.png"
 commentId: "174"
 legacyWordPressId: 174
 draft: false

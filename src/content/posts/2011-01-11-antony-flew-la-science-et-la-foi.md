@@ -6,6 +6,7 @@ updatedAt: 2016-12-23T11:31:21.000Z
 author: "sperron"
 categories: ["Athéisme","Foi","Science"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/04/photo-1444703686981-a3abbc4d4fe3.jpg"
 commentId: "334"
 legacyWordPressId: 334
 draft: false

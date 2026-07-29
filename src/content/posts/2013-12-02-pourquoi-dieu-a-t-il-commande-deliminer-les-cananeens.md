@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:37:48.000Z
 author: "sperron"
 categories: ["Bible","Islam","Religions","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2013/12/book-515081_1920.jpg"
 commentId: "232"
 legacyWordPressId: 232
 draft: false

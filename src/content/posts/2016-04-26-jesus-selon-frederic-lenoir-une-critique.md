@@ -6,6 +6,7 @@ updatedAt: 2018-11-05T22:14:58.000Z
 author: "sperron"
 categories: ["Christologie primitive","Dialogue critique","Origine du Christianisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/04/rio-1303951_1920.jpg"
 commentId: "1648"
 legacyWordPressId: 1648
 draft: false

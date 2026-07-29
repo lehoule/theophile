@@ -6,6 +6,7 @@ updatedAt: 2019-03-01T09:14:02.000Z
 author: "sperron"
 categories: ["Bible","Église","Exégèse","Interprétation"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/11/knowledge-1052014_1920.jpg"
 commentId: "4954"
 legacyWordPressId: 4954
 draft: false

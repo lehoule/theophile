@@ -6,6 +6,7 @@ updatedAt: 2016-01-04T12:22:02.000Z
 author: "sperron"
 categories: ["Bible","Citation","Vie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/06/beer-926287_1280.jpg"
 commentId: "155"
 legacyWordPressId: 155
 draft: false

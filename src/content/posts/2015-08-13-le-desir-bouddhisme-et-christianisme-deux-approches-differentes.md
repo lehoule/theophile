@@ -6,6 +6,7 @@ updatedAt: 2016-03-17T08:55:34.000Z
 author: "sperron"
 categories: ["Bouddhisme","Désir","Existence de Dieu"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/08/corks-640362_1280.jpg"
 commentId: "38"
 legacyWordPressId: 38
 draft: false

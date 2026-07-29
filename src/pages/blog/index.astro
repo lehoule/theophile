@@ -28,6 +28,7 @@ const totalPages = Math.max(1, Math.ceil(posts.length / BLOG_PAGE_SIZE));
             date={post.data.publishedAt}
             excerpt={post.data.excerpt}
             categories={post.data.categories}
+            image={post.data.featuredMedia}
             variant={index === 0 ? 'featured' : 'standard'}
             index={index + 1}
           />

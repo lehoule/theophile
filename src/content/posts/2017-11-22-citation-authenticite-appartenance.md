@@ -6,6 +6,7 @@ updatedAt: 2017-12-26T02:50:48.000Z
 author: "sperron"
 categories: ["Authenticité","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2017/12/tunnel-332474_960_720.jpeg"
 commentId: "3560"
 legacyWordPressId: 3560
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2020-04-22T05:23:07.000Z
 author: "sperron"
 categories: ["Culture biblique","Spiritualité","Théologie biblique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/06/fantasy-3313964_1920.jpg"
 commentId: "4324"
 legacyWordPressId: 4324
 draft: false

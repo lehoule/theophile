@@ -6,6 +6,7 @@ updatedAt: 2017-06-16T04:08:20.000Z
 author: "sperron"
 categories: ["Culture biblique","Jésus","Livre"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/03/book-610334_1920.jpg"
 commentId: "1073"
 legacyWordPressId: 1073
 draft: false

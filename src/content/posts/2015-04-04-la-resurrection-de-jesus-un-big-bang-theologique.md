@@ -6,6 +6,7 @@ updatedAt: 2026-06-05T19:34:47.000Z
 author: "sperron"
 categories: ["Jésus","Résurrection","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/04/galaxy-10996_1280.jpg"
 commentId: "160"
 legacyWordPressId: 160
 draft: false

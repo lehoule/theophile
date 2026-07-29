@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:36:32.000Z
 author: "sperron"
 categories: ["Actualité","Islam","Religions","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/12/howitzer-60542_1920.jpg"
 commentId: "170"
 legacyWordPressId: 170
 draft: false

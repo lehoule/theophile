@@ -6,6 +6,7 @@ updatedAt: 2025-03-01T01:12:07.000Z
 author: "sperron"
 categories: ["Communication","Corinthiens","Paul (l'apôtre)","Spiritualité","Théologie pastorale"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/06/phone-3594206_1920.jpg"
 commentId: "5462"
 legacyWordPressId: 5462
 draft: false

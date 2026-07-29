@@ -6,6 +6,7 @@ updatedAt: 2017-12-30T07:43:28.000Z
 author: "sperron"
 categories: ["Bible","Environnement","Relations","Sens de la vie","Vie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2017/11/IMG_1367.jpg"
 commentId: "3413"
 legacyWordPressId: 3413
 draft: false

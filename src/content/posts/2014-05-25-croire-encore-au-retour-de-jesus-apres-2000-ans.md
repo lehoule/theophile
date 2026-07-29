@@ -6,6 +6,7 @@ updatedAt: 2022-03-27T22:39:05.000Z
 author: "sperron"
 categories: ["Bible","Eschatologie","Interprétation","Persévérance"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/05/miami-967985_1920.jpg"
 commentId: "219"
 legacyWordPressId: 219
 draft: false

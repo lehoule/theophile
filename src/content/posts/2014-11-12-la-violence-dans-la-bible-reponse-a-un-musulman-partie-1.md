@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:37:06.000Z
 author: "sperron"
 categories: ["Bible","Évangiles","Exégèse","Islam","Jésus","Pacifisme","Religions","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/11/gun-801836_1920.jpg"
 commentId: "173"
 legacyWordPressId: 173
 draft: false

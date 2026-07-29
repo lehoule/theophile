@@ -6,6 +6,7 @@ updatedAt: 2025-04-08T07:52:15.000Z
 author: "sperron"
 categories: ["Dialogue critique","Église"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/03/church-3481187_960_720.jpg"
 commentId: "5682"
 legacyWordPressId: 5682
 draft: false

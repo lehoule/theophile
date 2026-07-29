@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:36:20.000Z
 author: "sperron"
 categories: ["Évangiles","Exégèse","Interprétation","Jésus","Pacifisme","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/02/Capture-decran-le-2024-04-13-a-16.52.32.png"
 commentId: "164"
 legacyWordPressId: 164
 draft: false

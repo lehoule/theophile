@@ -6,6 +6,7 @@ updatedAt: 2016-09-02T00:09:57.000Z
 author: "sperron"
 categories: ["Bible","Coran","Islam"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/07/food-629959_1280.jpg"
 commentId: "45"
 legacyWordPressId: 45
 draft: false

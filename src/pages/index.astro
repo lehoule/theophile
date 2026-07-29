@@ -54,6 +54,7 @@ const [featuredPost, ...remainingPosts] = posts;
             date={featuredPost.data.publishedAt}
             excerpt={featuredPost.data.excerpt}
             categories={featuredPost.data.categories}
+            image={featuredPost.data.featuredMedia}
             variant="featured"
             index={1}
           />
@@ -65,6 +66,7 @@ const [featuredPost, ...remainingPosts] = posts;
                 date={post.data.publishedAt}
                 excerpt={post.data.excerpt}
                 categories={post.data.categories}
+                image={post.data.featuredMedia}
                 index={index + 2}
               />
             ))}
@@ -77,6 +79,7 @@ const [featuredPost, ...remainingPosts] = posts;
                 date={post.data.publishedAt}
                 excerpt={post.data.excerpt}
                 categories={post.data.categories}
+                image={post.data.featuredMedia}
                 variant="index"
                 index={index + 4}
               />

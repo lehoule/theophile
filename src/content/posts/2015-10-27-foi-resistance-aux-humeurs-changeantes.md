@@ -6,6 +6,7 @@ updatedAt: 2016-11-20T03:05:17.000Z
 author: "sperron"
 categories: ["C.S. Lewis","Foi","Persévérance"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/10/narrative-794978_1920.jpg"
 commentId: "385"
 legacyWordPressId: 385
 draft: false

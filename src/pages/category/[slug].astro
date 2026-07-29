@@ -30,6 +30,7 @@ const { name, posts } = Astro.props;
           date={post.data.publishedAt}
           excerpt={post.data.excerpt}
           categories={post.data.categories}
+          image={post.data.featuredMedia}
           index={index + 1}
         />
       ))

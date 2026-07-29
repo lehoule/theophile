@@ -6,6 +6,7 @@ updatedAt: 2025-08-13T06:43:07.000Z
 author: "sperron"
 categories: ["Anthropologie","Enfer","Eschatologie","Histoire de l'église"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2021/09/lost-places-1549096_1920.jpg"
 commentId: "6075"
 legacyWordPressId: 6075
 draft: false

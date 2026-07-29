@@ -6,6 +6,7 @@ updatedAt: 2021-04-03T17:12:45.000Z
 author: "sperron"
 categories: ["Anthropologie","Connaissance de soi","Désir","Psychologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/10/escalator-1245905_1920.jpg"
 commentId: "2434"
 legacyWordPressId: 2434
 draft: false

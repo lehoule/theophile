@@ -6,6 +6,7 @@ updatedAt: 2018-11-16T05:56:28.000Z
 author: "sperron"
 categories: ["Argument de l'identité","Jésus","Origine du Christianisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/03/the-first-139665_1920.jpg"
 commentId: "1666"
 legacyWordPressId: 1666
 draft: false

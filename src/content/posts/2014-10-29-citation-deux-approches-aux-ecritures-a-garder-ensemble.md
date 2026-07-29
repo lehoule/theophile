@@ -6,6 +6,7 @@ updatedAt: 2016-01-18T10:45:50.000Z
 author: "sperron"
 categories: ["Bible","Citation","Existentialisme","Intellect"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/08/bible-879085_1920.jpg"
 commentId: "175"
 legacyWordPressId: 175
 draft: false

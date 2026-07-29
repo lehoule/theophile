@@ -6,6 +6,7 @@ updatedAt: 2016-03-11T08:29:17.000Z
 author: "sperron"
 categories: ["Argument de l'identité","C.S. Lewis","Jésus"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/08/the-first-139665_1920.jpg"
 commentId: "328"
 legacyWordPressId: 328
 draft: false

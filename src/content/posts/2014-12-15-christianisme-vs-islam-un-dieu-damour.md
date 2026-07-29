@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:33:46.000Z
 author: "sperron"
 categories: ["Bible","Coran","Religions","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/12/father-1004022_1920.jpg"
 commentId: "169"
 legacyWordPressId: 169
 draft: false

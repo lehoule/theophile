@@ -6,6 +6,7 @@ updatedAt: 2016-04-27T00:50:32.000Z
 author: "sperron"
 categories: ["Blaise Pascal","Citation","Politique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/congress-74032_1920.jpg"
 commentId: "353"
 legacyWordPressId: 353
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2017-06-06T09:45:55.000Z
 author: "sperron"
 categories: ["Citation","Foi","Sens de la vie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/12/alone-1031338_1920.jpg"
 commentId: "2566"
 legacyWordPressId: 2566
 draft: false

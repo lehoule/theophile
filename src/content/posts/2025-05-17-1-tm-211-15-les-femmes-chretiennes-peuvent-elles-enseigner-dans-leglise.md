@@ -6,6 +6,7 @@ updatedAt: 2025-05-30T20:59:34.000Z
 author: "sperron"
 categories: ["Église","Exégèse","Femmes","Paul (l'apôtre)"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2023/08/jesus-g01ba50bc3_1920.jpg"
 commentId: "6280"
 legacyWordPressId: 6280
 draft: false

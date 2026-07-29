@@ -6,6 +6,7 @@ updatedAt: 2018-01-30T08:38:10.000Z
 author: "sperron"
 categories: ["Citation","Dialogue critique","Intellect"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/01/chess-board-1838696_1920.jpg"
 commentId: "3805"
 legacyWordPressId: 3805
 draft: false

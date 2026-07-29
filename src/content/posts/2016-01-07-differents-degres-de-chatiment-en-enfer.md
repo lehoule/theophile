@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T02:17:44.000Z
 author: "sperron"
 categories: ["Enfer","Évangiles","Exégèse","Interprétation","Justice","Synoptiques"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/01/Enfer2.jpg"
 commentId: "1035"
 legacyWordPressId: 1035
 draft: false

@@ -1,0 +1,35 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  href?: string;
+  variant?: 'card' | 'article';
+  loading?: 'eager' | 'lazy';
+}
+
+const { src, alt, href, variant = 'card', loading = 'lazy' } = Astro.props;
+---
+
+<figure class:list={['post-image', `post-image--${variant}`]}>
+  {
+    href ? (
+      <a href={href} tabindex="-1" aria-hidden="true">
+        <img
+          src={src}
+          alt={alt}
+          loading={loading}
+          decoding="async"
+          fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+        />
+      </a>
+    ) : (
+      <img
+        src={src}
+        alt={alt}
+        loading={loading}
+        decoding="async"
+        fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+      />
+    )
+  }
+</figure>

@@ -6,6 +6,7 @@ updatedAt: 2026-03-03T10:30:30.000Z
 author: "sperron"
 categories: ["Bible","Relations","Théologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/01/jump1987-child-5489290_1280.jpg"
 commentId: "331"
 legacyWordPressId: 331
 draft: false

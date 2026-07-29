@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:33:34.000Z
 author: "sperron"
 categories: ["Bible","Critique textuelle","Évangiles","Exégèse","Femmes","Interprétation","Jésus","Résurrection"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/12/people-2599298_1920.jpg"
 commentId: "4690"
 legacyWordPressId: 4690
 draft: false

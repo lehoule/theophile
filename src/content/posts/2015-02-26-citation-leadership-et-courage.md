@@ -6,6 +6,7 @@ updatedAt: 2016-01-04T13:00:44.000Z
 author: "sperron"
 categories: ["Citation","Courage","Leadership"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/02/boxers-652388_1920.jpg"
 commentId: "163"
 legacyWordPressId: 163
 draft: false

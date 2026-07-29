@@ -6,6 +6,7 @@ updatedAt: 2016-01-07T09:24:38.000Z
 author: "sperron"
 categories: ["Authenticité","Culture","Église"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/07/photo-1436390195361-c3c86efcf48b.jpg"
 commentId: "343"
 legacyWordPressId: 343
 draft: false

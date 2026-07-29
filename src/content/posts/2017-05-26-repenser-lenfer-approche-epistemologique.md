@@ -6,6 +6,7 @@ updatedAt: 2017-06-06T06:29:37.000Z
 author: "sperron"
 categories: ["Anthropologie","Enfer","Eschatologie","Histoire de l'église"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2017/06/garde-fous.jpg"
 commentId: "2982"
 legacyWordPressId: 2982
 draft: false

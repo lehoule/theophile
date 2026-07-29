@@ -6,6 +6,7 @@ updatedAt: 2016-03-17T08:56:08.000Z
 author: "sperron"
 categories: ["Citation","Discernement","Guidance"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/08/home-892312_1280.jpg"
 commentId: "33"
 legacyWordPressId: 33
 draft: false

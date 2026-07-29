@@ -6,6 +6,7 @@ updatedAt: 2016-03-31T08:53:51.000Z
 author: "sperron"
 categories: ["Apologétique","Argument moral","Conscience morale","Philosophie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/statue-756624.jpg"
 commentId: "322"
 legacyWordPressId: 322
 draft: false

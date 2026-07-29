@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:39:13.000Z
 author: "sperron"
 categories: ["Bible","Coran","Islam","Jésus","Prophéties","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/06/quran-4095475_1920.jpg"
 commentId: "318"
 legacyWordPressId: 318
 draft: false

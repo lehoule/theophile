@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T11:35:08.000Z
 author: "sperron"
 categories: ["Authenticité","Choix","Postmodernité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/sunset-639507_1920.jpg"
 commentId: "347"
 legacyWordPressId: 347
 draft: false

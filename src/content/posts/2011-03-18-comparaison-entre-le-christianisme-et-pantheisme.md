@@ -6,6 +6,7 @@ updatedAt: 2026-03-03T10:13:31.000Z
 author: "sperron"
 categories: ["Jésus","Panthéisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/03/kyraxys-ai-generated-8976114_1280.png"
 commentId: "327"
 legacyWordPressId: 327
 draft: false

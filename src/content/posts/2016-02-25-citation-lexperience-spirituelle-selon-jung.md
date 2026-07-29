@@ -6,6 +6,7 @@ updatedAt: 2016-03-17T07:17:52.000Z
 author: "sperron"
 categories: ["Argument existentiel","Citation","Psychologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/05/woman-570883.jpg"
 commentId: "1558"
 legacyWordPressId: 1558
 draft: false

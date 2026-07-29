@@ -6,6 +6,7 @@ updatedAt: 2025-05-09T08:29:46.000Z
 author: "sperron"
 categories: ["1 Corinthiens","Exégèse","Interprétation","Paul (l'apôtre)"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2025/02/Flux_Dev_a_surreal_and_vibrant_cinematic_photo_of_A_surreal_an_0-1.jpeg"
 commentId: "6756"
 legacyWordPressId: 6756
 draft: false

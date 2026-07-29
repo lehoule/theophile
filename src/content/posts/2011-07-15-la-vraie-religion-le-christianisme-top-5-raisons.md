@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:38:48.000Z
 author: "sperron"
 categories: ["Jésus","Miracles","Prophéties","Religions","Résurrection"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/08/the-first-139665_1920.jpg"
 commentId: "314"
 legacyWordPressId: 314
 draft: false

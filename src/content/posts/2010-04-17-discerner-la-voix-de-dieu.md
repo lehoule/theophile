@@ -6,6 +6,7 @@ updatedAt: 2016-04-27T00:46:54.000Z
 author: "sperron"
 categories: ["Discernement","Saint-Esprit","Spiritualité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/couple-791461_1920.jpg"
 commentId: "349"
 legacyWordPressId: 349
 draft: false

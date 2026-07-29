@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T12:29:27.000Z
 author: "sperron"
 categories: ["Athéisme","Citation","Existentialisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/04/milky-way-916523_1280.jpg"
 commentId: "159"
 legacyWordPressId: 159
 draft: false

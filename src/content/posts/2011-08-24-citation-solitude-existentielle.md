@@ -6,6 +6,7 @@ updatedAt: 2015-10-25T07:36:21.000Z
 author: "sperron"
 categories: ["Blaise Pascal","Citation","Le Dieu caché"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/08/photo-1428263197823-ce6a8620d1e1.jpg"
 commentId: "305"
 legacyWordPressId: 305
 draft: false

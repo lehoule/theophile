@@ -7,8 +7,10 @@ interface Props {
   categories?: string[];
   variant?: 'featured' | 'standard' | 'index';
   index?: number;
+  image?: string;
 }
 import { categoryHref } from '../data/urls';
+import PostImage from './PostImage.astro';
 const {
   title,
   href,
@@ -17,10 +19,12 @@ const {
   categories = [],
   variant = 'standard',
   index,
+  image,
 } = Astro.props;
 ---
 
 <article class:list={['post-card', `post-card--${variant}`]}>
+  {image && <PostImage src={image} alt="" href={href} variant="card" />}
   <div class="post-card-meta">
     {
       index && (

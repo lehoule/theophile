@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:38:04.000Z
 author: "sperron"
 categories: ["Évangiles","Histoire de l'église","Interprétation","Jésus","Pacifisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/08/the-first-139665_1920.jpg"
 commentId: "162"
 legacyWordPressId: 162
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2016-02-16T10:19:50.000Z
 author: "sperron"
 categories: ["Livre"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/12/IMG_7621.jpg"
 commentId: "1049"
 legacyWordPressId: 1049
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2019-01-01T01:48:38.000Z
 author: "sperron"
 categories: ["Bible","Dialogue critique","Interprétation"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/07/bible-276067_1280.jpg"
 commentId: "342"
 legacyWordPressId: 342
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2018-04-10T21:19:09.000Z
 author: "sperron"
 categories: ["Citation","Doute","Humilité","Pensée critique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/04/582071_10151880129480245_1971833865_n.jpg"
 commentId: "4089"
 legacyWordPressId: 4089
 draft: false

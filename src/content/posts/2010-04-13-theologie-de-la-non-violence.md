@@ -6,6 +6,7 @@ updatedAt: 2018-04-11T01:38:43.000Z
 author: "sperron"
 categories: ["International","Livre","Pacifisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/the-knotted-gun-879289.jpg"
 commentId: "352"
 legacyWordPressId: 352
 draft: false

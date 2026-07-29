@@ -6,6 +6,7 @@ updatedAt: 2018-10-31T20:53:06.000Z
 author: "sperron"
 categories: ["Argument des prophéties","Blaise Pascal","Jésus"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/05/child-945422_1280.jpg"
 commentId: "104"
 legacyWordPressId: 104
 draft: false

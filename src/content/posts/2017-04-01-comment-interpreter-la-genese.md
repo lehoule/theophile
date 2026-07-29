@@ -6,6 +6,7 @@ updatedAt: 2018-02-15T04:51:32.000Z
 author: "sperron"
 categories: ["Bible","Culture biblique","Interprétation","Origines"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2017/03/once-upon-a-time-719174_1920.jpg"
 commentId: "2691"
 legacyWordPressId: 2691
 draft: false

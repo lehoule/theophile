@@ -6,6 +6,7 @@ updatedAt: 2026-03-11T06:20:29.000Z
 author: "sperron"
 categories: ["Évangiles","Exégèse","Foi","Humilité","Interprétation","Jésus"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/04/dad-909510_1280.jpg"
 commentId: "158"
 legacyWordPressId: 158
 draft: false

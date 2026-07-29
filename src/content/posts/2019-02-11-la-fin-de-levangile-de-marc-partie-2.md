@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:32:58.000Z
 author: "sperron"
 categories: ["Bible","Critique textuelle","Évangiles","Exégèse","Femmes","Interprétation"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/02/old-letters-436501_1920.jpg"
 commentId: "4988"
 legacyWordPressId: 4988
 draft: false

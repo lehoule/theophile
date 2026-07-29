@@ -6,6 +6,7 @@ updatedAt: 2016-03-10T00:54:45.000Z
 author: "sperron"
 categories: ["Origines","Philosophie","Science"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/12/man-219928_1280.jpg"
 commentId: "332"
 legacyWordPressId: 332
 draft: false

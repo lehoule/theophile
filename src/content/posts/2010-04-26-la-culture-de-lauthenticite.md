@@ -6,6 +6,7 @@ updatedAt: 2018-08-07T23:22:00.000Z
 author: "sperron"
 categories: ["Bonheur","Culture","Postmodernité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/musician-349790_1920.jpg"
 commentId: "348"
 legacyWordPressId: 348
 draft: false

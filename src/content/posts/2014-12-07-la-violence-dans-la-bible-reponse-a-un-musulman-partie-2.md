@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:36:51.000Z
 author: "sperron"
 categories: ["Évangiles","Exégèse","Interprétation","Pacifisme","Religions","Théologie","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/12/bible-879085_1920.jpg"
 commentId: "172"
 legacyWordPressId: 172
 draft: false

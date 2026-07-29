@@ -6,6 +6,7 @@ updatedAt: 2019-04-15T09:12:24.000Z
 author: "sperron"
 categories: ["Apocalypse","Enfer","Satan","Théologie biblique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/02/smoke-3074032_1920-1.jpg"
 commentId: "2896"
 legacyWordPressId: 2896
 draft: false

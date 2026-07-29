@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:34:35.000Z
 author: "sperron"
 categories: ["Coran","Historicité","Islam","Jésus","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/08/islam-727776_1920.jpg"
 commentId: "183"
 legacyWordPressId: 183
 draft: false

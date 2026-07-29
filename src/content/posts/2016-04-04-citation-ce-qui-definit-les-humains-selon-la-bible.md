@@ -6,6 +6,7 @@ updatedAt: 2016-04-15T09:58:03.000Z
 author: "sperron"
 categories: ["Citation","Existentialisme","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/12/father-1004022_1920.jpg"
 commentId: "1776"
 legacyWordPressId: 1776
 draft: false

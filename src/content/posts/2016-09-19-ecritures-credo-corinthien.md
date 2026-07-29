@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T02:53:41.000Z
 author: "sperron"
 categories: ["1 Corinthiens","Argument des prophéties","Bible","Christianisme primitif","Origine du Christianisme","Paul (l'apôtre)","Tradition prépaulinienne"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/09/bible-896222_1920.jpg"
 commentId: "2290"
 legacyWordPressId: 2290
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:34:55.000Z
 author: "sperron"
 categories: ["Bible","Communication","Évangiles","Jésus","Psychologie","Relations"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/06/discussion-2798847_1920.jpg"
 commentId: "4390"
 legacyWordPressId: 4390
 draft: false

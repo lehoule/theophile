@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Comments from '../../components/Comments.astro';
 import MediaPlayers from '../../components/MediaPlayers.astro';
 import { categoryHref } from '../../data/urls';
+import PostImage from '../../components/PostImage.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -49,6 +50,16 @@ const commentId =
         )
       }
     </header>
+    {
+      post.data.featuredMedia && (
+        <PostImage
+          src={post.data.featuredMedia}
+          alt={`Image à la une de « ${post.data.title} »`}
+          variant="article"
+          loading="eager"
+        />
+      )
+    }
     <div class="article-body"><Content /></div>
     <MediaPlayers />
     <Comments postId={commentId} title={post.data.title} />

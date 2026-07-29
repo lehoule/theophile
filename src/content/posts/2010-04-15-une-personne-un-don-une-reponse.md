@@ -6,6 +6,7 @@ updatedAt: 2018-07-12T03:52:58.000Z
 author: "sperron"
 categories: ["Choix","Jésus","Mission"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/04/2110_I_wanna_be_in_the_LIGHT_creationswap.jpg"
 commentId: "350"
 legacyWordPressId: 350
 draft: false

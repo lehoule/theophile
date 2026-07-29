@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:50:19.000Z
 author: "sperron"
 categories: ["Citation","Jésus"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/01/welcome-3546919_1920.jpg"
 commentId: "5176"
 legacyWordPressId: 5176
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2026-05-30T06:53:36.000Z
 author: "sperron"
 categories: ["Conversion","Foi","Spiritualité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/01/yosemite-valley-1031575_1920.jpg"
 commentId: "1339"
 legacyWordPressId: 1339
 draft: false

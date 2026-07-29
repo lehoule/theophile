@@ -6,6 +6,7 @@ updatedAt: 2025-10-13T03:05:14.000Z
 author: "sperron"
 categories: ["Apologétique","Évangiles","Fiabilité de la Bible","Historicité","Synoptiques"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2013/08/knowledge-1052010_960_720.jpg"
 commentId: "319"
 legacyWordPressId: 319
 draft: false

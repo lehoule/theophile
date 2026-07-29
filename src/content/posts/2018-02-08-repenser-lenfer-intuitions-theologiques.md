@@ -6,6 +6,7 @@ updatedAt: 2018-02-20T21:45:58.000Z
 author: "sperron"
 categories: ["Enfer","Mort","Psychologie"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/02/6108b580.jpg"
 commentId: "3853"
 legacyWordPressId: 3853
 draft: false

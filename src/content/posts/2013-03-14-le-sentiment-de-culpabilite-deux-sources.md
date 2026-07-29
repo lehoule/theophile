@@ -6,6 +6,7 @@ updatedAt: 2017-03-07T10:33:42.000Z
 author: "sperron"
 categories: ["Conscience morale","Discernement","Satan","Spiritualité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2013/03/index-315754_1280.jpg"
 commentId: "249"
 legacyWordPressId: 249
 draft: false

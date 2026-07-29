@@ -6,6 +6,7 @@ updatedAt: 2019-02-22T11:02:12.000Z
 author: "sperron"
 categories: ["Amour","Citation"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/02/sunset-639507_1920.jpg"
 commentId: "5290"
 legacyWordPressId: 5290
 draft: false

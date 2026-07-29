@@ -6,6 +6,7 @@ updatedAt: 2016-10-18T09:55:41.000Z
 author: "sperron"
 categories: ["Bonheur","Philosophie","Spiritualité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/05/girls-380618_1920.jpg"
 commentId: "345"
 legacyWordPressId: 345
 draft: false

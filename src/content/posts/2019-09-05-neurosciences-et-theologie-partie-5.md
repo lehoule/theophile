@@ -6,6 +6,7 @@ updatedAt: 2020-09-25T03:39:06.000Z
 author: "sperron"
 categories: ["Éthique","Liberté","Neurosciences","Théologie biblique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2020/01/environment-1870007_1920.jpg"
 commentId: "5664"
 legacyWordPressId: 5664
 draft: false

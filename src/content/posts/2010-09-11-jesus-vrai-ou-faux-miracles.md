@@ -6,6 +6,7 @@ updatedAt: 2015-11-10T12:49:53.000Z
 author: "sperron"
 categories: ["Apologétique","Jésus","Miracles"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/09/flower-887443_1920.jpg"
 commentId: "340"
 legacyWordPressId: 340
 draft: false

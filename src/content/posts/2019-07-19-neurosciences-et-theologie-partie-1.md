@@ -6,6 +6,7 @@ updatedAt: 2019-12-27T07:28:48.000Z
 author: "sperron"
 categories: ["Anthropologie","Connaissance de soi","Éthique","Le Dieu caché","Neurosciences"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2019/07/thought-2123970_1920.jpg"
 commentId: "5315"
 legacyWordPressId: 5315
 draft: false

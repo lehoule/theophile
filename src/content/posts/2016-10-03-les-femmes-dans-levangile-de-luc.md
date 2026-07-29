@@ -6,6 +6,7 @@ updatedAt: 2025-09-20T21:34:00.000Z
 author: "sperron"
 categories: ["Critique rédactionnelle","Évangiles","Exégèse","Femmes","Historicité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2016/10/reading-925589_1920.jpg"
 commentId: "2310"
 legacyWordPressId: 2310
 draft: false

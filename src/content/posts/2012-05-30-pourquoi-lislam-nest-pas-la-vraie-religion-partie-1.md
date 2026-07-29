@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:35:36.000Z
 author: "sperron"
 categories: ["Coran","Islam","Moralité","Religions"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2012/05/kaaba-186622_1920.jpg"
 commentId: "273"
 legacyWordPressId: 273
 draft: false

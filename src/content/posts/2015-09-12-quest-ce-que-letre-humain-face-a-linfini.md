@@ -6,6 +6,7 @@ updatedAt: 2018-08-13T19:15:57.000Z
 author: "sperron"
 categories: ["Blaise Pascal","Existence de Dieu","Existentialisme"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/09/night-839807_1280.jpg"
 commentId: "28"
 legacyWordPressId: 28
 draft: false

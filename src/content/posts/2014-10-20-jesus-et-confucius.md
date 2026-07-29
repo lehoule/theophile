@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:39:48.000Z
 author: "sperron"
 categories: ["Confucianisme","Jésus","Religions","Spiritualité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/10/confucius-1124611_1920.jpg"
 commentId: "176"
 legacyWordPressId: 176
 draft: false

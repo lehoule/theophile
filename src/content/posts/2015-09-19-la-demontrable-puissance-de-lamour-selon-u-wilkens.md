@@ -6,6 +6,7 @@ updatedAt: 2019-02-20T09:32:37.000Z
 author: "sperron"
 categories: ["Citation","Jésus","Résurrection"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/09/cross-66700_1280.jpg"
 commentId: "23"
 legacyWordPressId: 23
 draft: false

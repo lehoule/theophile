@@ -6,6 +6,7 @@ updatedAt: 2015-11-10T11:46:13.000Z
 author: "sperron"
 categories: ["Apologétique","Dialogue critique"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2010/12/man-219928_1280.jpg"
 commentId: "337"
 legacyWordPressId: 337
 draft: false

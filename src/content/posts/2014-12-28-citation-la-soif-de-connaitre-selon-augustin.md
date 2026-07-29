@@ -6,6 +6,7 @@ updatedAt: 2015-12-28T12:59:11.000Z
 author: "sperron"
 categories: ["Bonheur","Citation","Intellect"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2015/07/embassy-935558_1280.png"
 commentId: "168"
 legacyWordPressId: 168
 draft: false

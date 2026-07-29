@@ -6,6 +6,7 @@ updatedAt: 2025-09-06T04:48:10.000Z
 author: "sperron"
 categories: ["Conversion","Miracles","Persuasion","Prédication","Saint-Esprit"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2018/04/photo-1439003511744-2a0490ea0a88.jpg"
 commentId: "3982"
 legacyWordPressId: 3982
 draft: false

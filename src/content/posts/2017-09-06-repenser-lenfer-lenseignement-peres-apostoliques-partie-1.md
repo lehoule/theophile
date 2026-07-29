@@ -6,6 +6,7 @@ updatedAt: 2020-06-12T07:37:35.000Z
 author: "sperron"
 categories: ["Enfer","Eschatologie","Histoire de l'église"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2017/09/library-2551593_1920.jpg"
 commentId: "3220"
 legacyWordPressId: 3220
 draft: false

@@ -6,6 +6,7 @@ updatedAt: 2026-01-13T03:34:18.000Z
 author: "sperron"
 categories: ["Coran","Islam","Religions","Violence"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2014/09/no-terrorism-in-islam.jpg"
 commentId: "180"
 legacyWordPressId: 180
 draft: false

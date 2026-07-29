@@ -6,6 +6,7 @@ updatedAt: 2026-03-03T09:57:31.000Z
 author: "sperron"
 categories: ["Apologétique","Moralité"]
 tags: []
+featuredMedia: "https://media.theophile.blog/2011/03/souandresantana-justice-7998693_1280.jpg"
 commentId: "325"
 legacyWordPressId: 325
 draft: false
