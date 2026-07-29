@@ -10,4 +10,12 @@ describe('comment form configuration', () => {
     expect(comments).toContain('data-site-key={site.turnstileSiteKey}');
     expect(comments).not.toContain('import.meta.env.PUBLIC_TURNSTILE_SITE_KEY');
   });
+
+  it('does not submit comments before Turnstile succeeds', () => {
+    expect(comments).toContain('data-comment-submit type="submit" disabled');
+    expect(comments).toContain('if (!turnstileToken) {');
+    expect(comments).toContain("'error-callback': (code)");
+    expect(comments).toContain("'expired-callback': () =>");
+    expect(comments).toContain("script.addEventListener('error'");
+  });
 });

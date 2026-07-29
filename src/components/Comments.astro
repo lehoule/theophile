@@ -50,7 +50,9 @@ const { postId, title } = Astro.props;
     >
     <div class="turnstile" data-turnstile data-site-key={site.turnstileSiteKey}>
     </div>
-    <button class="button" type="submit">Envoyer pour modération</button>
+    <button class="button" data-comment-submit type="submit" disabled>
+      Envoyer pour modération
+    </button>
     <p class="form-status" data-form-status role="status"></p>
   </form>
 </section>
@@ -71,26 +73,72 @@ const { postId, title } = Astro.props;
       const postId = section.dataset.postId;
       const list = section.querySelector('[data-comment-list]');
       const form = section.querySelector('[data-comment-form]');
-      if (!postId || !list || !(form instanceof HTMLFormElement)) return;
+      const status = section.querySelector('[data-form-status]');
+      const submit = section.querySelector('[data-comment-submit]');
+      if (
+        !postId ||
+        !list ||
+        !(form instanceof HTMLFormElement) ||
+        !(status instanceof HTMLElement) ||
+        !(submit instanceof HTMLButtonElement)
+      )
+        return;
       let turnstileToken = '';
+      let turnstileWidgetId = '';
       const turnstile = section.querySelector('[data-turnstile]');
       const siteKey =
         turnstile instanceof HTMLElement ? turnstile.dataset.siteKey : '';
+      const verificationUnavailable = (message: string) => {
+        turnstileToken = '';
+        submit.disabled = true;
+        status.textContent = message;
+      };
       if (turnstile instanceof HTMLElement && siteKey) {
+        status.textContent = 'Chargement de la vérification anti-robot…';
         const script = document.createElement('script');
         script.src =
           'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
         script.async = true;
         document.head.appendChild(script);
         script.addEventListener('load', () => {
-          if (window.turnstile)
-            window.turnstile.render(turnstile, {
+          if (window.turnstile) {
+            turnstileWidgetId = window.turnstile.render(turnstile, {
               sitekey: siteKey,
               callback: (token) => {
                 turnstileToken = token;
+                submit.disabled = false;
+                status.textContent = '';
               },
+              'error-callback': (code) => {
+                verificationUnavailable(
+                  `La vérification anti-robot a échoué (code ${code}). Rechargez la page et réessayez.`,
+                );
+                return true;
+              },
+              'expired-callback': () =>
+                verificationUnavailable(
+                  'La vérification anti-robot a expiré. Attendez son renouvellement avant de réessayer.',
+                ),
+              'timeout-callback': () =>
+                verificationUnavailable(
+                  'La vérification anti-robot a expiré. Rechargez la page et réessayez.',
+                ),
             });
+          } else {
+            verificationUnavailable(
+              'La vérification anti-robot est indisponible. Rechargez la page et réessayez.',
+            );
+          }
         });
+        script.addEventListener('error', () =>
+          verificationUnavailable(
+            'La vérification anti-robot n’a pas pu être chargée. Vérifiez que votre navigateur ne la bloque pas, puis rechargez la page.',
+          ),
+        );
+      } else {
+        verificationUnavailable(
+          'La vérification anti-robot n’est pas configurée.',
+        );
       }
       let cursor = '';
       const entities: Record<string, string> = {
@@ -159,23 +207,37 @@ const { postId, title } = Astro.props;
         ?.addEventListener('click', () => load().catch(() => undefined));
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const status = form.querySelector('[data-form-status]');
+        if (!turnstileToken) {
+          verificationUnavailable(
+            'Attendez la fin de la vérification anti-robot avant d’envoyer le commentaire.',
+          );
+          return;
+        }
+        submit.disabled = true;
+        status.textContent = 'Envoi du commentaire…';
         const data: Record<string, string> = {};
         new FormData(form).forEach((value, key) => {
           if (typeof value === 'string') data[key] = value;
         });
-        const response = await fetch('/api/comments', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ ...data, postId, turnstileToken }),
-        });
-        if (status)
+        try {
+          const response = await fetch('/api/comments', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ ...data, postId, turnstileToken }),
+          });
           status.textContent = response.ok
             ? 'Merci. Votre commentaire sera publié après modération.'
             : 'Impossible d’envoyer le commentaire.';
-        if (response.ok) {
-          form.reset();
+          if (response.ok) form.reset();
+          else if (turnstileWidgetId && window.turnstile) {
+            window.turnstile.reset(turnstileWidgetId);
+          }
+        } catch {
+          status.textContent =
+            'Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.';
+        } finally {
           turnstileToken = '';
+          if (!status.textContent.startsWith('Merci.')) submit.disabled = true;
         }
       });
     };

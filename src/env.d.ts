@@ -4,8 +4,15 @@ interface Window {
   turnstile?: {
     render: (
       element: HTMLElement,
-      options: { sitekey: string; callback: (token: string) => void },
-    ) => void;
+      options: {
+        sitekey: string;
+        callback: (token: string) => void;
+        'error-callback': (code: string) => boolean;
+        'expired-callback': () => void;
+        'timeout-callback': () => void;
+      },
+    ) => string;
+    reset: (widgetId: string) => void;
   };
   PagefindUI?: new (options: {
     element: string;
