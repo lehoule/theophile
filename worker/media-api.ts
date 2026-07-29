@@ -15,7 +15,7 @@ import {
 } from './media';
 
 export interface MediaUploadEnv {
-  ADMIN_EMAIL: string;
+  ADMIN_EMAIL?: string;
   LOCAL_ADMIN_AUTH?: string;
   SITE_ORIGIN: string;
   MEDIA: R2Bucket;

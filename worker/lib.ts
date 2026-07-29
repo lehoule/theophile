@@ -134,10 +134,19 @@ function decodeJwtPayload(token: string): Record<string, unknown> | null {
   }
 }
 
-export function adminEmail(request: Request, expected: string): string | null {
+export function adminEmail(
+  request: Request,
+  expected: string | undefined,
+): string | null {
   const email = request.headers.get('CF-Access-Authenticated-User-Email');
   const jwt = request.headers.get('CF-Access-Jwt-Assertion');
-  if (!email || !jwt || email.toLowerCase() !== expected.toLowerCase())
+  if (
+    !email ||
+    !jwt ||
+    typeof expected !== 'string' ||
+    !expected.trim() ||
+    email.toLowerCase() !== expected.toLowerCase()
+  )
     return null;
   const payload = decodeJwtPayload(jwt);
   if (
@@ -181,9 +190,15 @@ export function isLocalDevelopment(
 
 export function adminEmailWithLocalAuth(
   request: Request,
-  expected: string,
+  expected: string | undefined,
   localAuth: string | undefined,
 ): string | null {
-  if (localAuth === 'true' && isLoopbackRequest(request)) return expected;
+  if (
+    localAuth === 'true' &&
+    isLoopbackRequest(request) &&
+    typeof expected === 'string' &&
+    expected.trim()
+  )
+    return expected;
   return adminEmail(request, expected);
 }

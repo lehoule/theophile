@@ -76,6 +76,27 @@ describe('media upload API', () => {
     expect(put).not.toHaveBeenCalled();
   });
 
+  it('rejects uploads cleanly when ADMIN_EMAIL is not configured', async () => {
+    const put = vi.fn();
+    const env = environment(put);
+    delete env.ADMIN_EMAIL;
+
+    const response = await uploadMedia(
+      new Request('https://www.theophile.blog/api/admin/media', {
+        method: 'POST',
+        headers: accessHeaders(),
+        body: 'file',
+      }),
+      env,
+    );
+
+    expect(response.status).toBe(401);
+    await expect(response.json()).resolves.toEqual({
+      error: 'Authentication required',
+    });
+    expect(put).not.toHaveBeenCalled();
+  });
+
   it('allows local development auth only on a loopback host', async () => {
     const put = vi.fn().mockResolvedValue(undefined);
     const localEnv = {

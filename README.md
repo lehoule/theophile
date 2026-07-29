@@ -141,10 +141,13 @@ repository.
 
    ```sh
    npx wrangler secret put TURNSTILE_SECRET
+   npx wrangler secret put ADMIN_EMAIL
    ```
 
 5. Configure a Turnstile widget for `www.theophile.blog` and set `PUBLIC_TURNSTILE_SITE_KEY` in the Cloudflare build environment before production.
-6. Set `ADMIN_EMAIL` in `wrangler.toml` for admin authentication. Email notifications are currently disabled.
+6. Set the `ADMIN_EMAIL` GitHub Actions secret to the same email allowed by
+   the Access policy. The deployment workflow provisions it as a Worker secret.
+   Email notifications are currently disabled.
 7. Protect `/admin/comments/*`, `/admin/media/*`, and `/api/admin/*` with a Cloudflare Access application restricted to the owner’s email. Access must add both the authenticated email and JWT headers.
 8. Deploy with `npm run deploy`, attach `www.theophile.blog` as the Worker custom domain, and configure the apex domain to redirect to `www`.
 
