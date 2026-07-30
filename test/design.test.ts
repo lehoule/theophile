@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 const layout = readFileSync('src/layouts/Layout.astro', 'utf8');
+const favicon = readFileSync('public/favicon.svg', 'utf8');
 const homePage = readFileSync('src/pages/index.astro', 'utf8');
 const blogPage = readFileSync('src/pages/blog/index.astro', 'utf8');
 const aboutPage = readFileSync(
@@ -15,6 +16,14 @@ const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as {
 };
 
 describe('editorial design system', () => {
+  it('declares a static favicon using the brand symbol', () => {
+    expect(layout).toContain(
+      '<link rel="icon" href="/favicon.svg" type="image/svg+xml" />',
+    );
+    expect(favicon).toContain('viewBox="0 0 64 64"');
+    expect(favicon).toContain('>Θ</text>');
+  });
+
   it('self-hosts the exact-version editorial typefaces', () => {
     expect(packageJson.dependencies['@fontsource-variable/literata']).toBe(
       '5.3.0',
