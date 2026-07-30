@@ -47,7 +47,6 @@ const safeText = (html) => {
       /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
       '$2 ($1)',
     )
-    .replace(/<[^>]+>/g, '')
     .replace(/[<>]/g, '');
   return text.trim();
 };
