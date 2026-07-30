@@ -41,15 +41,22 @@ const decodeHtmlEntities = (text) =>
       );
     },
   );
-const safeText = (html) =>
-  decodeHtmlEntities(
+const safeText = (html) => {
+  let text = decodeHtmlEntities(
     String(html ?? '')
       .replace(
         /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
         '$2 ($1)',
       )
       .replace(/<[^>]+>/g, ''),
-  ).trim();
+  );
+  let previous;
+  do {
+    previous = text;
+    text = text.replace(/<[^>]+>/g, '');
+  } while (text !== previous);
+  return text.trim();
+};
 
 const orderParentsFirst = (records) => {
   const recordsById = new Map(records.map((record) => [record.id, record]));
