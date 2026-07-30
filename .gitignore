@@ -8,4 +8,6 @@ backups/
 .media-upload-state.json
 worker/post-registry.generated.ts
 migration/
+# WordPress exports can contain commenter email and IP data.
+migrations/*.xml
 media-manifest.json
