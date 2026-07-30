@@ -42,19 +42,15 @@ const decodeHtmlEntities = (text) =>
     },
   );
 const safeText = (html) => {
-  let text = decodeHtmlEntities(
+  const text = decodeHtmlEntities(
     String(html ?? '')
       .replace(
         /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
         '$2 ($1)',
       )
       .replace(/<[^>]+>/g, ''),
-  );
-  let previous;
-  do {
-    previous = text;
-    text = text.replace(/<[^>]+>/g, '');
-  } while (text !== previous);
+  )
+    .replace(/[<>]/g, '');
   return text.trim();
 };
 
