@@ -42,14 +42,12 @@ const decodeHtmlEntities = (text) =>
     },
   );
 const safeText = (html) => {
-  const text = decodeHtmlEntities(
-    String(html ?? '')
-      .replace(
-        /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
-        '$2 ($1)',
-      )
-      .replace(/<[^>]+>/g, ''),
-  )
+  const text = decodeHtmlEntities(String(html ?? ''))
+    .replace(
+      /<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+      '$2 ($1)',
+    )
+    .replace(/<[^>]+>/g, '')
     .replace(/[<>]/g, '');
   return text.trim();
 };
