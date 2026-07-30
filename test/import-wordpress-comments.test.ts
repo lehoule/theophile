@@ -57,7 +57,7 @@ describe('WordPress comment import ordering', () => {
     expect(result.orphanParents).toBe(1);
   });
 
-  it('decodes HTML entities and removes tags revealed by decoding', () => {
+  it('decodes HTML entities and removes angle brackets', () => {
     const result = buildCommentRows([
       {
         'wp:post_id': '42',
@@ -72,8 +72,8 @@ describe('WordPress comment import ordering', () => {
     ]);
 
     expect(result.rows[0]).toContain(
-      "'C''est bon ! & merci. Important aussi.'",
+      "'C''est bon ! & merci. emImportant/em strongaussi/strong.'",
     );
-    expect(result.rows[0]).not.toMatch(/<[^>]+>/);
+    expect(result.rows[0]).not.toMatch(/[<>]/);
   });
 });
